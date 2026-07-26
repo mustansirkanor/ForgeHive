@@ -1,0 +1,700 @@
+{
+  "project": {
+    "name": "ForgeHive",
+    "layer": "Layer 5",
+    "phase": "5.1-5.3"
+  },
+  "phase": "5.1-5.3",
+  "user_message": "The meeting room is empty now. Save energy but keep comfort safe.",
+  "layer4_intent": {
+    "goal": "reduce_energy_keep_comfort_safe",
+    "event_type": "empty_room_detected",
+    "intent": "provided_candidate_bundles"
+  },
+  "layer4_provider_trace": {},
+  "kg_context": {},
+  "layer4_output": {},
+  "fallback_used": false,
+  "candidate_count": 1,
+  "candidate_bundles": [
+    {
+      "bundle_id": "test_empty_room_bundle",
+      "bundle_name": "test_empty_room_bundle",
+      "goal": "reduce_energy_keep_comfort_safe",
+      "event_type": "empty_room_detected",
+      "actions": [
+        {
+          "action_type": "lighting_adjustment",
+          "target": "unoccupied_zones",
+          "description": "Dim lights for empty room.",
+          "parameters": {
+            "lighting_level_percent": 25
+          },
+          "source": "test",
+          "confidence": 0.9
+        },
+        {
+          "action_type": "hvac_setpoint_adjustment",
+          "target": "unoccupied_zones",
+          "description": "Relax cooling setpoint safely.",
+          "parameters": {
+            "cooling_setpoint_c": 28
+          },
+          "source": "test",
+          "confidence": 0.85
+        },
+        {
+          "action_type": "ventilation_adjustment",
+          "target": "unoccupied_zones",
+          "description": "Reduce ventilation within safe bounds.",
+          "parameters": {
+            "ventilation_percent": 40
+          },
+          "source": "test",
+          "confidence": 0.8
+        }
+      ],
+      "rationale": "Test candidate for Layer 5 simulation.",
+      "constraints": [],
+      "expected_outcome": {
+        "energy_saved_percent": 4,
+        "comfort_impact": "neutral"
+      },
+      "created_by": "test",
+      "requires_simulation": true,
+      "fallback_used": false
+    }
+  ],
+  "baseline": {
+    "energy_kwh": 43510.13,
+    "carbon_kg": 19579.56
+  },
+  "simulation_results": [
+    {
+      "bundle_id": "test_empty_room_bundle",
+      "bundle_name": "test_empty_room_bundle",
+      "simulation_status": "success",
+      "run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\layer_5\\20260725_173648_880840_test_empty_room_bundle_20260725_173648",
+      "strategy_name": "eco_mode",
+      "actions_simulated": [
+        {
+          "action_type": "lighting_adjustment",
+          "target": "unoccupied_zones",
+          "parameters": {
+            "lighting_level_percent": 25
+          },
+          "description": "Dim lights for empty room."
+        },
+        {
+          "action_type": "hvac_setpoint_adjustment",
+          "target": "unoccupied_zones",
+          "parameters": {
+            "cooling_setpoint_c": 28
+          },
+          "description": "Relax cooling setpoint safely."
+        },
+        {
+          "action_type": "ventilation_adjustment",
+          "target": "unoccupied_zones",
+          "parameters": {
+            "ventilation_percent": 40
+          },
+          "description": "Reduce ventilation within safe bounds."
+        }
+      ],
+      "energy_kwh": 40280.3438,
+      "carbon_kg": 18126.1547,
+      "comfort_violation_minutes": 0,
+      "comfort_status": "Safe",
+      "anomaly_count": 0,
+      "baseline_energy_kwh": 43510.13,
+      "baseline_carbon_kg": 19579.56,
+      "energy_saved_kwh": 3229.7862,
+      "energy_saved_percent": 7.4231,
+      "carbon_reduced_kg": 1453.4053,
+      "carbon_reduced_percent": 7.4231,
+      "simulation_notes": [
+        "Reduced lighting level in 'SPACE1-1 Lights 1' by 10% from 1584 to 1425.6.",
+        "Reduced electric equipment design level in 'SPACE1-1 ElecEq 1' by 5% from 1056 to 1003.2.",
+        "Reduced lighting level in 'SPACE2-1 Lights 1' by 10% from 684 to 615.6.",
+        "Reduced electric equipment design level in 'SPACE2-1 ElecEq 1' by 5% from 456 to 433.2.",
+        "Reduced lighting level in 'SPACE3-1 Lights 1' by 10% from 1584 to 1425.6.",
+        "Reduced electric equipment design level in 'SPACE3-1 ElecEq 1' by 5% from 1056 to 1003.2.",
+        "Reduced lighting level in 'SPACE4-1 Lights 1' by 10% from 684 to 615.6.",
+        "Reduced electric equipment design level in 'SPACE4-1 ElecEq 1' by 5% from 456 to 433.2.",
+        "Reduced lighting level in 'SPACE5-1 Lights 1' by 10% from 2964 to 2667.6.",
+        "Reduced electric equipment design level in 'SPACE5-1 ElecEq 1' by 5% from 1976 to 1877.2.",
+        "cooling_setpoint_c retained as Layer 5 strategy metadata; direct IDF adapter is not yet available.",
+        "ventilation_percent retained as Layer 5 strategy metadata; direct IDF adapter is not yet available.",
+        "Reused successful Layer 5 simulation cache."
+      ],
+      "error": null,
+      "raw_parser_output": {
+        "run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\layer_5\\20260725_173648_880840_test_empty_room_bundle_20260725_173648",
+        "simulation": {
+          "completed": true,
+          "has_fatal": false,
+          "has_severe": false,
+          "end_summary": "EnergyPlus Completed Successfully-- 0 Warning; 0 Severe Errors; Elapsed Time=00hr 00min 15.68sec"
+        },
+        "metrics": {
+          "available": true,
+          "electricity_kwh": 40280.343798380236,
+          "cooling_kwh": 0.0,
+          "heating_kwh": 0.0,
+          "carbon_kg": 18126.154709271108,
+          "all_meters_kwh": {
+            "Electricity:Building": 32896.4775,
+            "Electricity:Facility": 40280.343798380236,
+            "Electricity:HVAC": 2376.9158126424054,
+            "Electricity:Plant": 5006.950485746054,
+            "InteriorLights:Electricity": 20309.7375,
+            "MYBUILDINGELECTRIC": 32896.4775,
+            "MYBUILDINGOTHER": 12586.74,
+            "MYGENERALLIGHTS": 20309.7375,
+            "NaturalGas:Facility": 19552.724607963188,
+            "NaturalGas:Plant": 19552.724607963188
+          }
+        },
+        "messages": [
+          "Meter CSV parsed successfully."
+        ]
+      }
+    }
+  ],
+  "simulation_count": 1,
+  "successful_simulation_count": 1,
+  "ranked_bundles": [
+    {
+      "rank": 1,
+      "bundle_id": "test_empty_room_bundle",
+      "bundle_name": "test_empty_room_bundle",
+      "total_score": 61.1866,
+      "reward_score": 43.3616,
+      "energy_score": 7.4231,
+      "carbon_score": 5.9385,
+      "comfort_score": 15.0,
+      "safety_score": 10,
+      "anomaly_score": 0,
+      "bandit_prior_score": 55.3,
+      "kg_relevance_score": 8,
+      "final_penalty": 0.0,
+      "penalty_reasons": [],
+      "kg_details": {
+        "score": 8,
+        "matched_actions": [
+          "hvac_setpoint_adjustment",
+          "lighting_adjustment",
+          "ventilation_adjustment"
+        ],
+        "matched_strategies": [
+          "eco_mode"
+        ],
+        "kg_summary": "Matched 1 conditions and 3 relevant actions for goal 'reduce_energy_keep_comfort_safe'."
+      },
+      "simulation_result": {
+        "bundle_id": "test_empty_room_bundle",
+        "bundle_name": "test_empty_room_bundle",
+        "simulation_status": "success",
+        "run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\layer_5\\20260725_173648_880840_test_empty_room_bundle_20260725_173648",
+        "strategy_name": "eco_mode",
+        "actions_simulated": [
+          {
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "description": "Dim lights for empty room."
+          },
+          {
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "parameters": {
+              "cooling_setpoint_c": 28
+            },
+            "description": "Relax cooling setpoint safely."
+          },
+          {
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "parameters": {
+              "ventilation_percent": 40
+            },
+            "description": "Reduce ventilation within safe bounds."
+          }
+        ],
+        "energy_kwh": 40280.3438,
+        "carbon_kg": 18126.1547,
+        "comfort_violation_minutes": 0,
+        "comfort_status": "Safe",
+        "anomaly_count": 0,
+        "baseline_energy_kwh": 43510.13,
+        "baseline_carbon_kg": 19579.56,
+        "energy_saved_kwh": 3229.7862,
+        "energy_saved_percent": 7.4231,
+        "carbon_reduced_kg": 1453.4053,
+        "carbon_reduced_percent": 7.4231,
+        "simulation_notes": [
+          "Reduced lighting level in 'SPACE1-1 Lights 1' by 10% from 1584 to 1425.6.",
+          "Reduced electric equipment design level in 'SPACE1-1 ElecEq 1' by 5% from 1056 to 1003.2.",
+          "Reduced lighting level in 'SPACE2-1 Lights 1' by 10% from 684 to 615.6.",
+          "Reduced electric equipment design level in 'SPACE2-1 ElecEq 1' by 5% from 456 to 433.2.",
+          "Reduced lighting level in 'SPACE3-1 Lights 1' by 10% from 1584 to 1425.6.",
+          "Reduced electric equipment design level in 'SPACE3-1 ElecEq 1' by 5% from 1056 to 1003.2.",
+          "Reduced lighting level in 'SPACE4-1 Lights 1' by 10% from 684 to 615.6.",
+          "Reduced electric equipment design level in 'SPACE4-1 ElecEq 1' by 5% from 456 to 433.2.",
+          "Reduced lighting level in 'SPACE5-1 Lights 1' by 10% from 2964 to 2667.6.",
+          "Reduced electric equipment design level in 'SPACE5-1 ElecEq 1' by 5% from 1976 to 1877.2.",
+          "cooling_setpoint_c retained as Layer 5 strategy metadata; direct IDF adapter is not yet available.",
+          "ventilation_percent retained as Layer 5 strategy metadata; direct IDF adapter is not yet available.",
+          "Reused successful Layer 5 simulation cache."
+        ],
+        "error": null,
+        "raw_parser_output": {
+          "run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\layer_5\\20260725_173648_880840_test_empty_room_bundle_20260725_173648",
+          "simulation": {
+            "completed": true,
+            "has_fatal": false,
+            "has_severe": false,
+            "end_summary": "EnergyPlus Completed Successfully-- 0 Warning; 0 Severe Errors; Elapsed Time=00hr 00min 15.68sec"
+          },
+          "metrics": {
+            "available": true,
+            "electricity_kwh": 40280.343798380236,
+            "cooling_kwh": 0.0,
+            "heating_kwh": 0.0,
+            "carbon_kg": 18126.154709271108,
+            "all_meters_kwh": {
+              "Electricity:Building": 32896.4775,
+              "Electricity:Facility": 40280.343798380236,
+              "Electricity:HVAC": 2376.9158126424054,
+              "Electricity:Plant": 5006.950485746054,
+              "InteriorLights:Electricity": 20309.7375,
+              "MYBUILDINGELECTRIC": 32896.4775,
+              "MYBUILDINGOTHER": 12586.74,
+              "MYGENERALLIGHTS": 20309.7375,
+              "NaturalGas:Facility": 19552.724607963188,
+              "NaturalGas:Plant": 19552.724607963188
+            }
+          },
+          "messages": [
+            "Meter CSV parsed successfully."
+          ]
+        }
+      },
+      "original_bundle": {
+        "bundle_id": "test_empty_room_bundle",
+        "bundle_name": "test_empty_room_bundle",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "event_type": "empty_room_detected",
+        "actions": [
+          {
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights for empty room.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "source": "test",
+            "confidence": 0.9
+          },
+          {
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax cooling setpoint safely.",
+            "parameters": {
+              "cooling_setpoint_c": 28
+            },
+            "source": "test",
+            "confidence": 0.85
+          },
+          {
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce ventilation within safe bounds.",
+            "parameters": {
+              "ventilation_percent": 40
+            },
+            "source": "test",
+            "confidence": 0.8
+          }
+        ],
+        "rationale": "Test candidate for Layer 5 simulation.",
+        "constraints": [],
+        "expected_outcome": {
+          "energy_saved_percent": 4,
+          "comfort_impact": "neutral"
+        },
+        "created_by": "test",
+        "requires_simulation": true,
+        "fallback_used": false
+      },
+      "ranking_reason": "Reward=43.3616, bandit_prior=55.3, kg_score=8, final_penalty=0.0. No final safety or simulation penalties applied."
+    }
+  ],
+  "selected_bundle": {
+    "rank": 1,
+    "bundle_id": "test_empty_room_bundle",
+    "bundle_name": "test_empty_room_bundle",
+    "total_score": 61.1866,
+    "reward_score": 43.3616,
+    "energy_score": 7.4231,
+    "carbon_score": 5.9385,
+    "comfort_score": 15.0,
+    "safety_score": 10,
+    "anomaly_score": 0,
+    "bandit_prior_score": 55.3,
+    "kg_relevance_score": 8,
+    "final_penalty": 0.0,
+    "penalty_reasons": [],
+    "kg_details": {
+      "score": 8,
+      "matched_actions": [
+        "hvac_setpoint_adjustment",
+        "lighting_adjustment",
+        "ventilation_adjustment"
+      ],
+      "matched_strategies": [
+        "eco_mode"
+      ],
+      "kg_summary": "Matched 1 conditions and 3 relevant actions for goal 'reduce_energy_keep_comfort_safe'."
+    },
+    "simulation_result": {
+      "bundle_id": "test_empty_room_bundle",
+      "bundle_name": "test_empty_room_bundle",
+      "simulation_status": "success",
+      "run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\layer_5\\20260725_173648_880840_test_empty_room_bundle_20260725_173648",
+      "strategy_name": "eco_mode",
+      "actions_simulated": [
+        {
+          "action_type": "lighting_adjustment",
+          "target": "unoccupied_zones",
+          "parameters": {
+            "lighting_level_percent": 25
+          },
+          "description": "Dim lights for empty room."
+        },
+        {
+          "action_type": "hvac_setpoint_adjustment",
+          "target": "unoccupied_zones",
+          "parameters": {
+            "cooling_setpoint_c": 28
+          },
+          "description": "Relax cooling setpoint safely."
+        },
+        {
+          "action_type": "ventilation_adjustment",
+          "target": "unoccupied_zones",
+          "parameters": {
+            "ventilation_percent": 40
+          },
+          "description": "Reduce ventilation within safe bounds."
+        }
+      ],
+      "energy_kwh": 40280.3438,
+      "carbon_kg": 18126.1547,
+      "comfort_violation_minutes": 0,
+      "comfort_status": "Safe",
+      "anomaly_count": 0,
+      "baseline_energy_kwh": 43510.13,
+      "baseline_carbon_kg": 19579.56,
+      "energy_saved_kwh": 3229.7862,
+      "energy_saved_percent": 7.4231,
+      "carbon_reduced_kg": 1453.4053,
+      "carbon_reduced_percent": 7.4231,
+      "simulation_notes": [
+        "Reduced lighting level in 'SPACE1-1 Lights 1' by 10% from 1584 to 1425.6.",
+        "Reduced electric equipment design level in 'SPACE1-1 ElecEq 1' by 5% from 1056 to 1003.2.",
+        "Reduced lighting level in 'SPACE2-1 Lights 1' by 10% from 684 to 615.6.",
+        "Reduced electric equipment design level in 'SPACE2-1 ElecEq 1' by 5% from 456 to 433.2.",
+        "Reduced lighting level in 'SPACE3-1 Lights 1' by 10% from 1584 to 1425.6.",
+        "Reduced electric equipment design level in 'SPACE3-1 ElecEq 1' by 5% from 1056 to 1003.2.",
+        "Reduced lighting level in 'SPACE4-1 Lights 1' by 10% from 684 to 615.6.",
+        "Reduced electric equipment design level in 'SPACE4-1 ElecEq 1' by 5% from 456 to 433.2.",
+        "Reduced lighting level in 'SPACE5-1 Lights 1' by 10% from 2964 to 2667.6.",
+        "Reduced electric equipment design level in 'SPACE5-1 ElecEq 1' by 5% from 1976 to 1877.2.",
+        "cooling_setpoint_c retained as Layer 5 strategy metadata; direct IDF adapter is not yet available.",
+        "ventilation_percent retained as Layer 5 strategy metadata; direct IDF adapter is not yet available.",
+        "Reused successful Layer 5 simulation cache."
+      ],
+      "error": null,
+      "raw_parser_output": {
+        "run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\layer_5\\20260725_173648_880840_test_empty_room_bundle_20260725_173648",
+        "simulation": {
+          "completed": true,
+          "has_fatal": false,
+          "has_severe": false,
+          "end_summary": "EnergyPlus Completed Successfully-- 0 Warning; 0 Severe Errors; Elapsed Time=00hr 00min 15.68sec"
+        },
+        "metrics": {
+          "available": true,
+          "electricity_kwh": 40280.343798380236,
+          "cooling_kwh": 0.0,
+          "heating_kwh": 0.0,
+          "carbon_kg": 18126.154709271108,
+          "all_meters_kwh": {
+            "Electricity:Building": 32896.4775,
+            "Electricity:Facility": 40280.343798380236,
+            "Electricity:HVAC": 2376.9158126424054,
+            "Electricity:Plant": 5006.950485746054,
+            "InteriorLights:Electricity": 20309.7375,
+            "MYBUILDINGELECTRIC": 32896.4775,
+            "MYBUILDINGOTHER": 12586.74,
+            "MYGENERALLIGHTS": 20309.7375,
+            "NaturalGas:Facility": 19552.724607963188,
+            "NaturalGas:Plant": 19552.724607963188
+          }
+        },
+        "messages": [
+          "Meter CSV parsed successfully."
+        ]
+      }
+    },
+    "original_bundle": {
+      "bundle_id": "test_empty_room_bundle",
+      "bundle_name": "test_empty_room_bundle",
+      "goal": "reduce_energy_keep_comfort_safe",
+      "event_type": "empty_room_detected",
+      "actions": [
+        {
+          "action_type": "lighting_adjustment",
+          "target": "unoccupied_zones",
+          "description": "Dim lights for empty room.",
+          "parameters": {
+            "lighting_level_percent": 25
+          },
+          "source": "test",
+          "confidence": 0.9
+        },
+        {
+          "action_type": "hvac_setpoint_adjustment",
+          "target": "unoccupied_zones",
+          "description": "Relax cooling setpoint safely.",
+          "parameters": {
+            "cooling_setpoint_c": 28
+          },
+          "source": "test",
+          "confidence": 0.85
+        },
+        {
+          "action_type": "ventilation_adjustment",
+          "target": "unoccupied_zones",
+          "description": "Reduce ventilation within safe bounds.",
+          "parameters": {
+            "ventilation_percent": 40
+          },
+          "source": "test",
+          "confidence": 0.8
+        }
+      ],
+      "rationale": "Test candidate for Layer 5 simulation.",
+      "constraints": [],
+      "expected_outcome": {
+        "energy_saved_percent": 4,
+        "comfort_impact": "neutral"
+      },
+      "created_by": "test",
+      "requires_simulation": true,
+      "fallback_used": false
+    },
+    "ranking_reason": "Reward=43.3616, bandit_prior=55.3, kg_score=8, final_penalty=0.0. No final safety or simulation penalties applied."
+  },
+  "ranking_summary": "Ranked 1 bundle(s); selected test_empty_room_bundle.",
+  "rl_used": true,
+  "kg_used": true,
+  "final_safety_approval": {
+    "approved": true,
+    "selected_bundle_id": "test_empty_room_bundle",
+    "selected_bundle_name": "test_empty_room_bundle",
+    "risk_level": "low",
+    "safety_decisions": [
+      {
+        "action_id": "test_empty_room_bundle_lighting_adjustment",
+        "approved": true,
+        "decision": "approved",
+        "risk_level": "low",
+        "reasons": [],
+        "blocked_by": [],
+        "safe_alternative": null,
+        "checked_constraints": [
+          "hvac_comfort_bounds",
+          "lighting_safety",
+          "ventilation_iaq",
+          "anomaly_severity",
+          "expected_impact"
+        ],
+        "action": {
+          "action_id": "test_empty_room_bundle_lighting_adjustment",
+          "strategy_name": "eco_mode",
+          "action_type": "lighting_adjustment",
+          "target": "unoccupied_zones",
+          "description": "Dim lights for empty room.",
+          "parameters": {
+            "lighting_level_percent": 25
+          },
+          "expected_energy_saved_percent": 4.0,
+          "expected_carbon_reduced_percent": 0.0,
+          "expected_comfort_impact": "neutral",
+          "source_agent": "layer5_final_safety_gate",
+          "priority": "medium"
+        }
+      },
+      {
+        "action_id": "test_empty_room_bundle_hvac_setpoint_adjustment",
+        "approved": true,
+        "decision": "approved",
+        "risk_level": "low",
+        "reasons": [],
+        "blocked_by": [],
+        "safe_alternative": null,
+        "checked_constraints": [
+          "hvac_comfort_bounds",
+          "lighting_safety",
+          "ventilation_iaq",
+          "anomaly_severity",
+          "expected_impact"
+        ],
+        "action": {
+          "action_id": "test_empty_room_bundle_hvac_setpoint_adjustment",
+          "strategy_name": "eco_mode",
+          "action_type": "hvac_setpoint_adjustment",
+          "target": "unoccupied_zones",
+          "description": "Relax cooling setpoint safely.",
+          "parameters": {
+            "cooling_setpoint_c": 28,
+            "applies_to_occupied_zones": false
+          },
+          "expected_energy_saved_percent": 4.0,
+          "expected_carbon_reduced_percent": 0.0,
+          "expected_comfort_impact": "neutral",
+          "source_agent": "layer5_final_safety_gate",
+          "priority": "medium"
+        }
+      },
+      {
+        "action_id": "test_empty_room_bundle_ventilation_adjustment",
+        "approved": true,
+        "decision": "approved",
+        "risk_level": "low",
+        "reasons": [],
+        "blocked_by": [],
+        "safe_alternative": null,
+        "checked_constraints": [
+          "hvac_comfort_bounds",
+          "lighting_safety",
+          "ventilation_iaq",
+          "anomaly_severity",
+          "expected_impact"
+        ],
+        "action": {
+          "action_id": "test_empty_room_bundle_ventilation_adjustment",
+          "strategy_name": "eco_mode",
+          "action_type": "ventilation_adjustment",
+          "target": "unoccupied_zones",
+          "description": "Reduce ventilation within safe bounds.",
+          "parameters": {
+            "ventilation_percent": 40,
+            "applies_to_occupied_zones": false
+          },
+          "expected_energy_saved_percent": 4.0,
+          "expected_carbon_reduced_percent": 0.0,
+          "expected_comfort_impact": "neutral",
+          "source_agent": "layer5_final_safety_gate",
+          "priority": "medium"
+        }
+      }
+    ],
+    "blocked_actions": [],
+    "approved_actions": [
+      {
+        "action_id": "test_empty_room_bundle_lighting_adjustment",
+        "strategy_name": "eco_mode",
+        "action_type": "lighting_adjustment",
+        "target": "unoccupied_zones",
+        "description": "Dim lights for empty room.",
+        "parameters": {
+          "lighting_level_percent": 25
+        },
+        "expected_energy_saved_percent": 4.0,
+        "expected_carbon_reduced_percent": 0.0,
+        "expected_comfort_impact": "neutral",
+        "source_agent": "layer5_final_safety_gate",
+        "priority": "medium"
+      },
+      {
+        "action_id": "test_empty_room_bundle_hvac_setpoint_adjustment",
+        "strategy_name": "eco_mode",
+        "action_type": "hvac_setpoint_adjustment",
+        "target": "unoccupied_zones",
+        "description": "Relax cooling setpoint safely.",
+        "parameters": {
+          "cooling_setpoint_c": 28,
+          "applies_to_occupied_zones": false
+        },
+        "expected_energy_saved_percent": 4.0,
+        "expected_carbon_reduced_percent": 0.0,
+        "expected_comfort_impact": "neutral",
+        "source_agent": "layer5_final_safety_gate",
+        "priority": "medium"
+      },
+      {
+        "action_id": "test_empty_room_bundle_ventilation_adjustment",
+        "strategy_name": "eco_mode",
+        "action_type": "ventilation_adjustment",
+        "target": "unoccupied_zones",
+        "description": "Reduce ventilation within safe bounds.",
+        "parameters": {
+          "ventilation_percent": 40,
+          "applies_to_occupied_zones": false
+        },
+        "expected_energy_saved_percent": 4.0,
+        "expected_carbon_reduced_percent": 0.0,
+        "expected_comfort_impact": "neutral",
+        "source_agent": "layer5_final_safety_gate",
+        "priority": "medium"
+      }
+    ],
+    "safety_summary": "Approved 3 action(s); blocked 0 action(s).",
+    "execution_ready": true,
+    "execution_applied": false,
+    "execution_note": "Phase 5.3 approves an execution-ready plan only. Phase 5.4 will apply approved actions inside the EnergyPlus digital twin."
+  },
+  "execution_ready": true,
+  "execution_applied": false,
+  "closed_loop_status": "execution_ready_not_applied",
+  "layer5_status": "execution_ready_not_applied",
+  "proof": {
+    "phase_5_1_simulation": true,
+    "phase_5_2_ranking": true,
+    "phase_5_3_safety_gate": true,
+    "execution_applied": false,
+    "safety_governor_used": true,
+    "rl_bandit_used": true,
+    "knowledge_graph_used": true
+  },
+  "dashboard_summary": {
+    "layer": "Layer 5",
+    "phase": "5.1-5.3",
+    "status": "complete",
+    "closedLoopEnabled": true,
+    "energyPlusSimulationEnabled": true,
+    "bundleRankingEnabled": true,
+    "rlBanditUsed": true,
+    "knowledgeGraphUsed": true,
+    "safetyGovernorUsed": true,
+    "executionReady": true,
+    "executionApplied": false,
+    "candidateCount": 1,
+    "simulationCount": 1,
+    "successfulSimulationCount": 1,
+    "selectedBundleName": "test_empty_room_bundle",
+    "selectedBundleScore": 61.1866,
+    "selectedBundleEnergySavedPercent": 7.4231,
+    "selectedBundleCarbonReducedPercent": 7.4231,
+    "comfortStatus": "Safe",
+    "riskLevel": "low",
+    "summary": "Layer 5 simulated, ranked, and safety-approved a candidate plan but did not execute it yet."
+  },
+  "explanation": "Layer 5 simulated 1 candidate bundle(s), ranked them with reward, bandit prior, and Knowledge Graph relevance, then selected test_empty_room_bundle. The Safety Governor reviewed the selected bundle and marked execution_ready=True. execution_applied remains false because Phase 5.4 is responsible for applying approved actions inside the EnergyPlus digital twin."
+}

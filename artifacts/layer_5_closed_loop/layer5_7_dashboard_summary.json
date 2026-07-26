@@ -1,0 +1,32 @@
+{
+  "layer": "Layer 5",
+  "phase": "5.7",
+  "realLLMFullLoopEnabled": true,
+  "selectedProvider": "ollama",
+  "ollamaUsed": true,
+  "openRouterUsed": false,
+  "mockUsed": false,
+  "energyPlusUsed": true,
+  "digitalTwinExecution": true,
+  "realBuildingExecution": false,
+  "lightingAppliedInIDF": true,
+  "hvacSetpointAppliedInIDF": true,
+  "ventilationAppliedInIDF": true,
+  "metadataOnlyActions": [],
+  "adapterWarnings": [
+    "Controller:OutdoorAir detected but skipped because field-safe editing is not implemented."
+  ],
+  "adapterChangeCount": 88,
+  "candidateBundlesGenerated": 3,
+  "candidateBundlesSimulated": 3,
+  "safetyGovernorUsed": true,
+  "rlBanditUsed": true,
+  "knowledgeGraphUsed": true,
+  "memoryUpdated": true,
+  "banditUpdated": true,
+  "knowledgeGraphUpdated": true,
+  "energySavedPercent": 49.0322,
+  "carbonReducedPercent": 49.0322,
+  "comfortStatus": "Safe",
+  "judgeReady": true
+}

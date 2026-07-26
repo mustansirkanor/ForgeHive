@@ -1,0 +1,1231 @@
+{
+  "strategies": {
+    "eco_mode": {
+      "times_selected": 47,
+      "total_reward": 3151.25,
+      "average_reward": 67.05
+    },
+    "comfort_mode": {
+      "times_selected": 15,
+      "total_reward": 523.88,
+      "average_reward": 34.93
+    },
+    "carbon_aware_mode": {
+      "times_selected": 0,
+      "total_reward": 0.0,
+      "average_reward": 0.0
+    },
+    "balanced_mode": {
+      "times_selected": 9,
+      "total_reward": 551.9,
+      "average_reward": 61.32
+    },
+    "iaq_priority_mode": {
+      "times_selected": 0,
+      "total_reward": 0.0,
+      "average_reward": 0.0
+    },
+    "equipment_protection_mode": {
+      "times_selected": 0,
+      "total_reward": 0.0,
+      "average_reward": 0.0
+    },
+    "anomaly_response_mode": {
+      "times_selected": 0,
+      "total_reward": 0.0,
+      "average_reward": 0.0
+    }
+  },
+  "history": [
+    {
+      "timestamp": "2026-07-25T03:06:32.408844+00:00",
+      "strategy": "comfort_mode",
+      "reward": 10.46,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "8982db75-bc66-493c-9662-5c6626b20bcf"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T03:06:32.409719+00:00",
+      "strategy": "eco_mode",
+      "reward": 23.36,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "453abe30-3161-4b58-b883-85c533953433"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T03:06:32.410547+00:00",
+      "strategy": "comfort_mode",
+      "reward": 10.46,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "04836cfb-716c-4ddf-bbb1-30edd3231382"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T03:06:32.411306+00:00",
+      "strategy": "eco_mode",
+      "reward": 23.36,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "777d9816-6988-435c-9edc-a4c9b864dc49"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T03:06:32.419726+00:00",
+      "strategy": "eco_mode",
+      "reward": 20.0,
+      "metadata": {
+        "goal": "reduce_energy_keep_comfort_safe",
+        "status": "approved",
+        "actual_result_provided": true
+      }
+    },
+    {
+      "timestamp": "2026-07-25T13:45:25.217534+00:00",
+      "strategy": "eco_mode",
+      "reward": 19.0,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "learning_safe_bundle",
+        "execution_run_dir": "runs/layer_5/executions/test_learning",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 6.0,
+          "actual_energy_saved_percent": 5.0,
+          "expected_carbon_reduced_percent": 6.0,
+          "actual_carbon_reduced_percent": 5.0,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": -1.0,
+          "delta_carbon_reduction": -1.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T13:45:49.952031+00:00",
+      "strategy": "eco_mode",
+      "reward": 23.3616,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "phase_5_4_6_deterministic_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_134537_839226_phase_5_4_6_deterministic_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 7.4231,
+          "actual_energy_saved_percent": 7.4231,
+          "expected_carbon_reduced_percent": 7.4231,
+          "actual_carbon_reduced_percent": 7.4231,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T14:19:36.587281+00:00",
+      "strategy": "comfort_mode",
+      "reward": 10.0,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "phase_1_5_eco_mode_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_141924_379650_phase_1_5_eco_mode_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": -0.0,
+          "actual_energy_saved_percent": -0.0,
+          "expected_carbon_reduced_percent": 0.0,
+          "actual_carbon_reduced_percent": 0.0,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T14:44:31.859851+00:00",
+      "strategy": "eco_mode",
+      "reward": 97.8994,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_144402_517785_energy_efficiency_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 48.833,
+          "actual_energy_saved_percent": 48.833,
+          "expected_carbon_reduced_percent": 48.833,
+          "actual_carbon_reduced_percent": 48.833,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:02:07.784331+00:00",
+      "strategy": "comfort_mode",
+      "reward": 10.46,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "4c673b0d-ca9f-41ba-afbd-58b4046a3f35"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:02:07.785114+00:00",
+      "strategy": "eco_mode",
+      "reward": 23.36,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "d2e466c9-33f6-45c0-a265-dd5667308316"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:02:07.785799+00:00",
+      "strategy": "eco_mode",
+      "reward": 97.9,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "8b13d4dd-61f7-4feb-985a-5872ca189e20"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:02:07.786409+00:00",
+      "strategy": "comfort_mode",
+      "reward": 10.0,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "800aac3a-16be-4ec6-9748-15940efd3366"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:02:07.787326+00:00",
+      "strategy": "eco_mode",
+      "reward": 23.36,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "2fc9cc7f-97cb-45be-bc86-f55bbb4b6dba"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:02:07.799215+00:00",
+      "strategy": "eco_mode",
+      "reward": 5.0,
+      "metadata": {
+        "goal": "reduce_energy_keep_comfort_safe",
+        "status": "rejected",
+        "actual_result_provided": true
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:03:53.186513+00:00",
+      "strategy": "eco_mode",
+      "reward": 19.0,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "learning_safe_bundle",
+        "execution_run_dir": "runs/layer_5/executions/test_learning",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 6.0,
+          "actual_energy_saved_percent": 5.0,
+          "expected_carbon_reduced_percent": 6.0,
+          "actual_carbon_reduced_percent": 5.0,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": -1.0,
+          "delta_carbon_reduction": -1.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:04:05.672493+00:00",
+      "strategy": "eco_mode",
+      "reward": 96.3505,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "phase_5_4_6_deterministic_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_150353_405363_phase_5_4_6_deterministic_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 7.4231,
+          "actual_energy_saved_percent": 47.9725,
+          "expected_carbon_reduced_percent": 7.4231,
+          "actual_carbon_reduced_percent": 47.9725,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 40.5494,
+          "delta_carbon_reduction": 40.5494,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:05:34.488636+00:00",
+      "strategy": "eco_mode",
+      "reward": 97.8994,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "example_bundle_1",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_150518_943864_example_bundle_1",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 48.833,
+          "actual_energy_saved_percent": 48.833,
+          "expected_carbon_reduced_percent": 48.833,
+          "actual_carbon_reduced_percent": 48.833,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:06:42.463220+00:00",
+      "strategy": "eco_mode",
+      "reward": 97.8994,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_150627_487840_energy_efficiency_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 48.833,
+          "actual_energy_saved_percent": 48.833,
+          "expected_carbon_reduced_percent": 48.833,
+          "actual_carbon_reduced_percent": 48.833,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:19:13.777117+00:00",
+      "strategy": "comfort_mode",
+      "reward": 10.46,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "248bc783-b30c-4834-a171-79566cc1a538"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:19:13.778175+00:00",
+      "strategy": "eco_mode",
+      "reward": 23.36,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "bfaa6122-4f7b-427e-b6a9-07d7c5eede69"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:19:13.779153+00:00",
+      "strategy": "eco_mode",
+      "reward": 97.9,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "1d7dae86-8ce7-4235-b1bd-c7e6b5e02af5"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:19:13.780045+00:00",
+      "strategy": "eco_mode",
+      "reward": 97.9,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "5c594c0a-2fc3-4774-b823-0e543dba70af"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:19:13.780998+00:00",
+      "strategy": "eco_mode",
+      "reward": 96.35,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "82ba80a0-955b-4497-960e-db662181db3c"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:19:13.803806+00:00",
+      "strategy": "eco_mode",
+      "reward": 5.0,
+      "metadata": {
+        "goal": "reduce_energy_keep_comfort_safe",
+        "status": "rejected",
+        "actual_result_provided": true
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:20:47.428439+00:00",
+      "strategy": "eco_mode",
+      "reward": 19.0,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "learning_safe_bundle",
+        "execution_run_dir": "runs/layer_5/executions/test_learning",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 6.0,
+          "actual_energy_saved_percent": 5.0,
+          "expected_carbon_reduced_percent": 6.0,
+          "actual_carbon_reduced_percent": 5.0,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": -1.0,
+          "delta_carbon_reduction": -1.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:21:02.270667+00:00",
+      "strategy": "eco_mode",
+      "reward": 96.3505,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "phase_5_4_6_deterministic_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_152047_642740_phase_5_4_6_deterministic_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 7.4231,
+          "actual_energy_saved_percent": 47.9725,
+          "expected_carbon_reduced_percent": 7.4231,
+          "actual_carbon_reduced_percent": 47.9725,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 40.5494,
+          "delta_carbon_reduction": 40.5494,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:22:27.408684+00:00",
+      "strategy": "eco_mode",
+      "reward": 97.8994,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_152213_881944_energy_efficiency_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 48.833,
+          "actual_energy_saved_percent": 48.833,
+          "expected_carbon_reduced_percent": 48.833,
+          "actual_carbon_reduced_percent": 48.833,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:23:55.786297+00:00",
+      "strategy": "eco_mode",
+      "reward": 97.8994,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_152341_452795_energy_efficiency_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 48.833,
+          "actual_energy_saved_percent": 48.833,
+          "expected_carbon_reduced_percent": 48.833,
+          "actual_carbon_reduced_percent": 48.833,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:29:18.018577+00:00",
+      "strategy": "comfort_mode",
+      "reward": 10.46,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "d5855607-17e0-4f53-867f-ef5d59ace984"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:29:18.019751+00:00",
+      "strategy": "eco_mode",
+      "reward": 23.36,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "d4269a0b-d048-4e34-82d0-7facb2c84412"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:29:18.020710+00:00",
+      "strategy": "eco_mode",
+      "reward": 97.9,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "7446884d-a2fb-4895-948b-d668799175b1"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:29:18.021549+00:00",
+      "strategy": "eco_mode",
+      "reward": 97.9,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "c8c60a57-97f5-4be0-82b7-0242522209f5"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:29:18.022491+00:00",
+      "strategy": "eco_mode",
+      "reward": 96.35,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "853ef263-2416-4f2d-849b-1fafaa89a660"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:29:18.048000+00:00",
+      "strategy": "eco_mode",
+      "reward": 5.0,
+      "metadata": {
+        "goal": "reduce_energy_keep_comfort_safe",
+        "status": "rejected",
+        "actual_result_provided": true
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:50:07.749976+00:00",
+      "strategy": "comfort_mode",
+      "reward": 10.46,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "f6e08ba0-6346-431f-bd89-53e02eb46d93"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:50:07.751177+00:00",
+      "strategy": "eco_mode",
+      "reward": 23.36,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "ae2dd2a2-7b19-4ac1-a498-384a9c476cdf"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:50:07.752561+00:00",
+      "strategy": "comfort_mode",
+      "reward": 10.46,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "d5855607-17e0-4f53-867f-ef5d59ace984"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:50:07.753794+00:00",
+      "strategy": "eco_mode",
+      "reward": 23.36,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "d4269a0b-d048-4e34-82d0-7facb2c84412"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:50:07.754658+00:00",
+      "strategy": "eco_mode",
+      "reward": 97.9,
+      "metadata": {
+        "source": "memory_seed",
+        "memory_entry_id": "7446884d-a2fb-4895-948b-d668799175b1"
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:50:07.776645+00:00",
+      "strategy": "eco_mode",
+      "reward": 5.0,
+      "metadata": {
+        "goal": "reduce_energy_keep_comfort_safe",
+        "status": "rejected",
+        "actual_result_provided": true
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:51:55.303455+00:00",
+      "strategy": "eco_mode",
+      "reward": 19.0,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "learning_safe_bundle",
+        "execution_run_dir": "runs/layer_5/executions/test_learning",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 6.0,
+          "actual_energy_saved_percent": 5.0,
+          "expected_carbon_reduced_percent": 6.0,
+          "actual_carbon_reduced_percent": 5.0,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": -1.0,
+          "delta_carbon_reduction": -1.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:52:21.697124+00:00",
+      "strategy": "eco_mode",
+      "reward": 96.3505,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "phase_5_4_6_deterministic_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_155155_542552_phase_5_4_6_deterministic_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 7.4231,
+          "actual_energy_saved_percent": 47.9725,
+          "expected_carbon_reduced_percent": 7.4231,
+          "actual_carbon_reduced_percent": 47.9725,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 40.5494,
+          "delta_carbon_reduction": 40.5494,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:54:43.785990+00:00",
+      "strategy": "eco_mode",
+      "reward": 97.8994,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle_1",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_155417_471106_energy_efficiency_bundle_1",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 48.833,
+          "actual_energy_saved_percent": 48.833,
+          "expected_carbon_reduced_percent": 48.833,
+          "actual_carbon_reduced_percent": 48.833,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T15:55:44.371263+00:00",
+      "strategy": "eco_mode",
+      "reward": 97.8994,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_155532_030762_energy_efficiency_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 48.833,
+          "actual_energy_saved_percent": 48.833,
+          "expected_carbon_reduced_percent": 48.833,
+          "actual_carbon_reduced_percent": 48.833,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T17:16:26.320122+00:00",
+      "strategy": "balanced_mode",
+      "reward": 97.8994,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_171611_723621_energy_efficiency_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 48.833,
+          "actual_energy_saved_percent": 48.833,
+          "expected_carbon_reduced_percent": 48.833,
+          "actual_carbon_reduced_percent": 48.833,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T17:20:51.180734+00:00",
+      "strategy": "balanced_mode",
+      "reward": 85.8903,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "learning_safe_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_172029_796887_learning_safe_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 42.1613,
+          "actual_energy_saved_percent": 42.1613,
+          "expected_carbon_reduced_percent": 42.1613,
+          "actual_carbon_reduced_percent": 42.1613,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T17:40:31.100393+00:00",
+      "strategy": "eco_mode",
+      "reward": 96.3505,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "layer5_fallback_empty_room_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_174013_022859_layer5_fallback_empty_room_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 47.9725,
+          "actual_energy_saved_percent": 47.9725,
+          "expected_carbon_reduced_percent": 47.9725,
+          "actual_carbon_reduced_percent": 47.9725,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T17:43:00.061771+00:00",
+      "strategy": "comfort_mode",
+      "reward": 97.8994,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_174245_385511_energy_efficiency_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 48.833,
+          "actual_energy_saved_percent": 48.833,
+          "expected_carbon_reduced_percent": 48.833,
+          "actual_carbon_reduced_percent": 48.833,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T17:52:18.998109+00:00",
+      "strategy": "comfort_mode",
+      "reward": 97.8994,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_175206_027450_energy_efficiency_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 48.833,
+          "actual_energy_saved_percent": 48.833,
+          "expected_carbon_reduced_percent": 48.833,
+          "actual_carbon_reduced_percent": 48.833,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T17:54:06.129118+00:00",
+      "strategy": "balanced_mode",
+      "reward": 97.8994,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_175351_253070_energy_efficiency_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 48.833,
+          "actual_energy_saved_percent": 48.833,
+          "expected_carbon_reduced_percent": 48.833,
+          "actual_carbon_reduced_percent": 48.833,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T18:00:53.154134+00:00",
+      "strategy": "comfort_mode",
+      "reward": 80.5778,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "comfort_bundle1",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_180040_238272_comfort_bundle1",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 39.2099,
+          "actual_energy_saved_percent": 39.2099,
+          "expected_carbon_reduced_percent": 39.2099,
+          "actual_carbon_reduced_percent": 39.2099,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T18:05:39.871749+00:00",
+      "strategy": "comfort_mode",
+      "reward": 97.8994,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "example_bundle_1",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_180524_709787_example_bundle_1",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 48.833,
+          "actual_energy_saved_percent": 48.833,
+          "expected_carbon_reduced_percent": 48.833,
+          "actual_carbon_reduced_percent": 48.833,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T18:15:42.360642+00:00",
+      "strategy": "balanced_mode",
+      "reward": 45.7629,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "request_aligned_conservative_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_181530_033599_request_aligned_conservative_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 19.8683,
+          "actual_energy_saved_percent": 19.8683,
+          "expected_carbon_reduced_percent": 19.8683,
+          "actual_carbon_reduced_percent": 19.8683,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T18:18:14.334128+00:00",
+      "strategy": "balanced_mode",
+      "reward": 45.7629,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "request_aligned_conservative_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_181801_248633_request_aligned_conservative_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 19.8683,
+          "actual_energy_saved_percent": 19.8683,
+          "expected_carbon_reduced_percent": 19.8683,
+          "actual_carbon_reduced_percent": 19.8683,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T18:20:41.047727+00:00",
+      "strategy": "balanced_mode",
+      "reward": 45.7629,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "request_aligned_conservative_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_182027_869752_request_aligned_conservative_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 19.8683,
+          "actual_energy_saved_percent": 19.8683,
+          "expected_carbon_reduced_percent": 19.8683,
+          "actual_carbon_reduced_percent": 19.8683,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T18:28:39.236619+00:00",
+      "strategy": "balanced_mode",
+      "reward": 45.7629,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "request_aligned_conservative_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_182812_741562_request_aligned_conservative_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 19.8683,
+          "actual_energy_saved_percent": 19.8683,
+          "expected_carbon_reduced_percent": 19.8683,
+          "actual_carbon_reduced_percent": 19.8683,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T18:31:06.326327+00:00",
+      "strategy": "balanced_mode",
+      "reward": 41.4113,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "llm_composed_plan_1",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_183053_129963_llm_composed_plan_1",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 17.4507,
+          "actual_energy_saved_percent": 17.4507,
+          "expected_carbon_reduced_percent": 17.4508,
+          "actual_carbon_reduced_percent": 17.4508,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T18:38:04.593099+00:00",
+      "strategy": "balanced_mode",
+      "reward": 45.7629,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "llm_composed_plan_1",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_183744_036304_llm_composed_plan_1",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 19.8683,
+          "actual_energy_saved_percent": 19.8683,
+          "expected_carbon_reduced_percent": 19.8683,
+          "actual_carbon_reduced_percent": 19.8683,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T18:55:29.040092+00:00",
+      "strategy": "comfort_mode",
+      "reward": 45.6713,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "llm_composed_plan_1",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_185516_318611_llm_composed_plan_1",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 19.8174,
+          "actual_energy_saved_percent": 19.8174,
+          "expected_carbon_reduced_percent": 19.8174,
+          "actual_carbon_reduced_percent": 19.8174,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T19:19:37.068489+00:00",
+      "strategy": "comfort_mode",
+      "reward": 10.7065,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "cooling_adjustment_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_191924_443992_cooling_adjustment_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 0.3925,
+          "actual_energy_saved_percent": 0.3925,
+          "expected_carbon_reduced_percent": 0.3925,
+          "actual_carbon_reduced_percent": 0.3925,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T19:26:28.978063+00:00",
+      "strategy": "eco_mode",
+      "reward": 97.7896,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "balanced_efficiency_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_192617_042138_balanced_efficiency_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 48.772,
+          "actual_energy_saved_percent": 48.772,
+          "expected_carbon_reduced_percent": 48.772,
+          "actual_carbon_reduced_percent": 48.772,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T19:27:32.633775+00:00",
+      "strategy": "eco_mode",
+      "reward": 95.563,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "balanced_efficiency_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_192720_372865_balanced_efficiency_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 47.535,
+          "actual_energy_saved_percent": 47.535,
+          "expected_carbon_reduced_percent": 47.535,
+          "actual_carbon_reduced_percent": 47.535,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T19:29:11.547679+00:00",
+      "strategy": "eco_mode",
+      "reward": 97.7896,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "balanced_efficiency_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_192859_574867_balanced_efficiency_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 48.772,
+          "actual_energy_saved_percent": 48.772,
+          "expected_carbon_reduced_percent": 48.772,
+          "actual_carbon_reduced_percent": 48.772,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T19:30:13.996403+00:00",
+      "strategy": "eco_mode",
+      "reward": 97.8994,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "empty_room_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_193001_627300_empty_room_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 48.833,
+          "actual_energy_saved_percent": 48.833,
+          "expected_carbon_reduced_percent": 48.833,
+          "actual_carbon_reduced_percent": 48.833,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T19:31:12.322637+00:00",
+      "strategy": "eco_mode",
+      "reward": 95.563,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "balanced_efficiency_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_193101_023869_balanced_efficiency_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 47.535,
+          "actual_energy_saved_percent": 47.535,
+          "expected_carbon_reduced_percent": 47.535,
+          "actual_carbon_reduced_percent": 47.535,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T19:32:55.353594+00:00",
+      "strategy": "eco_mode",
+      "reward": 98.258,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_savings_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_193243_534746_energy_savings_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 49.0322,
+          "actual_energy_saved_percent": 49.0322,
+          "expected_carbon_reduced_percent": 49.0322,
+          "actual_carbon_reduced_percent": 49.0322,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T19:37:45.955275+00:00",
+      "strategy": "eco_mode",
+      "reward": 98.258,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_savings_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_193734_884581_energy_savings_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 49.0322,
+          "actual_energy_saved_percent": 49.0322,
+          "expected_carbon_reduced_percent": 49.0322,
+          "actual_carbon_reduced_percent": 49.0322,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T19:44:37.753381+00:00",
+      "strategy": "eco_mode",
+      "reward": 98.258,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "empty_room_energy_savings_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_194425_661604_empty_room_energy_savings_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 49.0322,
+          "actual_energy_saved_percent": 49.0322,
+          "expected_carbon_reduced_percent": 49.0322,
+          "actual_carbon_reduced_percent": 49.0322,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-25T19:46:11.748295+00:00",
+      "strategy": "eco_mode",
+      "reward": 96.5692,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "aggressive_but_safe_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_194559_349266_aggressive_but_safe_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 54.6464,
+          "actual_energy_saved_percent": 48.094,
+          "expected_carbon_reduced_percent": 54.6464,
+          "actual_carbon_reduced_percent": 48.094,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": -6.5524,
+          "delta_carbon_reduction": -6.5524,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-26T11:14:28.526031+00:00",
+      "strategy": "eco_mode",
+      "reward": 98.258,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_savings_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260726_111410_915661_energy_savings_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 49.0322,
+          "actual_energy_saved_percent": 49.0322,
+          "expected_carbon_reduced_percent": 49.0322,
+          "actual_carbon_reduced_percent": 49.0322,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    }
+  ]
+}

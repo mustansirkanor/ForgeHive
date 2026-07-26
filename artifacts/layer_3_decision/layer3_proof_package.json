@@ -1,0 +1,2569 @@
+{
+  "project": {
+    "name": "ForgeHive",
+    "layer": "Layer 3",
+    "phase": "Phase 3.7",
+    "description": "Autonomous decision engine proof package"
+  },
+  "status": {
+    "layer_complete": true,
+    "actions_executed": false,
+    "execution_note": "Layer 3 decides and safety-checks actions. Layer 5.1-5.3 simulates, ranks, and final-safety-checks approved plans; digital-twin execution starts in Phase 5.4."
+  },
+  "layer2_input_snapshot": {
+    "overall_score": 93.33,
+    "comfort_status": "Safe",
+    "anomaly_count": 0,
+    "best_strategy": "eco_mode"
+  },
+  "goal_decision_suite": {
+    "balanced_optimization": {
+      "project": {
+        "name": "ForgeHive",
+        "layer": "Layer 3",
+        "phase": "Phase 3.6",
+        "description": "Autonomous decision API"
+      },
+      "input_goal": "balanced optimization",
+      "normalized_goal": "balanced_optimization",
+      "building_context": {
+        "overall_score": 93.33,
+        "comfort_status": "Safe",
+        "anomaly_count": 0,
+        "best_strategy": "eco_mode"
+      },
+      "decision": {
+        "selected_plan_type": "supervisor",
+        "selected_action": {
+          "strategy_name": "comfort_preserving_lighting",
+          "action_type": "lighting_adjustment",
+          "description": "Reduce lighting only in unoccupied zones.",
+          "parameters": {
+            "lighting_level_percent": 25,
+            "applies_to_occupied_zones": false
+          }
+        },
+        "safety_decision": {
+          "action_id": "e494fbd1-d497-4921-a508-e18f680dca2c",
+          "approved": false,
+          "decision": "rejected",
+          "risk_level": "medium",
+          "reasons": [
+            "Expected energy saving is unusually aggressive and requires review."
+          ],
+          "blocked_by": [
+            "expected_impact"
+          ],
+          "safe_alternative": {
+            "strategy_name": "comfort_preserving_lighting",
+            "action_type": "lighting_adjustment",
+            "description": "Reduce lighting only in unoccupied zones.",
+            "parameters": {
+              "lighting_level_percent": 25,
+              "applies_to_occupied_zones": false
+            }
+          },
+          "checked_constraints": [
+            "hvac_comfort_bounds",
+            "lighting_safety",
+            "ventilation_iaq",
+            "anomaly_severity",
+            "expected_impact"
+          ]
+        },
+        "ready_for_execution": false,
+        "summary": "Goal 'balanced_optimization' selected comfort_preserving_lighting via supervisor with action type lighting_adjustment; the plan is not ready for execution. Layer 5.1-5.3 will simulate, rank, and safety-approve this plan; actual digital-twin execution is deferred to Phase 5.4."
+      },
+      "supporting_outputs": {
+        "supervisor_decision": {
+          "goal": "balanced_optimization",
+          "agents_consulted": [
+            "energy_agent",
+            "comfort_agent",
+            "carbon_agent",
+            "anomaly_agent"
+          ],
+          "bandit_choice": {
+            "selected_strategy": "eco_mode",
+            "selection_reason": "Bandit reward tie broken by best memory strategy.",
+            "context": {
+              "comfort_status": "Safe",
+              "overall_score": 93.33,
+              "energy_efficiency": 89.85,
+              "carbon_optimization": 89.85,
+              "anomaly_count": 0,
+              "highest_anomaly_severity": "none",
+              "best_memory_strategy": "eco_mode"
+            },
+            "strategy_scores": {
+              "eco_mode": 55.3,
+              "comfort_mode": 10.36,
+              "carbon_aware_mode": 0.0,
+              "balanced_mode": 0.0,
+              "iaq_priority_mode": 0.0,
+              "equipment_protection_mode": 0.0,
+              "anomaly_response_mode": 0.0
+            },
+            "source": "contextual_bandit"
+          },
+          "recommendations": [
+            {
+              "agent_name": "energy_agent",
+              "goal": "balanced_optimization",
+              "recommended_action": {
+                "action_id": "e494fbd1-d497-4921-a508-e18f680dca2c",
+                "strategy_name": "eco_mode",
+                "action_type": "lighting_adjustment",
+                "target": "unoccupied_zones",
+                "description": "Reduce lighting in unoccupied zones to lower electricity consumption while preserving comfort.",
+                "parameters": {
+                  "lighting_level_percent": 25,
+                  "applies_to_occupied_zones": false
+                },
+                "expected_energy_saved_percent": 48.833,
+                "expected_carbon_reduced_percent": 48.833,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "energy_agent",
+                "priority": "medium"
+              },
+              "confidence": 0.9,
+              "rationale": "Lighting reduction is the safest near-term energy action because it avoids occupied comfort risk.",
+              "expected_benefits": [
+                "Lower electricity use",
+                "Preserve occupied-zone comfort",
+                "Reuse the proven Layer 1 eco_mode behavior"
+              ],
+              "risks": [],
+              "evidence": {
+                "energy_efficiency": 89.85,
+                "electricity_kwh": 40280.34,
+                "anomaly_count": 0,
+                "best_strategy": "eco_mode"
+              }
+            },
+            {
+              "agent_name": "comfort_agent",
+              "goal": "balanced_optimization",
+              "recommended_action": {
+                "action_id": "da65f382-1f42-4f86-a108-1a3fff9ae548",
+                "strategy_name": "comfort_preserving_mode",
+                "action_type": "strategy_mode",
+                "target": "occupied_zones",
+                "description": "Maintain occupied-zone comfort while allowing only conservative efficiency actions.",
+                "parameters": {
+                  "max_cooling_setpoint_c": 26,
+                  "min_lighting_level_percent_occupied": 50,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 2.0,
+                "expected_carbon_reduced_percent": 2.0,
+                "expected_comfort_impact": "positive",
+                "source_agent": "comfort_agent",
+                "priority": "medium"
+              },
+              "confidence": 0.6,
+              "rationale": "Comfort guardrails should remain active before any efficiency or carbon action is executed.",
+              "expected_benefits": [
+                "Maintains occupied-zone comfort",
+                "Keeps autonomous decisions inside comfort bounds"
+              ],
+              "risks": [],
+              "evidence": {
+                "comfort_status": "Safe",
+                "comfort_score": 100.0,
+                "violations": [],
+                "total_occupancy": 20
+              }
+            },
+            {
+              "agent_name": "carbon_agent",
+              "goal": "balanced_optimization",
+              "recommended_action": {
+                "action_id": "3fa8dd27-a90e-4ff1-833e-69af8db7e5ed",
+                "strategy_name": "carbon_aware_mode",
+                "action_type": "carbon_schedule_shift",
+                "target": "whole_building",
+                "description": "Shift flexible HVAC and lighting loads toward lower-carbon operating windows while keeping comfort safe.",
+                "parameters": {
+                  "preconditioning_enabled": true,
+                  "avoid_peak_carbon_window": true,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 3.0,
+                "expected_carbon_reduced_percent": 6.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "carbon_agent",
+                "priority": "medium"
+              },
+              "confidence": 0.75,
+              "rationale": "Carbon-aware scheduling can reduce emissions without requiring aggressive comfort changes.",
+              "expected_benefits": [
+                "Reduce carbon impact",
+                "Keep comfort guard enabled",
+                "Shift flexible loads away from high-carbon periods"
+              ],
+              "risks": [
+                "Requires future carbon-intensity schedule integration for execution."
+              ],
+              "evidence": {
+                "carbon_optimization": 89.85,
+                "grid_intensity_kg_per_kwh": 0.45
+              }
+            },
+            {
+              "agent_name": "anomaly_agent",
+              "goal": "balanced_optimization",
+              "recommended_action": {
+                "action_id": "b68097f0-9975-437b-bb27-8e11583848f7",
+                "strategy_name": "normal_monitoring",
+                "action_type": "anomaly_response",
+                "target": "whole_building",
+                "description": "No active anomalies detected; continue monitoring and preserve current safe operation.",
+                "parameters": {
+                  "continue_monitoring": true,
+                  "no_direct_control_change": true
+                },
+                "expected_energy_saved_percent": 0.0,
+                "expected_carbon_reduced_percent": 0.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "anomaly_agent",
+                "priority": "low"
+              },
+              "confidence": 0.55,
+              "rationale": "Anomaly-aware decisions prioritize operational risk before optimization.",
+              "expected_benefits": [
+                "Maintain safe monitoring",
+                "Avoid unsafe autonomous control during abnormal conditions"
+              ],
+              "risks": [],
+              "evidence": {
+                "anomaly_count": 0,
+                "highest_severity": "none",
+                "selected_anomaly": {}
+              }
+            }
+          ],
+          "ranked_recommendations": [
+            {
+              "rank": 1,
+              "agent_name": "energy_agent",
+              "score": 65.0,
+              "rationale": "Lighting reduction is the safest near-term energy action because it avoids occupied comfort risk.",
+              "action": {
+                "action_id": "e494fbd1-d497-4921-a508-e18f680dca2c",
+                "strategy_name": "eco_mode",
+                "action_type": "lighting_adjustment",
+                "target": "unoccupied_zones",
+                "description": "Reduce lighting in unoccupied zones to lower electricity consumption while preserving comfort.",
+                "parameters": {
+                  "lighting_level_percent": 25,
+                  "applies_to_occupied_zones": false
+                },
+                "expected_energy_saved_percent": 48.833,
+                "expected_carbon_reduced_percent": 48.833,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "energy_agent",
+                "priority": "medium"
+              }
+            },
+            {
+              "rank": 2,
+              "agent_name": "comfort_agent",
+              "score": 45.0,
+              "rationale": "Comfort guardrails should remain active before any efficiency or carbon action is executed.",
+              "action": {
+                "action_id": "da65f382-1f42-4f86-a108-1a3fff9ae548",
+                "strategy_name": "comfort_preserving_mode",
+                "action_type": "strategy_mode",
+                "target": "occupied_zones",
+                "description": "Maintain occupied-zone comfort while allowing only conservative efficiency actions.",
+                "parameters": {
+                  "max_cooling_setpoint_c": 26,
+                  "min_lighting_level_percent_occupied": 50,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 2.0,
+                "expected_carbon_reduced_percent": 2.0,
+                "expected_comfort_impact": "positive",
+                "source_agent": "comfort_agent",
+                "priority": "medium"
+              }
+            },
+            {
+              "rank": 3,
+              "agent_name": "carbon_agent",
+              "score": 42.5,
+              "rationale": "Carbon-aware scheduling can reduce emissions without requiring aggressive comfort changes.",
+              "action": {
+                "action_id": "3fa8dd27-a90e-4ff1-833e-69af8db7e5ed",
+                "strategy_name": "carbon_aware_mode",
+                "action_type": "carbon_schedule_shift",
+                "target": "whole_building",
+                "description": "Shift flexible HVAC and lighting loads toward lower-carbon operating windows while keeping comfort safe.",
+                "parameters": {
+                  "preconditioning_enabled": true,
+                  "avoid_peak_carbon_window": true,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 3.0,
+                "expected_carbon_reduced_percent": 6.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "carbon_agent",
+                "priority": "medium"
+              }
+            },
+            {
+              "rank": 4,
+              "agent_name": "anomaly_agent",
+              "score": 27.5,
+              "rationale": "Anomaly-aware decisions prioritize operational risk before optimization.",
+              "action": {
+                "action_id": "b68097f0-9975-437b-bb27-8e11583848f7",
+                "strategy_name": "normal_monitoring",
+                "action_type": "anomaly_response",
+                "target": "whole_building",
+                "description": "No active anomalies detected; continue monitoring and preserve current safe operation.",
+                "parameters": {
+                  "continue_monitoring": true,
+                  "no_direct_control_change": true
+                },
+                "expected_energy_saved_percent": 0.0,
+                "expected_carbon_reduced_percent": 0.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "anomaly_agent",
+                "priority": "low"
+              }
+            }
+          ],
+          "selected_recommendation": {
+            "agent_name": "energy_agent",
+            "goal": "balanced_optimization",
+            "recommended_action": {
+              "action_id": "e494fbd1-d497-4921-a508-e18f680dca2c",
+              "strategy_name": "eco_mode",
+              "action_type": "lighting_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Reduce lighting in unoccupied zones to lower electricity consumption while preserving comfort.",
+              "parameters": {
+                "lighting_level_percent": 25,
+                "applies_to_occupied_zones": false
+              },
+              "expected_energy_saved_percent": 48.833,
+              "expected_carbon_reduced_percent": 48.833,
+              "expected_comfort_impact": "neutral",
+              "source_agent": "energy_agent",
+              "priority": "medium"
+            },
+            "confidence": 0.9,
+            "rationale": "Lighting reduction is the safest near-term energy action because it avoids occupied comfort risk.",
+            "expected_benefits": [
+              "Lower electricity use",
+              "Preserve occupied-zone comfort",
+              "Reuse the proven Layer 1 eco_mode behavior"
+            ],
+            "risks": [],
+            "evidence": {
+              "energy_efficiency": 89.85,
+              "electricity_kwh": 40280.34,
+              "anomaly_count": 0,
+              "best_strategy": "eco_mode"
+            }
+          },
+          "safety_decision": {
+            "action_id": "e494fbd1-d497-4921-a508-e18f680dca2c",
+            "approved": false,
+            "decision": "rejected",
+            "risk_level": "medium",
+            "reasons": [
+              "Expected energy saving is unusually aggressive and requires review."
+            ],
+            "blocked_by": [
+              "expected_impact"
+            ],
+            "safe_alternative": {
+              "strategy_name": "comfort_preserving_lighting",
+              "action_type": "lighting_adjustment",
+              "description": "Reduce lighting only in unoccupied zones.",
+              "parameters": {
+                "lighting_level_percent": 25,
+                "applies_to_occupied_zones": false
+              }
+            },
+            "checked_constraints": [
+              "hvac_comfort_bounds",
+              "lighting_safety",
+              "ventilation_iaq",
+              "anomaly_severity",
+              "expected_impact"
+            ]
+          },
+          "final_action": {
+            "strategy_name": "comfort_preserving_lighting",
+            "action_type": "lighting_adjustment",
+            "description": "Reduce lighting only in unoccupied zones.",
+            "parameters": {
+              "lighting_level_percent": 25,
+              "applies_to_occupied_zones": false
+            }
+          },
+          "status": "rejected",
+          "summary": "Goal 'balanced_optimization' consulted 4 agents. Selected eco_mode from energy_agent; bandit preferred eco_mode. Safety Governor rejected the action. Reason summary: Expected energy saving is unusually aggressive and requires review."
+        },
+        "carbon_plan": null
+      },
+      "notes": [
+        "Layer 3 decides and safety-checks actions.",
+        "Layer 5.1-5.3 simulates, ranks, and final-safety-checks approved plans before any execution phase."
+      ]
+    },
+    "reduce_energy_keep_comfort_safe": {
+      "project": {
+        "name": "ForgeHive",
+        "layer": "Layer 3",
+        "phase": "Phase 3.6",
+        "description": "Autonomous decision API"
+      },
+      "input_goal": "reduce energy while keeping comfort safe",
+      "normalized_goal": "reduce_energy_keep_comfort_safe",
+      "building_context": {
+        "overall_score": 93.33,
+        "comfort_status": "Safe",
+        "anomaly_count": 0,
+        "best_strategy": "eco_mode"
+      },
+      "decision": {
+        "selected_plan_type": "supervisor",
+        "selected_action": {
+          "strategy_name": "comfort_preserving_lighting",
+          "action_type": "lighting_adjustment",
+          "description": "Reduce lighting only in unoccupied zones.",
+          "parameters": {
+            "lighting_level_percent": 25,
+            "applies_to_occupied_zones": false
+          }
+        },
+        "safety_decision": {
+          "action_id": "20f90bf1-e83e-443e-9d3b-a9d90b2243bf",
+          "approved": false,
+          "decision": "rejected",
+          "risk_level": "medium",
+          "reasons": [
+            "Expected energy saving is unusually aggressive and requires review."
+          ],
+          "blocked_by": [
+            "expected_impact"
+          ],
+          "safe_alternative": {
+            "strategy_name": "comfort_preserving_lighting",
+            "action_type": "lighting_adjustment",
+            "description": "Reduce lighting only in unoccupied zones.",
+            "parameters": {
+              "lighting_level_percent": 25,
+              "applies_to_occupied_zones": false
+            }
+          },
+          "checked_constraints": [
+            "hvac_comfort_bounds",
+            "lighting_safety",
+            "ventilation_iaq",
+            "anomaly_severity",
+            "expected_impact"
+          ]
+        },
+        "ready_for_execution": false,
+        "summary": "Goal 'reduce_energy_keep_comfort_safe' selected comfort_preserving_lighting via supervisor with action type lighting_adjustment; the plan is not ready for execution. Layer 5.1-5.3 will simulate, rank, and safety-approve this plan; actual digital-twin execution is deferred to Phase 5.4."
+      },
+      "supporting_outputs": {
+        "supervisor_decision": {
+          "goal": "reduce_energy_keep_comfort_safe",
+          "agents_consulted": [
+            "energy_agent",
+            "comfort_agent",
+            "carbon_agent",
+            "anomaly_agent"
+          ],
+          "bandit_choice": {
+            "selected_strategy": "eco_mode",
+            "selection_reason": "Goal requests energy reduction.",
+            "context": {
+              "comfort_status": "Safe",
+              "overall_score": 93.33,
+              "energy_efficiency": 89.85,
+              "carbon_optimization": 89.85,
+              "anomaly_count": 0,
+              "highest_anomaly_severity": "none",
+              "best_memory_strategy": "eco_mode"
+            },
+            "strategy_scores": {
+              "eco_mode": 55.3,
+              "comfort_mode": 10.36,
+              "carbon_aware_mode": 0.0,
+              "balanced_mode": 0.0,
+              "iaq_priority_mode": 0.0,
+              "equipment_protection_mode": 0.0,
+              "anomaly_response_mode": 0.0
+            },
+            "source": "contextual_bandit"
+          },
+          "recommendations": [
+            {
+              "agent_name": "energy_agent",
+              "goal": "reduce_energy_keep_comfort_safe",
+              "recommended_action": {
+                "action_id": "20f90bf1-e83e-443e-9d3b-a9d90b2243bf",
+                "strategy_name": "eco_mode",
+                "action_type": "lighting_adjustment",
+                "target": "unoccupied_zones",
+                "description": "Reduce lighting in unoccupied zones to lower electricity consumption while preserving comfort.",
+                "parameters": {
+                  "lighting_level_percent": 25,
+                  "applies_to_occupied_zones": false
+                },
+                "expected_energy_saved_percent": 48.833,
+                "expected_carbon_reduced_percent": 48.833,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "energy_agent",
+                "priority": "medium"
+              },
+              "confidence": 0.9,
+              "rationale": "Lighting reduction is the safest near-term energy action because it avoids occupied comfort risk.",
+              "expected_benefits": [
+                "Lower electricity use",
+                "Preserve occupied-zone comfort",
+                "Reuse the proven Layer 1 eco_mode behavior"
+              ],
+              "risks": [],
+              "evidence": {
+                "energy_efficiency": 89.85,
+                "electricity_kwh": 40280.34,
+                "anomaly_count": 0,
+                "best_strategy": "eco_mode"
+              }
+            },
+            {
+              "agent_name": "comfort_agent",
+              "goal": "reduce_energy_keep_comfort_safe",
+              "recommended_action": {
+                "action_id": "01f46727-4565-41ef-a24f-c54100d3486c",
+                "strategy_name": "comfort_preserving_mode",
+                "action_type": "strategy_mode",
+                "target": "occupied_zones",
+                "description": "Maintain occupied-zone comfort while allowing only conservative efficiency actions.",
+                "parameters": {
+                  "max_cooling_setpoint_c": 26,
+                  "min_lighting_level_percent_occupied": 50,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 2.0,
+                "expected_carbon_reduced_percent": 2.0,
+                "expected_comfort_impact": "positive",
+                "source_agent": "comfort_agent",
+                "priority": "medium"
+              },
+              "confidence": 0.6,
+              "rationale": "Comfort guardrails should remain active before any efficiency or carbon action is executed.",
+              "expected_benefits": [
+                "Maintains occupied-zone comfort",
+                "Keeps autonomous decisions inside comfort bounds"
+              ],
+              "risks": [],
+              "evidence": {
+                "comfort_status": "Safe",
+                "comfort_score": 100.0,
+                "violations": [],
+                "total_occupancy": 20
+              }
+            },
+            {
+              "agent_name": "carbon_agent",
+              "goal": "reduce_energy_keep_comfort_safe",
+              "recommended_action": {
+                "action_id": "8531f71c-a896-499d-8a17-c4d0412dfe02",
+                "strategy_name": "carbon_aware_mode",
+                "action_type": "carbon_schedule_shift",
+                "target": "whole_building",
+                "description": "Shift flexible HVAC and lighting loads toward lower-carbon operating windows while keeping comfort safe.",
+                "parameters": {
+                  "preconditioning_enabled": true,
+                  "avoid_peak_carbon_window": true,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 3.0,
+                "expected_carbon_reduced_percent": 6.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "carbon_agent",
+                "priority": "medium"
+              },
+              "confidence": 0.75,
+              "rationale": "Carbon-aware scheduling can reduce emissions without requiring aggressive comfort changes.",
+              "expected_benefits": [
+                "Reduce carbon impact",
+                "Keep comfort guard enabled",
+                "Shift flexible loads away from high-carbon periods"
+              ],
+              "risks": [
+                "Requires future carbon-intensity schedule integration for execution."
+              ],
+              "evidence": {
+                "carbon_optimization": 89.85,
+                "grid_intensity_kg_per_kwh": 0.45
+              }
+            },
+            {
+              "agent_name": "anomaly_agent",
+              "goal": "reduce_energy_keep_comfort_safe",
+              "recommended_action": {
+                "action_id": "b5081da4-d011-4ef0-b271-f1931ea7d61f",
+                "strategy_name": "normal_monitoring",
+                "action_type": "anomaly_response",
+                "target": "whole_building",
+                "description": "No active anomalies detected; continue monitoring and preserve current safe operation.",
+                "parameters": {
+                  "continue_monitoring": true,
+                  "no_direct_control_change": true
+                },
+                "expected_energy_saved_percent": 0.0,
+                "expected_carbon_reduced_percent": 0.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "anomaly_agent",
+                "priority": "low"
+              },
+              "confidence": 0.55,
+              "rationale": "Anomaly-aware decisions prioritize operational risk before optimization.",
+              "expected_benefits": [
+                "Maintain safe monitoring",
+                "Avoid unsafe autonomous control during abnormal conditions"
+              ],
+              "risks": [],
+              "evidence": {
+                "anomaly_count": 0,
+                "highest_severity": "none",
+                "selected_anomaly": {}
+              }
+            }
+          ],
+          "ranked_recommendations": [
+            {
+              "rank": 1,
+              "agent_name": "energy_agent",
+              "score": 113.83,
+              "rationale": "Lighting reduction is the safest near-term energy action because it avoids occupied comfort risk.",
+              "action": {
+                "action_id": "20f90bf1-e83e-443e-9d3b-a9d90b2243bf",
+                "strategy_name": "eco_mode",
+                "action_type": "lighting_adjustment",
+                "target": "unoccupied_zones",
+                "description": "Reduce lighting in unoccupied zones to lower electricity consumption while preserving comfort.",
+                "parameters": {
+                  "lighting_level_percent": 25,
+                  "applies_to_occupied_zones": false
+                },
+                "expected_energy_saved_percent": 48.833,
+                "expected_carbon_reduced_percent": 48.833,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "energy_agent",
+                "priority": "medium"
+              }
+            },
+            {
+              "rank": 2,
+              "agent_name": "comfort_agent",
+              "score": 47.0,
+              "rationale": "Comfort guardrails should remain active before any efficiency or carbon action is executed.",
+              "action": {
+                "action_id": "01f46727-4565-41ef-a24f-c54100d3486c",
+                "strategy_name": "comfort_preserving_mode",
+                "action_type": "strategy_mode",
+                "target": "occupied_zones",
+                "description": "Maintain occupied-zone comfort while allowing only conservative efficiency actions.",
+                "parameters": {
+                  "max_cooling_setpoint_c": 26,
+                  "min_lighting_level_percent_occupied": 50,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 2.0,
+                "expected_carbon_reduced_percent": 2.0,
+                "expected_comfort_impact": "positive",
+                "source_agent": "comfort_agent",
+                "priority": "medium"
+              }
+            },
+            {
+              "rank": 3,
+              "agent_name": "carbon_agent",
+              "score": 45.5,
+              "rationale": "Carbon-aware scheduling can reduce emissions without requiring aggressive comfort changes.",
+              "action": {
+                "action_id": "8531f71c-a896-499d-8a17-c4d0412dfe02",
+                "strategy_name": "carbon_aware_mode",
+                "action_type": "carbon_schedule_shift",
+                "target": "whole_building",
+                "description": "Shift flexible HVAC and lighting loads toward lower-carbon operating windows while keeping comfort safe.",
+                "parameters": {
+                  "preconditioning_enabled": true,
+                  "avoid_peak_carbon_window": true,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 3.0,
+                "expected_carbon_reduced_percent": 6.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "carbon_agent",
+                "priority": "medium"
+              }
+            },
+            {
+              "rank": 4,
+              "agent_name": "anomaly_agent",
+              "score": 27.5,
+              "rationale": "Anomaly-aware decisions prioritize operational risk before optimization.",
+              "action": {
+                "action_id": "b5081da4-d011-4ef0-b271-f1931ea7d61f",
+                "strategy_name": "normal_monitoring",
+                "action_type": "anomaly_response",
+                "target": "whole_building",
+                "description": "No active anomalies detected; continue monitoring and preserve current safe operation.",
+                "parameters": {
+                  "continue_monitoring": true,
+                  "no_direct_control_change": true
+                },
+                "expected_energy_saved_percent": 0.0,
+                "expected_carbon_reduced_percent": 0.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "anomaly_agent",
+                "priority": "low"
+              }
+            }
+          ],
+          "selected_recommendation": {
+            "agent_name": "energy_agent",
+            "goal": "reduce_energy_keep_comfort_safe",
+            "recommended_action": {
+              "action_id": "20f90bf1-e83e-443e-9d3b-a9d90b2243bf",
+              "strategy_name": "eco_mode",
+              "action_type": "lighting_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Reduce lighting in unoccupied zones to lower electricity consumption while preserving comfort.",
+              "parameters": {
+                "lighting_level_percent": 25,
+                "applies_to_occupied_zones": false
+              },
+              "expected_energy_saved_percent": 48.833,
+              "expected_carbon_reduced_percent": 48.833,
+              "expected_comfort_impact": "neutral",
+              "source_agent": "energy_agent",
+              "priority": "medium"
+            },
+            "confidence": 0.9,
+            "rationale": "Lighting reduction is the safest near-term energy action because it avoids occupied comfort risk.",
+            "expected_benefits": [
+              "Lower electricity use",
+              "Preserve occupied-zone comfort",
+              "Reuse the proven Layer 1 eco_mode behavior"
+            ],
+            "risks": [],
+            "evidence": {
+              "energy_efficiency": 89.85,
+              "electricity_kwh": 40280.34,
+              "anomaly_count": 0,
+              "best_strategy": "eco_mode"
+            }
+          },
+          "safety_decision": {
+            "action_id": "20f90bf1-e83e-443e-9d3b-a9d90b2243bf",
+            "approved": false,
+            "decision": "rejected",
+            "risk_level": "medium",
+            "reasons": [
+              "Expected energy saving is unusually aggressive and requires review."
+            ],
+            "blocked_by": [
+              "expected_impact"
+            ],
+            "safe_alternative": {
+              "strategy_name": "comfort_preserving_lighting",
+              "action_type": "lighting_adjustment",
+              "description": "Reduce lighting only in unoccupied zones.",
+              "parameters": {
+                "lighting_level_percent": 25,
+                "applies_to_occupied_zones": false
+              }
+            },
+            "checked_constraints": [
+              "hvac_comfort_bounds",
+              "lighting_safety",
+              "ventilation_iaq",
+              "anomaly_severity",
+              "expected_impact"
+            ]
+          },
+          "final_action": {
+            "strategy_name": "comfort_preserving_lighting",
+            "action_type": "lighting_adjustment",
+            "description": "Reduce lighting only in unoccupied zones.",
+            "parameters": {
+              "lighting_level_percent": 25,
+              "applies_to_occupied_zones": false
+            }
+          },
+          "status": "rejected",
+          "summary": "Goal 'reduce_energy_keep_comfort_safe' consulted 4 agents. Selected eco_mode from energy_agent; bandit preferred eco_mode. Safety Governor rejected the action. Reason summary: Expected energy saving is unusually aggressive and requires review."
+        },
+        "carbon_plan": null
+      },
+      "notes": [
+        "Layer 3 decides and safety-checks actions.",
+        "Layer 5.1-5.3 simulates, ranks, and final-safety-checks approved plans before any execution phase."
+      ]
+    },
+    "reduce_carbon": {
+      "project": {
+        "name": "ForgeHive",
+        "layer": "Layer 3",
+        "phase": "Phase 3.6",
+        "description": "Autonomous decision API"
+      },
+      "input_goal": "reduce carbon impact today",
+      "normalized_goal": "reduce_carbon",
+      "building_context": {
+        "overall_score": 93.33,
+        "comfort_status": "Safe",
+        "anomaly_count": 0,
+        "best_strategy": "eco_mode"
+      },
+      "decision": {
+        "selected_plan_type": "carbon_aware_schedule",
+        "selected_action": {
+          "action_id": "27180ab7-18fa-458c-ad6d-95e3bbca74d7",
+          "strategy_name": "carbon_aware_mode",
+          "action_type": "carbon_schedule_shift",
+          "target": "whole_building",
+          "description": "Shift flexible HVAC and lighting operations toward lower-carbon windows while keeping comfort safe.",
+          "parameters": {
+            "recommended_schedule": [
+              {
+                "action": "precondition",
+                "start_hour": 0,
+                "end_hour": 6,
+                "reason": "Use lower-carbon electricity before carbon peak."
+              },
+              {
+                "action": "reduce_flexible_load",
+                "start_hour": 11,
+                "end_hour": 18,
+                "reason": "Avoid high-carbon operation while preserving comfort."
+              }
+            ],
+            "comfort_guard_enabled": true,
+            "preconditioning_enabled": true
+          },
+          "expected_energy_saved_percent": 3.0,
+          "expected_carbon_reduced_percent": 6.0,
+          "expected_comfort_impact": "neutral",
+          "source_agent": "carbon_scheduler",
+          "priority": "medium"
+        },
+        "safety_decision": {
+          "action_id": "27180ab7-18fa-458c-ad6d-95e3bbca74d7",
+          "approved": true,
+          "decision": "approved",
+          "risk_level": "low",
+          "reasons": [],
+          "blocked_by": [],
+          "safe_alternative": null,
+          "checked_constraints": [
+            "hvac_comfort_bounds",
+            "lighting_safety",
+            "ventilation_iaq",
+            "anomaly_severity",
+            "expected_impact"
+          ]
+        },
+        "ready_for_execution": true,
+        "summary": "Goal 'reduce_carbon' selected carbon_aware_mode via carbon_aware_schedule with action type carbon_schedule_shift; the plan is ready for Layer 5 closed-loop review. Layer 5.1-5.3 will simulate, rank, and safety-approve this plan; actual digital-twin execution is deferred to Phase 5.4."
+      },
+      "supporting_outputs": {
+        "supervisor_decision": {
+          "goal": "reduce_carbon",
+          "agents_consulted": [
+            "energy_agent",
+            "comfort_agent",
+            "carbon_agent",
+            "anomaly_agent"
+          ],
+          "bandit_choice": {
+            "selected_strategy": "carbon_aware_mode",
+            "selection_reason": "Goal requests carbon reduction.",
+            "context": {
+              "comfort_status": "Safe",
+              "overall_score": 93.33,
+              "energy_efficiency": 89.85,
+              "carbon_optimization": 89.85,
+              "anomaly_count": 0,
+              "highest_anomaly_severity": "none",
+              "best_memory_strategy": "eco_mode"
+            },
+            "strategy_scores": {
+              "eco_mode": 55.3,
+              "comfort_mode": 10.36,
+              "carbon_aware_mode": 0.0,
+              "balanced_mode": 0.0,
+              "iaq_priority_mode": 0.0,
+              "equipment_protection_mode": 0.0,
+              "anomaly_response_mode": 0.0
+            },
+            "source": "contextual_bandit"
+          },
+          "recommendations": [
+            {
+              "agent_name": "energy_agent",
+              "goal": "reduce_carbon",
+              "recommended_action": {
+                "action_id": "7af23fc9-8168-45cf-9ff6-9a325b7c417b",
+                "strategy_name": "eco_mode",
+                "action_type": "lighting_adjustment",
+                "target": "unoccupied_zones",
+                "description": "Reduce lighting in unoccupied zones to lower electricity consumption while preserving comfort.",
+                "parameters": {
+                  "lighting_level_percent": 25,
+                  "applies_to_occupied_zones": false
+                },
+                "expected_energy_saved_percent": 48.833,
+                "expected_carbon_reduced_percent": 48.833,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "energy_agent",
+                "priority": "medium"
+              },
+              "confidence": 0.9,
+              "rationale": "Lighting reduction is the safest near-term energy action because it avoids occupied comfort risk.",
+              "expected_benefits": [
+                "Lower electricity use",
+                "Preserve occupied-zone comfort",
+                "Reuse the proven Layer 1 eco_mode behavior"
+              ],
+              "risks": [],
+              "evidence": {
+                "energy_efficiency": 89.85,
+                "electricity_kwh": 40280.34,
+                "anomaly_count": 0,
+                "best_strategy": "eco_mode"
+              }
+            },
+            {
+              "agent_name": "comfort_agent",
+              "goal": "reduce_carbon",
+              "recommended_action": {
+                "action_id": "6b6a1e81-168d-4315-8476-dbffabd03e5d",
+                "strategy_name": "comfort_preserving_mode",
+                "action_type": "strategy_mode",
+                "target": "occupied_zones",
+                "description": "Maintain occupied-zone comfort while allowing only conservative efficiency actions.",
+                "parameters": {
+                  "max_cooling_setpoint_c": 26,
+                  "min_lighting_level_percent_occupied": 50,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 2.0,
+                "expected_carbon_reduced_percent": 2.0,
+                "expected_comfort_impact": "positive",
+                "source_agent": "comfort_agent",
+                "priority": "medium"
+              },
+              "confidence": 0.6,
+              "rationale": "Comfort guardrails should remain active before any efficiency or carbon action is executed.",
+              "expected_benefits": [
+                "Maintains occupied-zone comfort",
+                "Keeps autonomous decisions inside comfort bounds"
+              ],
+              "risks": [],
+              "evidence": {
+                "comfort_status": "Safe",
+                "comfort_score": 100.0,
+                "violations": [],
+                "total_occupancy": 20
+              }
+            },
+            {
+              "agent_name": "carbon_agent",
+              "goal": "reduce_carbon",
+              "recommended_action": {
+                "action_id": "09cf6be6-588e-4535-b894-92844d7b9135",
+                "strategy_name": "carbon_aware_mode",
+                "action_type": "carbon_schedule_shift",
+                "target": "whole_building",
+                "description": "Shift flexible HVAC and lighting loads toward lower-carbon operating windows while keeping comfort safe.",
+                "parameters": {
+                  "preconditioning_enabled": true,
+                  "avoid_peak_carbon_window": true,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 3.0,
+                "expected_carbon_reduced_percent": 6.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "carbon_agent",
+                "priority": "medium"
+              },
+              "confidence": 0.95,
+              "rationale": "Carbon-aware scheduling can reduce emissions without requiring aggressive comfort changes.",
+              "expected_benefits": [
+                "Reduce carbon impact",
+                "Keep comfort guard enabled",
+                "Shift flexible loads away from high-carbon periods"
+              ],
+              "risks": [
+                "Requires future carbon-intensity schedule integration for execution."
+              ],
+              "evidence": {
+                "carbon_optimization": 89.85,
+                "grid_intensity_kg_per_kwh": 0.45
+              }
+            },
+            {
+              "agent_name": "anomaly_agent",
+              "goal": "reduce_carbon",
+              "recommended_action": {
+                "action_id": "e37489cb-f0fb-4424-96fe-46bcd788ddaf",
+                "strategy_name": "normal_monitoring",
+                "action_type": "anomaly_response",
+                "target": "whole_building",
+                "description": "No active anomalies detected; continue monitoring and preserve current safe operation.",
+                "parameters": {
+                  "continue_monitoring": true,
+                  "no_direct_control_change": true
+                },
+                "expected_energy_saved_percent": 0.0,
+                "expected_carbon_reduced_percent": 0.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "anomaly_agent",
+                "priority": "low"
+              },
+              "confidence": 0.55,
+              "rationale": "Anomaly-aware decisions prioritize operational risk before optimization.",
+              "expected_benefits": [
+                "Maintain safe monitoring",
+                "Avoid unsafe autonomous control during abnormal conditions"
+              ],
+              "risks": [],
+              "evidence": {
+                "anomaly_count": 0,
+                "highest_severity": "none",
+                "selected_anomaly": {}
+              }
+            }
+          ],
+          "ranked_recommendations": [
+            {
+              "rank": 1,
+              "agent_name": "energy_agent",
+              "score": 98.83,
+              "rationale": "Lighting reduction is the safest near-term energy action because it avoids occupied comfort risk.",
+              "action": {
+                "action_id": "7af23fc9-8168-45cf-9ff6-9a325b7c417b",
+                "strategy_name": "eco_mode",
+                "action_type": "lighting_adjustment",
+                "target": "unoccupied_zones",
+                "description": "Reduce lighting in unoccupied zones to lower electricity consumption while preserving comfort.",
+                "parameters": {
+                  "lighting_level_percent": 25,
+                  "applies_to_occupied_zones": false
+                },
+                "expected_energy_saved_percent": 48.833,
+                "expected_carbon_reduced_percent": 48.833,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "energy_agent",
+                "priority": "medium"
+              }
+            },
+            {
+              "rank": 2,
+              "agent_name": "carbon_agent",
+              "score": 73.5,
+              "rationale": "Carbon-aware scheduling can reduce emissions without requiring aggressive comfort changes.",
+              "action": {
+                "action_id": "09cf6be6-588e-4535-b894-92844d7b9135",
+                "strategy_name": "carbon_aware_mode",
+                "action_type": "carbon_schedule_shift",
+                "target": "whole_building",
+                "description": "Shift flexible HVAC and lighting loads toward lower-carbon operating windows while keeping comfort safe.",
+                "parameters": {
+                  "preconditioning_enabled": true,
+                  "avoid_peak_carbon_window": true,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 3.0,
+                "expected_carbon_reduced_percent": 6.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "carbon_agent",
+                "priority": "medium"
+              }
+            },
+            {
+              "rank": 3,
+              "agent_name": "comfort_agent",
+              "score": 47.0,
+              "rationale": "Comfort guardrails should remain active before any efficiency or carbon action is executed.",
+              "action": {
+                "action_id": "6b6a1e81-168d-4315-8476-dbffabd03e5d",
+                "strategy_name": "comfort_preserving_mode",
+                "action_type": "strategy_mode",
+                "target": "occupied_zones",
+                "description": "Maintain occupied-zone comfort while allowing only conservative efficiency actions.",
+                "parameters": {
+                  "max_cooling_setpoint_c": 26,
+                  "min_lighting_level_percent_occupied": 50,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 2.0,
+                "expected_carbon_reduced_percent": 2.0,
+                "expected_comfort_impact": "positive",
+                "source_agent": "comfort_agent",
+                "priority": "medium"
+              }
+            },
+            {
+              "rank": 4,
+              "agent_name": "anomaly_agent",
+              "score": 27.5,
+              "rationale": "Anomaly-aware decisions prioritize operational risk before optimization.",
+              "action": {
+                "action_id": "e37489cb-f0fb-4424-96fe-46bcd788ddaf",
+                "strategy_name": "normal_monitoring",
+                "action_type": "anomaly_response",
+                "target": "whole_building",
+                "description": "No active anomalies detected; continue monitoring and preserve current safe operation.",
+                "parameters": {
+                  "continue_monitoring": true,
+                  "no_direct_control_change": true
+                },
+                "expected_energy_saved_percent": 0.0,
+                "expected_carbon_reduced_percent": 0.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "anomaly_agent",
+                "priority": "low"
+              }
+            }
+          ],
+          "selected_recommendation": {
+            "agent_name": "energy_agent",
+            "goal": "reduce_carbon",
+            "recommended_action": {
+              "action_id": "7af23fc9-8168-45cf-9ff6-9a325b7c417b",
+              "strategy_name": "eco_mode",
+              "action_type": "lighting_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Reduce lighting in unoccupied zones to lower electricity consumption while preserving comfort.",
+              "parameters": {
+                "lighting_level_percent": 25,
+                "applies_to_occupied_zones": false
+              },
+              "expected_energy_saved_percent": 48.833,
+              "expected_carbon_reduced_percent": 48.833,
+              "expected_comfort_impact": "neutral",
+              "source_agent": "energy_agent",
+              "priority": "medium"
+            },
+            "confidence": 0.9,
+            "rationale": "Lighting reduction is the safest near-term energy action because it avoids occupied comfort risk.",
+            "expected_benefits": [
+              "Lower electricity use",
+              "Preserve occupied-zone comfort",
+              "Reuse the proven Layer 1 eco_mode behavior"
+            ],
+            "risks": [],
+            "evidence": {
+              "energy_efficiency": 89.85,
+              "electricity_kwh": 40280.34,
+              "anomaly_count": 0,
+              "best_strategy": "eco_mode"
+            }
+          },
+          "safety_decision": {
+            "action_id": "7af23fc9-8168-45cf-9ff6-9a325b7c417b",
+            "approved": false,
+            "decision": "rejected",
+            "risk_level": "medium",
+            "reasons": [
+              "Expected energy saving is unusually aggressive and requires review."
+            ],
+            "blocked_by": [
+              "expected_impact"
+            ],
+            "safe_alternative": {
+              "strategy_name": "comfort_preserving_lighting",
+              "action_type": "lighting_adjustment",
+              "description": "Reduce lighting only in unoccupied zones.",
+              "parameters": {
+                "lighting_level_percent": 25,
+                "applies_to_occupied_zones": false
+              }
+            },
+            "checked_constraints": [
+              "hvac_comfort_bounds",
+              "lighting_safety",
+              "ventilation_iaq",
+              "anomaly_severity",
+              "expected_impact"
+            ]
+          },
+          "final_action": {
+            "strategy_name": "comfort_preserving_lighting",
+            "action_type": "lighting_adjustment",
+            "description": "Reduce lighting only in unoccupied zones.",
+            "parameters": {
+              "lighting_level_percent": 25,
+              "applies_to_occupied_zones": false
+            }
+          },
+          "status": "rejected",
+          "summary": "Goal 'reduce_carbon' consulted 4 agents. Selected eco_mode from energy_agent; bandit preferred carbon_aware_mode. Safety Governor rejected the action. Reason summary: Expected energy saving is unusually aggressive and requires review."
+        },
+        "carbon_plan": {
+          "strategy_name": "carbon_aware_mode",
+          "forecast": [
+            {
+              "hour": 0,
+              "carbon_intensity_kg_per_kwh": 0.32,
+              "label": "low"
+            },
+            {
+              "hour": 1,
+              "carbon_intensity_kg_per_kwh": 0.31,
+              "label": "low"
+            },
+            {
+              "hour": 2,
+              "carbon_intensity_kg_per_kwh": 0.3,
+              "label": "low"
+            },
+            {
+              "hour": 3,
+              "carbon_intensity_kg_per_kwh": 0.3,
+              "label": "low"
+            },
+            {
+              "hour": 4,
+              "carbon_intensity_kg_per_kwh": 0.31,
+              "label": "low"
+            },
+            {
+              "hour": 5,
+              "carbon_intensity_kg_per_kwh": 0.33,
+              "label": "low"
+            },
+            {
+              "hour": 6,
+              "carbon_intensity_kg_per_kwh": 0.35,
+              "label": "low"
+            },
+            {
+              "hour": 7,
+              "carbon_intensity_kg_per_kwh": 0.42,
+              "label": "medium"
+            },
+            {
+              "hour": 8,
+              "carbon_intensity_kg_per_kwh": 0.45,
+              "label": "medium"
+            },
+            {
+              "hour": 9,
+              "carbon_intensity_kg_per_kwh": 0.48,
+              "label": "medium"
+            },
+            {
+              "hour": 10,
+              "carbon_intensity_kg_per_kwh": 0.5,
+              "label": "medium"
+            },
+            {
+              "hour": 11,
+              "carbon_intensity_kg_per_kwh": 0.54,
+              "label": "high"
+            },
+            {
+              "hour": 12,
+              "carbon_intensity_kg_per_kwh": 0.58,
+              "label": "high"
+            },
+            {
+              "hour": 13,
+              "carbon_intensity_kg_per_kwh": 0.6,
+              "label": "high"
+            },
+            {
+              "hour": 14,
+              "carbon_intensity_kg_per_kwh": 0.59,
+              "label": "high"
+            },
+            {
+              "hour": 15,
+              "carbon_intensity_kg_per_kwh": 0.56,
+              "label": "high"
+            },
+            {
+              "hour": 16,
+              "carbon_intensity_kg_per_kwh": 0.53,
+              "label": "high"
+            },
+            {
+              "hour": 17,
+              "carbon_intensity_kg_per_kwh": 0.52,
+              "label": "high"
+            },
+            {
+              "hour": 18,
+              "carbon_intensity_kg_per_kwh": 0.51,
+              "label": "high"
+            },
+            {
+              "hour": 19,
+              "carbon_intensity_kg_per_kwh": 0.49,
+              "label": "medium"
+            },
+            {
+              "hour": 20,
+              "carbon_intensity_kg_per_kwh": 0.47,
+              "label": "medium"
+            },
+            {
+              "hour": 21,
+              "carbon_intensity_kg_per_kwh": 0.44,
+              "label": "medium"
+            },
+            {
+              "hour": 22,
+              "carbon_intensity_kg_per_kwh": 0.34,
+              "label": "low"
+            },
+            {
+              "hour": 23,
+              "carbon_intensity_kg_per_kwh": 0.32,
+              "label": "low"
+            }
+          ],
+          "low_carbon_windows": [
+            {
+              "start_hour": 0,
+              "end_hour": 6,
+              "avg_carbon_intensity": 0.317
+            },
+            {
+              "start_hour": 22,
+              "end_hour": 23,
+              "avg_carbon_intensity": 0.33
+            }
+          ],
+          "high_carbon_windows": [
+            {
+              "start_hour": 11,
+              "end_hour": 18,
+              "avg_carbon_intensity": 0.554
+            }
+          ],
+          "recommended_schedule": [
+            {
+              "action": "precondition",
+              "start_hour": 0,
+              "end_hour": 6,
+              "reason": "Use lower-carbon electricity before carbon peak."
+            },
+            {
+              "action": "reduce_flexible_load",
+              "start_hour": 11,
+              "end_hour": 18,
+              "reason": "Avoid high-carbon operation while preserving comfort."
+            }
+          ],
+          "expected_carbon_reduced_percent": 6.0,
+          "expected_energy_saved_percent": 3.0,
+          "comfort_guard_enabled": true,
+          "context": {
+            "comfort_status": "Safe",
+            "overall_score": 93.33
+          }
+        }
+      },
+      "notes": [
+        "Layer 3 decides and safety-checks actions.",
+        "Layer 5.1-5.3 simulates, ranks, and final-safety-checks approved plans before any execution phase."
+      ]
+    },
+    "fix_anomalies": {
+      "project": {
+        "name": "ForgeHive",
+        "layer": "Layer 3",
+        "phase": "Phase 3.6",
+        "description": "Autonomous decision API"
+      },
+      "input_goal": "fix building issues and anomalies",
+      "normalized_goal": "fix_anomalies",
+      "building_context": {
+        "overall_score": 93.33,
+        "comfort_status": "Safe",
+        "anomaly_count": 0,
+        "best_strategy": "eco_mode"
+      },
+      "decision": {
+        "selected_plan_type": "supervisor",
+        "selected_action": {
+          "strategy_name": "comfort_preserving_lighting",
+          "action_type": "lighting_adjustment",
+          "description": "Reduce lighting only in unoccupied zones.",
+          "parameters": {
+            "lighting_level_percent": 25,
+            "applies_to_occupied_zones": false
+          }
+        },
+        "safety_decision": {
+          "action_id": "8e376176-c029-4652-af66-a6037c21bce9",
+          "approved": false,
+          "decision": "rejected",
+          "risk_level": "medium",
+          "reasons": [
+            "Expected energy saving is unusually aggressive and requires review."
+          ],
+          "blocked_by": [
+            "expected_impact"
+          ],
+          "safe_alternative": {
+            "strategy_name": "comfort_preserving_lighting",
+            "action_type": "lighting_adjustment",
+            "description": "Reduce lighting only in unoccupied zones.",
+            "parameters": {
+              "lighting_level_percent": 25,
+              "applies_to_occupied_zones": false
+            }
+          },
+          "checked_constraints": [
+            "hvac_comfort_bounds",
+            "lighting_safety",
+            "ventilation_iaq",
+            "anomaly_severity",
+            "expected_impact"
+          ]
+        },
+        "ready_for_execution": false,
+        "summary": "Goal 'fix_anomalies' selected comfort_preserving_lighting via supervisor with action type lighting_adjustment; the plan is not ready for execution. Layer 5.1-5.3 will simulate, rank, and safety-approve this plan; actual digital-twin execution is deferred to Phase 5.4."
+      },
+      "supporting_outputs": {
+        "supervisor_decision": {
+          "goal": "fix_anomalies",
+          "agents_consulted": [
+            "energy_agent",
+            "comfort_agent",
+            "carbon_agent",
+            "anomaly_agent"
+          ],
+          "bandit_choice": {
+            "selected_strategy": "eco_mode",
+            "selection_reason": "Bandit reward tie broken by best memory strategy.",
+            "context": {
+              "comfort_status": "Safe",
+              "overall_score": 93.33,
+              "energy_efficiency": 89.85,
+              "carbon_optimization": 89.85,
+              "anomaly_count": 0,
+              "highest_anomaly_severity": "none",
+              "best_memory_strategy": "eco_mode"
+            },
+            "strategy_scores": {
+              "eco_mode": 55.3,
+              "comfort_mode": 10.36,
+              "carbon_aware_mode": 0.0,
+              "balanced_mode": 0.0,
+              "iaq_priority_mode": 0.0,
+              "equipment_protection_mode": 0.0,
+              "anomaly_response_mode": 0.0
+            },
+            "source": "contextual_bandit"
+          },
+          "recommendations": [
+            {
+              "agent_name": "energy_agent",
+              "goal": "fix_anomalies",
+              "recommended_action": {
+                "action_id": "8e376176-c029-4652-af66-a6037c21bce9",
+                "strategy_name": "eco_mode",
+                "action_type": "lighting_adjustment",
+                "target": "unoccupied_zones",
+                "description": "Reduce lighting in unoccupied zones to lower electricity consumption while preserving comfort.",
+                "parameters": {
+                  "lighting_level_percent": 25,
+                  "applies_to_occupied_zones": false
+                },
+                "expected_energy_saved_percent": 48.833,
+                "expected_carbon_reduced_percent": 48.833,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "energy_agent",
+                "priority": "medium"
+              },
+              "confidence": 0.9,
+              "rationale": "Lighting reduction is the safest near-term energy action because it avoids occupied comfort risk.",
+              "expected_benefits": [
+                "Lower electricity use",
+                "Preserve occupied-zone comfort",
+                "Reuse the proven Layer 1 eco_mode behavior"
+              ],
+              "risks": [],
+              "evidence": {
+                "energy_efficiency": 89.85,
+                "electricity_kwh": 40280.34,
+                "anomaly_count": 0,
+                "best_strategy": "eco_mode"
+              }
+            },
+            {
+              "agent_name": "comfort_agent",
+              "goal": "fix_anomalies",
+              "recommended_action": {
+                "action_id": "432183b1-370a-47e3-b923-93be086437d8",
+                "strategy_name": "comfort_preserving_mode",
+                "action_type": "strategy_mode",
+                "target": "occupied_zones",
+                "description": "Maintain occupied-zone comfort while allowing only conservative efficiency actions.",
+                "parameters": {
+                  "max_cooling_setpoint_c": 26,
+                  "min_lighting_level_percent_occupied": 50,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 2.0,
+                "expected_carbon_reduced_percent": 2.0,
+                "expected_comfort_impact": "positive",
+                "source_agent": "comfort_agent",
+                "priority": "medium"
+              },
+              "confidence": 0.6,
+              "rationale": "Comfort guardrails should remain active before any efficiency or carbon action is executed.",
+              "expected_benefits": [
+                "Maintains occupied-zone comfort",
+                "Keeps autonomous decisions inside comfort bounds"
+              ],
+              "risks": [],
+              "evidence": {
+                "comfort_status": "Safe",
+                "comfort_score": 100.0,
+                "violations": [],
+                "total_occupancy": 20
+              }
+            },
+            {
+              "agent_name": "carbon_agent",
+              "goal": "fix_anomalies",
+              "recommended_action": {
+                "action_id": "b3046ed4-37da-41fc-8be0-ababde10686d",
+                "strategy_name": "carbon_aware_mode",
+                "action_type": "carbon_schedule_shift",
+                "target": "whole_building",
+                "description": "Shift flexible HVAC and lighting loads toward lower-carbon operating windows while keeping comfort safe.",
+                "parameters": {
+                  "preconditioning_enabled": true,
+                  "avoid_peak_carbon_window": true,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 3.0,
+                "expected_carbon_reduced_percent": 6.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "carbon_agent",
+                "priority": "medium"
+              },
+              "confidence": 0.75,
+              "rationale": "Carbon-aware scheduling can reduce emissions without requiring aggressive comfort changes.",
+              "expected_benefits": [
+                "Reduce carbon impact",
+                "Keep comfort guard enabled",
+                "Shift flexible loads away from high-carbon periods"
+              ],
+              "risks": [
+                "Requires future carbon-intensity schedule integration for execution."
+              ],
+              "evidence": {
+                "carbon_optimization": 89.85,
+                "grid_intensity_kg_per_kwh": 0.45
+              }
+            },
+            {
+              "agent_name": "anomaly_agent",
+              "goal": "fix_anomalies",
+              "recommended_action": {
+                "action_id": "8522eccf-c014-436f-b197-01ef4d860f7a",
+                "strategy_name": "normal_monitoring",
+                "action_type": "anomaly_response",
+                "target": "whole_building",
+                "description": "No active anomalies detected; continue monitoring and preserve current safe operation.",
+                "parameters": {
+                  "continue_monitoring": true,
+                  "no_direct_control_change": true
+                },
+                "expected_energy_saved_percent": 0.0,
+                "expected_carbon_reduced_percent": 0.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "anomaly_agent",
+                "priority": "low"
+              },
+              "confidence": 0.55,
+              "rationale": "Anomaly-aware decisions prioritize operational risk before optimization.",
+              "expected_benefits": [
+                "Maintain safe monitoring",
+                "Avoid unsafe autonomous control during abnormal conditions"
+              ],
+              "risks": [],
+              "evidence": {
+                "anomaly_count": 0,
+                "highest_severity": "none",
+                "selected_anomaly": {}
+              }
+            }
+          ],
+          "ranked_recommendations": [
+            {
+              "rank": 1,
+              "agent_name": "energy_agent",
+              "score": 65.0,
+              "rationale": "Lighting reduction is the safest near-term energy action because it avoids occupied comfort risk.",
+              "action": {
+                "action_id": "8e376176-c029-4652-af66-a6037c21bce9",
+                "strategy_name": "eco_mode",
+                "action_type": "lighting_adjustment",
+                "target": "unoccupied_zones",
+                "description": "Reduce lighting in unoccupied zones to lower electricity consumption while preserving comfort.",
+                "parameters": {
+                  "lighting_level_percent": 25,
+                  "applies_to_occupied_zones": false
+                },
+                "expected_energy_saved_percent": 48.833,
+                "expected_carbon_reduced_percent": 48.833,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "energy_agent",
+                "priority": "medium"
+              }
+            },
+            {
+              "rank": 2,
+              "agent_name": "comfort_agent",
+              "score": 45.0,
+              "rationale": "Comfort guardrails should remain active before any efficiency or carbon action is executed.",
+              "action": {
+                "action_id": "432183b1-370a-47e3-b923-93be086437d8",
+                "strategy_name": "comfort_preserving_mode",
+                "action_type": "strategy_mode",
+                "target": "occupied_zones",
+                "description": "Maintain occupied-zone comfort while allowing only conservative efficiency actions.",
+                "parameters": {
+                  "max_cooling_setpoint_c": 26,
+                  "min_lighting_level_percent_occupied": 50,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 2.0,
+                "expected_carbon_reduced_percent": 2.0,
+                "expected_comfort_impact": "positive",
+                "source_agent": "comfort_agent",
+                "priority": "medium"
+              }
+            },
+            {
+              "rank": 3,
+              "agent_name": "carbon_agent",
+              "score": 42.5,
+              "rationale": "Carbon-aware scheduling can reduce emissions without requiring aggressive comfort changes.",
+              "action": {
+                "action_id": "b3046ed4-37da-41fc-8be0-ababde10686d",
+                "strategy_name": "carbon_aware_mode",
+                "action_type": "carbon_schedule_shift",
+                "target": "whole_building",
+                "description": "Shift flexible HVAC and lighting loads toward lower-carbon operating windows while keeping comfort safe.",
+                "parameters": {
+                  "preconditioning_enabled": true,
+                  "avoid_peak_carbon_window": true,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 3.0,
+                "expected_carbon_reduced_percent": 6.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "carbon_agent",
+                "priority": "medium"
+              }
+            },
+            {
+              "rank": 4,
+              "agent_name": "anomaly_agent",
+              "score": 27.5,
+              "rationale": "Anomaly-aware decisions prioritize operational risk before optimization.",
+              "action": {
+                "action_id": "8522eccf-c014-436f-b197-01ef4d860f7a",
+                "strategy_name": "normal_monitoring",
+                "action_type": "anomaly_response",
+                "target": "whole_building",
+                "description": "No active anomalies detected; continue monitoring and preserve current safe operation.",
+                "parameters": {
+                  "continue_monitoring": true,
+                  "no_direct_control_change": true
+                },
+                "expected_energy_saved_percent": 0.0,
+                "expected_carbon_reduced_percent": 0.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "anomaly_agent",
+                "priority": "low"
+              }
+            }
+          ],
+          "selected_recommendation": {
+            "agent_name": "energy_agent",
+            "goal": "fix_anomalies",
+            "recommended_action": {
+              "action_id": "8e376176-c029-4652-af66-a6037c21bce9",
+              "strategy_name": "eco_mode",
+              "action_type": "lighting_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Reduce lighting in unoccupied zones to lower electricity consumption while preserving comfort.",
+              "parameters": {
+                "lighting_level_percent": 25,
+                "applies_to_occupied_zones": false
+              },
+              "expected_energy_saved_percent": 48.833,
+              "expected_carbon_reduced_percent": 48.833,
+              "expected_comfort_impact": "neutral",
+              "source_agent": "energy_agent",
+              "priority": "medium"
+            },
+            "confidence": 0.9,
+            "rationale": "Lighting reduction is the safest near-term energy action because it avoids occupied comfort risk.",
+            "expected_benefits": [
+              "Lower electricity use",
+              "Preserve occupied-zone comfort",
+              "Reuse the proven Layer 1 eco_mode behavior"
+            ],
+            "risks": [],
+            "evidence": {
+              "energy_efficiency": 89.85,
+              "electricity_kwh": 40280.34,
+              "anomaly_count": 0,
+              "best_strategy": "eco_mode"
+            }
+          },
+          "safety_decision": {
+            "action_id": "8e376176-c029-4652-af66-a6037c21bce9",
+            "approved": false,
+            "decision": "rejected",
+            "risk_level": "medium",
+            "reasons": [
+              "Expected energy saving is unusually aggressive and requires review."
+            ],
+            "blocked_by": [
+              "expected_impact"
+            ],
+            "safe_alternative": {
+              "strategy_name": "comfort_preserving_lighting",
+              "action_type": "lighting_adjustment",
+              "description": "Reduce lighting only in unoccupied zones.",
+              "parameters": {
+                "lighting_level_percent": 25,
+                "applies_to_occupied_zones": false
+              }
+            },
+            "checked_constraints": [
+              "hvac_comfort_bounds",
+              "lighting_safety",
+              "ventilation_iaq",
+              "anomaly_severity",
+              "expected_impact"
+            ]
+          },
+          "final_action": {
+            "strategy_name": "comfort_preserving_lighting",
+            "action_type": "lighting_adjustment",
+            "description": "Reduce lighting only in unoccupied zones.",
+            "parameters": {
+              "lighting_level_percent": 25,
+              "applies_to_occupied_zones": false
+            }
+          },
+          "status": "rejected",
+          "summary": "Goal 'fix_anomalies' consulted 4 agents. Selected eco_mode from energy_agent; bandit preferred eco_mode. Safety Governor rejected the action. Reason summary: Expected energy saving is unusually aggressive and requires review."
+        },
+        "carbon_plan": null
+      },
+      "notes": [
+        "Layer 3 decides and safety-checks actions.",
+        "Layer 5.1-5.3 simulates, ranks, and final-safety-checks approved plans before any execution phase."
+      ]
+    },
+    "maintain_comfort": {
+      "project": {
+        "name": "ForgeHive",
+        "layer": "Layer 3",
+        "phase": "Phase 3.6",
+        "description": "Autonomous decision API"
+      },
+      "input_goal": "maintain comfort",
+      "normalized_goal": "maintain_comfort",
+      "building_context": {
+        "overall_score": 93.33,
+        "comfort_status": "Safe",
+        "anomaly_count": 0,
+        "best_strategy": "eco_mode"
+      },
+      "decision": {
+        "selected_plan_type": "supervisor",
+        "selected_action": {
+          "strategy_name": "comfort_preserving_lighting",
+          "action_type": "lighting_adjustment",
+          "description": "Reduce lighting only in unoccupied zones.",
+          "parameters": {
+            "lighting_level_percent": 25,
+            "applies_to_occupied_zones": false
+          }
+        },
+        "safety_decision": {
+          "action_id": "cffa03c7-7893-4cb5-8822-dc56e4caf2f5",
+          "approved": false,
+          "decision": "rejected",
+          "risk_level": "medium",
+          "reasons": [
+            "Expected energy saving is unusually aggressive and requires review."
+          ],
+          "blocked_by": [
+            "expected_impact"
+          ],
+          "safe_alternative": {
+            "strategy_name": "comfort_preserving_lighting",
+            "action_type": "lighting_adjustment",
+            "description": "Reduce lighting only in unoccupied zones.",
+            "parameters": {
+              "lighting_level_percent": 25,
+              "applies_to_occupied_zones": false
+            }
+          },
+          "checked_constraints": [
+            "hvac_comfort_bounds",
+            "lighting_safety",
+            "ventilation_iaq",
+            "anomaly_severity",
+            "expected_impact"
+          ]
+        },
+        "ready_for_execution": false,
+        "summary": "Goal 'maintain_comfort' selected comfort_preserving_lighting via supervisor with action type lighting_adjustment; the plan is not ready for execution. Layer 5.1-5.3 will simulate, rank, and safety-approve this plan; actual digital-twin execution is deferred to Phase 5.4."
+      },
+      "supporting_outputs": {
+        "supervisor_decision": {
+          "goal": "maintain_comfort",
+          "agents_consulted": [
+            "energy_agent",
+            "comfort_agent",
+            "carbon_agent",
+            "anomaly_agent"
+          ],
+          "bandit_choice": {
+            "selected_strategy": "comfort_mode",
+            "selection_reason": "Goal requests comfort maintenance.",
+            "context": {
+              "comfort_status": "Safe",
+              "overall_score": 93.33,
+              "energy_efficiency": 89.85,
+              "carbon_optimization": 89.85,
+              "anomaly_count": 0,
+              "highest_anomaly_severity": "none",
+              "best_memory_strategy": "eco_mode"
+            },
+            "strategy_scores": {
+              "eco_mode": 55.3,
+              "comfort_mode": 10.36,
+              "carbon_aware_mode": 0.0,
+              "balanced_mode": 0.0,
+              "iaq_priority_mode": 0.0,
+              "equipment_protection_mode": 0.0,
+              "anomaly_response_mode": 0.0
+            },
+            "source": "contextual_bandit"
+          },
+          "recommendations": [
+            {
+              "agent_name": "energy_agent",
+              "goal": "maintain_comfort",
+              "recommended_action": {
+                "action_id": "cffa03c7-7893-4cb5-8822-dc56e4caf2f5",
+                "strategy_name": "eco_mode",
+                "action_type": "lighting_adjustment",
+                "target": "unoccupied_zones",
+                "description": "Reduce lighting in unoccupied zones to lower electricity consumption while preserving comfort.",
+                "parameters": {
+                  "lighting_level_percent": 25,
+                  "applies_to_occupied_zones": false
+                },
+                "expected_energy_saved_percent": 48.833,
+                "expected_carbon_reduced_percent": 48.833,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "energy_agent",
+                "priority": "medium"
+              },
+              "confidence": 0.9,
+              "rationale": "Lighting reduction is the safest near-term energy action because it avoids occupied comfort risk.",
+              "expected_benefits": [
+                "Lower electricity use",
+                "Preserve occupied-zone comfort",
+                "Reuse the proven Layer 1 eco_mode behavior"
+              ],
+              "risks": [],
+              "evidence": {
+                "energy_efficiency": 89.85,
+                "electricity_kwh": 40280.34,
+                "anomaly_count": 0,
+                "best_strategy": "eco_mode"
+              }
+            },
+            {
+              "agent_name": "comfort_agent",
+              "goal": "maintain_comfort",
+              "recommended_action": {
+                "action_id": "f3152f12-2980-4462-ba4a-b1632c961e33",
+                "strategy_name": "comfort_preserving_mode",
+                "action_type": "strategy_mode",
+                "target": "occupied_zones",
+                "description": "Maintain occupied-zone comfort while allowing only conservative efficiency actions.",
+                "parameters": {
+                  "max_cooling_setpoint_c": 26,
+                  "min_lighting_level_percent_occupied": 50,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 2.0,
+                "expected_carbon_reduced_percent": 2.0,
+                "expected_comfort_impact": "positive",
+                "source_agent": "comfort_agent",
+                "priority": "medium"
+              },
+              "confidence": 0.6,
+              "rationale": "Comfort guardrails should remain active before any efficiency or carbon action is executed.",
+              "expected_benefits": [
+                "Maintains occupied-zone comfort",
+                "Keeps autonomous decisions inside comfort bounds"
+              ],
+              "risks": [],
+              "evidence": {
+                "comfort_status": "Safe",
+                "comfort_score": 100.0,
+                "violations": [],
+                "total_occupancy": 20
+              }
+            },
+            {
+              "agent_name": "carbon_agent",
+              "goal": "maintain_comfort",
+              "recommended_action": {
+                "action_id": "cc009904-8532-4d78-a9d2-8d909c582542",
+                "strategy_name": "carbon_aware_mode",
+                "action_type": "carbon_schedule_shift",
+                "target": "whole_building",
+                "description": "Shift flexible HVAC and lighting loads toward lower-carbon operating windows while keeping comfort safe.",
+                "parameters": {
+                  "preconditioning_enabled": true,
+                  "avoid_peak_carbon_window": true,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 3.0,
+                "expected_carbon_reduced_percent": 6.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "carbon_agent",
+                "priority": "medium"
+              },
+              "confidence": 0.75,
+              "rationale": "Carbon-aware scheduling can reduce emissions without requiring aggressive comfort changes.",
+              "expected_benefits": [
+                "Reduce carbon impact",
+                "Keep comfort guard enabled",
+                "Shift flexible loads away from high-carbon periods"
+              ],
+              "risks": [
+                "Requires future carbon-intensity schedule integration for execution."
+              ],
+              "evidence": {
+                "carbon_optimization": 89.85,
+                "grid_intensity_kg_per_kwh": 0.45
+              }
+            },
+            {
+              "agent_name": "anomaly_agent",
+              "goal": "maintain_comfort",
+              "recommended_action": {
+                "action_id": "785c3edc-8dac-4576-b67b-2246ff1121c6",
+                "strategy_name": "normal_monitoring",
+                "action_type": "anomaly_response",
+                "target": "whole_building",
+                "description": "No active anomalies detected; continue monitoring and preserve current safe operation.",
+                "parameters": {
+                  "continue_monitoring": true,
+                  "no_direct_control_change": true
+                },
+                "expected_energy_saved_percent": 0.0,
+                "expected_carbon_reduced_percent": 0.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "anomaly_agent",
+                "priority": "low"
+              },
+              "confidence": 0.55,
+              "rationale": "Anomaly-aware decisions prioritize operational risk before optimization.",
+              "expected_benefits": [
+                "Maintain safe monitoring",
+                "Avoid unsafe autonomous control during abnormal conditions"
+              ],
+              "risks": [],
+              "evidence": {
+                "anomaly_count": 0,
+                "highest_severity": "none",
+                "selected_anomaly": {}
+              }
+            }
+          ],
+          "ranked_recommendations": [
+            {
+              "rank": 1,
+              "agent_name": "energy_agent",
+              "score": 50.0,
+              "rationale": "Lighting reduction is the safest near-term energy action because it avoids occupied comfort risk.",
+              "action": {
+                "action_id": "cffa03c7-7893-4cb5-8822-dc56e4caf2f5",
+                "strategy_name": "eco_mode",
+                "action_type": "lighting_adjustment",
+                "target": "unoccupied_zones",
+                "description": "Reduce lighting in unoccupied zones to lower electricity consumption while preserving comfort.",
+                "parameters": {
+                  "lighting_level_percent": 25,
+                  "applies_to_occupied_zones": false
+                },
+                "expected_energy_saved_percent": 48.833,
+                "expected_carbon_reduced_percent": 48.833,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "energy_agent",
+                "priority": "medium"
+              }
+            },
+            {
+              "rank": 2,
+              "agent_name": "comfort_agent",
+              "score": 45.0,
+              "rationale": "Comfort guardrails should remain active before any efficiency or carbon action is executed.",
+              "action": {
+                "action_id": "f3152f12-2980-4462-ba4a-b1632c961e33",
+                "strategy_name": "comfort_preserving_mode",
+                "action_type": "strategy_mode",
+                "target": "occupied_zones",
+                "description": "Maintain occupied-zone comfort while allowing only conservative efficiency actions.",
+                "parameters": {
+                  "max_cooling_setpoint_c": 26,
+                  "min_lighting_level_percent_occupied": 50,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 2.0,
+                "expected_carbon_reduced_percent": 2.0,
+                "expected_comfort_impact": "positive",
+                "source_agent": "comfort_agent",
+                "priority": "medium"
+              }
+            },
+            {
+              "rank": 3,
+              "agent_name": "carbon_agent",
+              "score": 42.5,
+              "rationale": "Carbon-aware scheduling can reduce emissions without requiring aggressive comfort changes.",
+              "action": {
+                "action_id": "cc009904-8532-4d78-a9d2-8d909c582542",
+                "strategy_name": "carbon_aware_mode",
+                "action_type": "carbon_schedule_shift",
+                "target": "whole_building",
+                "description": "Shift flexible HVAC and lighting loads toward lower-carbon operating windows while keeping comfort safe.",
+                "parameters": {
+                  "preconditioning_enabled": true,
+                  "avoid_peak_carbon_window": true,
+                  "comfort_guard_enabled": true
+                },
+                "expected_energy_saved_percent": 3.0,
+                "expected_carbon_reduced_percent": 6.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "carbon_agent",
+                "priority": "medium"
+              }
+            },
+            {
+              "rank": 4,
+              "agent_name": "anomaly_agent",
+              "score": 27.5,
+              "rationale": "Anomaly-aware decisions prioritize operational risk before optimization.",
+              "action": {
+                "action_id": "785c3edc-8dac-4576-b67b-2246ff1121c6",
+                "strategy_name": "normal_monitoring",
+                "action_type": "anomaly_response",
+                "target": "whole_building",
+                "description": "No active anomalies detected; continue monitoring and preserve current safe operation.",
+                "parameters": {
+                  "continue_monitoring": true,
+                  "no_direct_control_change": true
+                },
+                "expected_energy_saved_percent": 0.0,
+                "expected_carbon_reduced_percent": 0.0,
+                "expected_comfort_impact": "neutral",
+                "source_agent": "anomaly_agent",
+                "priority": "low"
+              }
+            }
+          ],
+          "selected_recommendation": {
+            "agent_name": "energy_agent",
+            "goal": "maintain_comfort",
+            "recommended_action": {
+              "action_id": "cffa03c7-7893-4cb5-8822-dc56e4caf2f5",
+              "strategy_name": "eco_mode",
+              "action_type": "lighting_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Reduce lighting in unoccupied zones to lower electricity consumption while preserving comfort.",
+              "parameters": {
+                "lighting_level_percent": 25,
+                "applies_to_occupied_zones": false
+              },
+              "expected_energy_saved_percent": 48.833,
+              "expected_carbon_reduced_percent": 48.833,
+              "expected_comfort_impact": "neutral",
+              "source_agent": "energy_agent",
+              "priority": "medium"
+            },
+            "confidence": 0.9,
+            "rationale": "Lighting reduction is the safest near-term energy action because it avoids occupied comfort risk.",
+            "expected_benefits": [
+              "Lower electricity use",
+              "Preserve occupied-zone comfort",
+              "Reuse the proven Layer 1 eco_mode behavior"
+            ],
+            "risks": [],
+            "evidence": {
+              "energy_efficiency": 89.85,
+              "electricity_kwh": 40280.34,
+              "anomaly_count": 0,
+              "best_strategy": "eco_mode"
+            }
+          },
+          "safety_decision": {
+            "action_id": "cffa03c7-7893-4cb5-8822-dc56e4caf2f5",
+            "approved": false,
+            "decision": "rejected",
+            "risk_level": "medium",
+            "reasons": [
+              "Expected energy saving is unusually aggressive and requires review."
+            ],
+            "blocked_by": [
+              "expected_impact"
+            ],
+            "safe_alternative": {
+              "strategy_name": "comfort_preserving_lighting",
+              "action_type": "lighting_adjustment",
+              "description": "Reduce lighting only in unoccupied zones.",
+              "parameters": {
+                "lighting_level_percent": 25,
+                "applies_to_occupied_zones": false
+              }
+            },
+            "checked_constraints": [
+              "hvac_comfort_bounds",
+              "lighting_safety",
+              "ventilation_iaq",
+              "anomaly_severity",
+              "expected_impact"
+            ]
+          },
+          "final_action": {
+            "strategy_name": "comfort_preserving_lighting",
+            "action_type": "lighting_adjustment",
+            "description": "Reduce lighting only in unoccupied zones.",
+            "parameters": {
+              "lighting_level_percent": 25,
+              "applies_to_occupied_zones": false
+            }
+          },
+          "status": "rejected",
+          "summary": "Goal 'maintain_comfort' consulted 4 agents. Selected eco_mode from energy_agent; bandit preferred comfort_mode. Safety Governor rejected the action. Reason summary: Expected energy saving is unusually aggressive and requires review."
+        },
+        "carbon_plan": null
+      },
+      "notes": [
+        "Layer 3 decides and safety-checks actions.",
+        "Layer 5.1-5.3 simulates, ranks, and final-safety-checks approved plans before any execution phase."
+      ]
+    }
+  },
+  "multi_agent_proof": {
+    "agents_consulted": [
+      "energy_agent",
+      "comfort_agent",
+      "carbon_agent",
+      "anomaly_agent"
+    ],
+    "selected_recommendation": {
+      "agent_name": "energy_agent",
+      "goal": "reduce_energy_keep_comfort_safe",
+      "recommended_action": {
+        "action_id": "66777fcd-4c30-4c2f-b64a-e477c7231246",
+        "strategy_name": "eco_mode",
+        "action_type": "lighting_adjustment",
+        "target": "unoccupied_zones",
+        "description": "Reduce lighting in unoccupied zones to lower electricity consumption while preserving comfort.",
+        "parameters": {
+          "lighting_level_percent": 25,
+          "applies_to_occupied_zones": false
+        },
+        "expected_energy_saved_percent": 48.833,
+        "expected_carbon_reduced_percent": 48.833,
+        "expected_comfort_impact": "neutral",
+        "source_agent": "energy_agent",
+        "priority": "medium"
+      },
+      "confidence": 0.9,
+      "rationale": "Lighting reduction is the safest near-term energy action because it avoids occupied comfort risk.",
+      "expected_benefits": [
+        "Lower electricity use",
+        "Preserve occupied-zone comfort",
+        "Reuse the proven Layer 1 eco_mode behavior"
+      ],
+      "risks": [],
+      "evidence": {
+        "energy_efficiency": 89.85,
+        "electricity_kwh": 40280.34,
+        "anomaly_count": 0,
+        "best_strategy": "eco_mode"
+      }
+    },
+    "ranked_recommendations": [
+      {
+        "rank": 1,
+        "agent_name": "energy_agent",
+        "score": 113.83,
+        "rationale": "Lighting reduction is the safest near-term energy action because it avoids occupied comfort risk.",
+        "action": {
+          "action_id": "66777fcd-4c30-4c2f-b64a-e477c7231246",
+          "strategy_name": "eco_mode",
+          "action_type": "lighting_adjustment",
+          "target": "unoccupied_zones",
+          "description": "Reduce lighting in unoccupied zones to lower electricity consumption while preserving comfort.",
+          "parameters": {
+            "lighting_level_percent": 25,
+            "applies_to_occupied_zones": false
+          },
+          "expected_energy_saved_percent": 48.833,
+          "expected_carbon_reduced_percent": 48.833,
+          "expected_comfort_impact": "neutral",
+          "source_agent": "energy_agent",
+          "priority": "medium"
+        }
+      },
+      {
+        "rank": 2,
+        "agent_name": "comfort_agent",
+        "score": 47.0,
+        "rationale": "Comfort guardrails should remain active before any efficiency or carbon action is executed.",
+        "action": {
+          "action_id": "418abc41-9901-447e-90e8-8ac929c5b750",
+          "strategy_name": "comfort_preserving_mode",
+          "action_type": "strategy_mode",
+          "target": "occupied_zones",
+          "description": "Maintain occupied-zone comfort while allowing only conservative efficiency actions.",
+          "parameters": {
+            "max_cooling_setpoint_c": 26,
+            "min_lighting_level_percent_occupied": 50,
+            "comfort_guard_enabled": true
+          },
+          "expected_energy_saved_percent": 2.0,
+          "expected_carbon_reduced_percent": 2.0,
+          "expected_comfort_impact": "positive",
+          "source_agent": "comfort_agent",
+          "priority": "medium"
+        }
+      },
+      {
+        "rank": 3,
+        "agent_name": "carbon_agent",
+        "score": 45.5,
+        "rationale": "Carbon-aware scheduling can reduce emissions without requiring aggressive comfort changes.",
+        "action": {
+          "action_id": "6839d237-2b94-4ed0-a5db-6a0f39eeef65",
+          "strategy_name": "carbon_aware_mode",
+          "action_type": "carbon_schedule_shift",
+          "target": "whole_building",
+          "description": "Shift flexible HVAC and lighting loads toward lower-carbon operating windows while keeping comfort safe.",
+          "parameters": {
+            "preconditioning_enabled": true,
+            "avoid_peak_carbon_window": true,
+            "comfort_guard_enabled": true
+          },
+          "expected_energy_saved_percent": 3.0,
+          "expected_carbon_reduced_percent": 6.0,
+          "expected_comfort_impact": "neutral",
+          "source_agent": "carbon_agent",
+          "priority": "medium"
+        }
+      },
+      {
+        "rank": 4,
+        "agent_name": "anomaly_agent",
+        "score": 27.5,
+        "rationale": "Anomaly-aware decisions prioritize operational risk before optimization.",
+        "action": {
+          "action_id": "2518c43d-1665-4efc-804b-5745ecde322c",
+          "strategy_name": "normal_monitoring",
+          "action_type": "anomaly_response",
+          "target": "whole_building",
+          "description": "No active anomalies detected; continue monitoring and preserve current safe operation.",
+          "parameters": {
+            "continue_monitoring": true,
+            "no_direct_control_change": true
+          },
+          "expected_energy_saved_percent": 0.0,
+          "expected_carbon_reduced_percent": 0.0,
+          "expected_comfort_impact": "neutral",
+          "source_agent": "anomaly_agent",
+          "priority": "low"
+        }
+      }
+    ],
+    "safety_decision": {
+      "action_id": "66777fcd-4c30-4c2f-b64a-e477c7231246",
+      "approved": false,
+      "decision": "rejected",
+      "risk_level": "medium",
+      "reasons": [
+        "Expected energy saving is unusually aggressive and requires review."
+      ],
+      "blocked_by": [
+        "expected_impact"
+      ],
+      "safe_alternative": {
+        "strategy_name": "comfort_preserving_lighting",
+        "action_type": "lighting_adjustment",
+        "description": "Reduce lighting only in unoccupied zones.",
+        "parameters": {
+          "lighting_level_percent": 25,
+          "applies_to_occupied_zones": false
+        }
+      },
+      "checked_constraints": [
+        "hvac_comfort_bounds",
+        "lighting_safety",
+        "ventilation_iaq",
+        "anomaly_severity",
+        "expected_impact"
+      ]
+    },
+    "status": "rejected",
+    "summary": "Goal 'reduce_energy_keep_comfort_safe' consulted 4 agents. Selected eco_mode from energy_agent; bandit preferred eco_mode. Safety Governor rejected the action. Reason summary: Expected energy saving is unusually aggressive and requires review."
+  },
+  "safety_proof": {
+    "safe_action_test": {
+      "action": {
+        "action_id": "54ff68d2-be68-47ce-ad3a-0fd689b7f57c",
+        "strategy_name": "eco_mode",
+        "action_type": "lighting_adjustment",
+        "target": "unoccupied_zones",
+        "description": "Reduce lighting in unoccupied zones to save energy.",
+        "parameters": {
+          "lighting_level_percent": 25
+        },
+        "expected_energy_saved_percent": 5.0,
+        "expected_carbon_reduced_percent": 5.0,
+        "expected_comfort_impact": "neutral",
+        "source_agent": "energy_agent",
+        "priority": "medium"
+      },
+      "decision": {
+        "action_id": "54ff68d2-be68-47ce-ad3a-0fd689b7f57c",
+        "approved": true,
+        "decision": "approved",
+        "risk_level": "low",
+        "reasons": [],
+        "blocked_by": [],
+        "safe_alternative": null,
+        "checked_constraints": [
+          "hvac_comfort_bounds",
+          "lighting_safety",
+          "ventilation_iaq",
+          "anomaly_severity",
+          "expected_impact"
+        ]
+      }
+    },
+    "unsafe_action_test": {
+      "action": {
+        "action_id": "6e5025a0-4990-4dfa-8c51-9e7a74c33170",
+        "strategy_name": "aggressive_hvac_cutback",
+        "action_type": "hvac_setpoint_adjustment",
+        "target": "occupied_zones",
+        "description": "Raise occupied cooling setpoint aggressively to maximize savings.",
+        "parameters": {
+          "cooling_setpoint_c": 30,
+          "applies_to_occupied_zones": true
+        },
+        "expected_energy_saved_percent": 20.0,
+        "expected_carbon_reduced_percent": 20.0,
+        "expected_comfort_impact": "negative",
+        "source_agent": "energy_agent",
+        "priority": "high"
+      },
+      "decision": {
+        "action_id": "6e5025a0-4990-4dfa-8c51-9e7a74c33170",
+        "approved": false,
+        "decision": "rejected",
+        "risk_level": "critical",
+        "reasons": [
+          "Cooling setpoint exceeds occupied comfort limit of 26C.",
+          "Cooling setpoint is aggressively high and may create comfort risk.",
+          "Action has negative comfort impact on occupied zones."
+        ],
+        "blocked_by": [
+          "hvac_comfort_bounds",
+          "expected_impact"
+        ],
+        "safe_alternative": {
+          "strategy_name": "balanced_mode",
+          "action_type": "hvac_setpoint_adjustment",
+          "description": "Use moderate setpoint adjustment within comfort bounds.",
+          "parameters": {
+            "cooling_setpoint_c": 24,
+            "applies_to_occupied_zones": true
+          }
+        },
+        "checked_constraints": [
+          "hvac_comfort_bounds",
+          "lighting_safety",
+          "ventilation_iaq",
+          "anomaly_severity",
+          "expected_impact"
+        ]
+      }
+    },
+    "summary": "Safety Governor approved safe action and rejected unsafe aggressive action."
+  },
+  "carbon_scheduler_proof": {
+    "strategy_name": "carbon_aware_mode",
+    "low_carbon_windows": [
+      {
+        "start_hour": 0,
+        "end_hour": 6,
+        "avg_carbon_intensity": 0.317
+      },
+      {
+        "start_hour": 22,
+        "end_hour": 23,
+        "avg_carbon_intensity": 0.33
+      }
+    ],
+    "high_carbon_windows": [
+      {
+        "start_hour": 11,
+        "end_hour": 18,
+        "avg_carbon_intensity": 0.554
+      }
+    ],
+    "recommended_schedule": [
+      {
+        "action": "precondition",
+        "start_hour": 0,
+        "end_hour": 6,
+        "reason": "Use lower-carbon electricity before carbon peak."
+      },
+      {
+        "action": "reduce_flexible_load",
+        "start_hour": 11,
+        "end_hour": 18,
+        "reason": "Avoid high-carbon operation while preserving comfort."
+      }
+    ],
+    "expected_carbon_reduced_percent": 6.0,
+    "expected_energy_saved_percent": 3.0,
+    "summary": "Carbon-aware scheduler identifies low-carbon and high-carbon windows and proposes schedule shifting."
+  },
+  "bandit_proof": {
+    "strategies": {
+      "eco_mode": {
+        "times_selected": 32,
+        "total_reward": 1769.54,
+        "average_reward": 55.3
+      },
+      "comfort_mode": {
+        "times_selected": 9,
+        "total_reward": 93.22,
+        "average_reward": 10.36
+      },
+      "carbon_aware_mode": {
+        "times_selected": 0,
+        "total_reward": 0.0,
+        "average_reward": 0.0
+      },
+      "balanced_mode": {
+        "times_selected": 0,
+        "total_reward": 0.0,
+        "average_reward": 0.0
+      },
+      "iaq_priority_mode": {
+        "times_selected": 0,
+        "total_reward": 0.0,
+        "average_reward": 0.0
+      },
+      "equipment_protection_mode": {
+        "times_selected": 0,
+        "total_reward": 0.0,
+        "average_reward": 0.0
+      },
+      "anomaly_response_mode": {
+        "times_selected": 0,
+        "total_reward": 0.0,
+        "average_reward": 0.0
+      }
+    },
+    "history_count": 41,
+    "best_average_reward_strategy": "eco_mode",
+    "summary": "Contextual bandit stores strategy rewards and supports future self-correction."
+  },
+  "dashboard_summary": {
+    "layer": "Layer 3",
+    "status": "complete",
+    "autonomousDecisionReady": true,
+    "executionEnabled": false,
+    "executionLayer": "Layer 5",
+    "safetyGovernorEnabled": true,
+    "multiAgentEnabled": true,
+    "banditEnabled": true,
+    "carbonAwareSchedulingEnabled": true,
+    "sampleSelectedStrategy": "comfort_preserving_lighting",
+    "sampleApproved": false,
+    "sampleRiskLevel": "medium",
+    "summary": "Layer 3 can select and safety-check actions but does not execute them yet."
+  },
+  "future_mcp_tool_preview": [
+    {
+      "tool_name": "get_autonomous_decision",
+      "backend_function": "backend.app.decision.decision_api.get_autonomous_decision",
+      "purpose": "Ask ForgeHive to select and safety-check the best action for a goal."
+    },
+    {
+      "tool_name": "get_dashboard_ready_decision",
+      "backend_function": "backend.app.decision.decision_api.get_dashboard_ready_decision",
+      "purpose": "Return compact decision output for dashboard or LLM explanation."
+    },
+    {
+      "tool_name": "check_action_safety",
+      "backend_function": "backend.app.decision.safety_governor.check_action_safety",
+      "purpose": "Approve or reject a proposed action before execution."
+    },
+    {
+      "tool_name": "run_multi_agent_supervisor",
+      "backend_function": "backend.app.decision.supervisor.run_multi_agent_supervisor",
+      "purpose": "Consult energy, comfort, carbon, and anomaly agents."
+    },
+    {
+      "tool_name": "build_carbon_aware_plan",
+      "backend_function": "backend.app.decision.carbon_scheduler.build_carbon_aware_plan",
+      "purpose": "Generate carbon-aware operating schedule."
+    }
+  ],
+  "judging_alignment": {
+    "ai_autonomy": "Multi-agent supervisor selects actions from building state and user/building goals.",
+    "reliability": "Safety Governor rejects risky actions before execution.",
+    "energy_savings": "Energy Agent and strategy bandit prioritize energy-saving modes.",
+    "comfort": "Comfort Agent and Safety Governor protect occupied-zone comfort constraints.",
+    "carbon": "Carbon-aware scheduler shifts flexible loads toward lower-carbon windows.",
+    "explainability": "Every decision includes selected agent, strategy, rationale, safety decision, and risk level."
+  }
+}

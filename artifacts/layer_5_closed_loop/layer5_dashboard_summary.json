@@ -1,0 +1,23 @@
+{
+  "layer": "Layer 5",
+  "phase": "5.1-5.3",
+  "status": "complete",
+  "closedLoopEnabled": true,
+  "energyPlusSimulationEnabled": true,
+  "bundleRankingEnabled": true,
+  "rlBanditUsed": true,
+  "knowledgeGraphUsed": true,
+  "safetyGovernorUsed": true,
+  "executionReady": true,
+  "executionApplied": false,
+  "candidateCount": 1,
+  "simulationCount": 1,
+  "successfulSimulationCount": 1,
+  "selectedBundleName": "test_empty_room_bundle",
+  "selectedBundleScore": 61.1866,
+  "selectedBundleEnergySavedPercent": 7.4231,
+  "selectedBundleCarbonReducedPercent": 7.4231,
+  "comfortStatus": "Safe",
+  "riskLevel": "low",
+  "summary": "Layer 5 simulated, ranked, and safety-approved a candidate plan but did not execute it yet."
+}

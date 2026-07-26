@@ -1,0 +1,2620 @@
+{
+  "entries": [
+    {
+      "id": "777d9816-6988-435c-9edc-a4c9b864dc49",
+      "timestamp": "2026-07-25T00:04:00.637206+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Optimization reduced energy consumption.",
+      "predicted_energy_saved_percent": 7.42,
+      "actual_energy_saved_percent": 7.42,
+      "carbon_reduced_percent": 7.42,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 7.42% energy savings.",
+      "metadata": {
+        "baseline_run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\baseline",
+        "optimized_run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\phase_1_5_eco_mode_20260724_231336",
+        "source": "latest_comparison_json",
+        "highest_anomaly_severity": "none"
+      }
+    },
+    {
+      "id": "04836cfb-716c-4ddf-bbb1-30edd3231382",
+      "timestamp": "2026-07-25T00:04:00.637857+00:00",
+      "strategy": "comfort_mode",
+      "action_taken": "Maintained occupied-zone comfort during high CO2 condition.",
+      "predicted_energy_saved_percent": 2.0,
+      "actual_energy_saved_percent": 1.5,
+      "carbon_reduced_percent": 1.2,
+      "comfort_status": "Safe",
+      "anomalies_detected": 1,
+      "lesson": "Comfort mode protects IAQ and comfort during abnormal conditions.",
+      "metadata": {}
+    },
+    {
+      "id": "453abe30-3161-4b58-b883-85c533953433",
+      "timestamp": "2026-07-25T00:04:14.365455+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Optimization reduced energy consumption.",
+      "predicted_energy_saved_percent": 7.42,
+      "actual_energy_saved_percent": 7.42,
+      "carbon_reduced_percent": 7.42,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 7.42% energy savings.",
+      "metadata": {
+        "baseline_run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\baseline",
+        "optimized_run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\phase_1_5_eco_mode_20260724_231336",
+        "source": "latest_comparison_json",
+        "highest_anomaly_severity": "none"
+      }
+    },
+    {
+      "id": "8982db75-bc66-493c-9662-5c6626b20bcf",
+      "timestamp": "2026-07-25T00:04:14.366159+00:00",
+      "strategy": "comfort_mode",
+      "action_taken": "Maintained occupied-zone comfort during high CO2 condition.",
+      "predicted_energy_saved_percent": 2.0,
+      "actual_energy_saved_percent": 1.5,
+      "carbon_reduced_percent": 1.2,
+      "comfort_status": "Safe",
+      "anomalies_detected": 1,
+      "lesson": "Comfort mode protects IAQ and comfort during abnormal conditions.",
+      "metadata": {}
+    },
+    {
+      "id": "abb0cccc-c8fc-4380-923f-02c15251d228",
+      "timestamp": "2026-07-25T13:45:25.227331+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for learning_safe_bundle.",
+      "predicted_energy_saved_percent": 6.0,
+      "actual_energy_saved_percent": 5.0,
+      "carbon_reduced_percent": 5.0,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 5.00% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "learning_safe_bundle",
+        "approved_action_count": 1,
+        "approved_actions": [
+          {
+            "action_id": "safe_lighting",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights.",
+            "parameters": {
+              "lighting_level_percent": 25
+            }
+          }
+        ],
+        "execution_run_dir": "runs/layer_5/executions/test_learning",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "2fc9cc7f-97cb-45be-bc86-f55bbb4b6dba",
+      "timestamp": "2026-07-25T13:45:49.952602+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for phase_5_4_6_deterministic_bundle.",
+      "predicted_energy_saved_percent": 7.4231,
+      "actual_energy_saved_percent": 7.4231,
+      "carbon_reduced_percent": 7.4231,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 7.42% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "phase_5_4_6_deterministic_bundle",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "phase_5_4_6_deterministic_bundle_lighting_adjustment",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights in the empty room.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 4.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "phase_5_4_6_deterministic_bundle_hvac_setpoint_adjustment",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax cooling setpoint for the empty room.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 4.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "phase_5_4_6_deterministic_bundle_ventilation_adjustment",
+            "strategy_name": "eco_mode",
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce ventilation within safe bounds.",
+            "parameters": {
+              "ventilation_percent": 40,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 4.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_134537_839226_phase_5_4_6_deterministic_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "800aac3a-16be-4ec6-9748-15940efd3366",
+      "timestamp": "2026-07-25T14:19:36.587812+00:00",
+      "strategy": "comfort_mode",
+      "action_taken": "Layer 5 digital twin execution for phase_1_5_eco_mode_bundle.",
+      "predicted_energy_saved_percent": -0.0,
+      "actual_energy_saved_percent": -0.0,
+      "carbon_reduced_percent": 0.0,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy comfort_mode performed safely with -0.00% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "phase_1_5_eco_mode_bundle",
+        "approved_action_count": 2,
+        "approved_actions": [
+          {
+            "action_id": "ded26b9a-80be-4190-99f9-5cb6128f8673",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Candidate action only.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 6.0,
+            "expected_carbon_reduced_percent": 4.8,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "9ff4ac77-6fc0-4277-b97d-ef64b1f84f94",
+            "strategy_name": "eco_mode",
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Candidate action only.",
+            "parameters": {
+              "ventilation_percent": 40,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 6.0,
+            "expected_carbon_reduced_percent": 4.8,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_141924_379650_phase_1_5_eco_mode_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "8b13d4dd-61f7-4feb-985a-5872ca189e20",
+      "timestamp": "2026-07-25T14:44:31.861178+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for energy_efficiency_bundle.",
+      "predicted_energy_saved_percent": 48.833,
+      "actual_energy_saved_percent": 48.833,
+      "carbon_reduced_percent": 48.833,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 48.83% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle",
+        "approved_action_count": 2,
+        "approved_actions": [
+          {
+            "action_id": "9f3681ef-6bed-4beb-a883-263c854f197c",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights in unoccupied zones to conserve energy.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 10.0,
+            "expected_carbon_reduced_percent": 8.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "c4531eed-aef8-42e7-9d28-cea0bf7da836",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax cooling setpoint for unoccupied zones to reduce energy consumption.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 10.0,
+            "expected_carbon_reduced_percent": 8.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_144402_517785_energy_efficiency_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "d2e466c9-33f6-45c0-a265-dd5667308316",
+      "timestamp": "2026-07-25T15:02:07.584166+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Optimization reduced energy consumption.",
+      "predicted_energy_saved_percent": 7.42,
+      "actual_energy_saved_percent": 7.42,
+      "carbon_reduced_percent": 7.42,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 7.42% energy savings.",
+      "metadata": {
+        "baseline_run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\baseline",
+        "optimized_run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\phase_1_5_eco_mode_20260724_231336",
+        "source": "latest_comparison_json",
+        "highest_anomaly_severity": "none"
+      }
+    },
+    {
+      "id": "4c673b0d-ca9f-41ba-afbd-58b4046a3f35",
+      "timestamp": "2026-07-25T15:02:07.585063+00:00",
+      "strategy": "comfort_mode",
+      "action_taken": "Maintained occupied-zone comfort during high CO2 condition.",
+      "predicted_energy_saved_percent": 2.0,
+      "actual_energy_saved_percent": 1.5,
+      "carbon_reduced_percent": 1.2,
+      "comfort_status": "Safe",
+      "anomalies_detected": 1,
+      "lesson": "Comfort mode protects IAQ and comfort during abnormal conditions.",
+      "metadata": {}
+    },
+    {
+      "id": "f3c18a82-fabf-401f-a1e2-d24d0461ee2b",
+      "timestamp": "2026-07-25T15:03:53.193269+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for learning_safe_bundle.",
+      "predicted_energy_saved_percent": 6.0,
+      "actual_energy_saved_percent": 5.0,
+      "carbon_reduced_percent": 5.0,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 5.00% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "learning_safe_bundle",
+        "approved_action_count": 1,
+        "approved_actions": [
+          {
+            "action_id": "safe_lighting",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights.",
+            "parameters": {
+              "lighting_level_percent": 25
+            }
+          }
+        ],
+        "execution_run_dir": "runs/layer_5/executions/test_learning",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "82ba80a0-955b-4497-960e-db662181db3c",
+      "timestamp": "2026-07-25T15:04:05.673214+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for phase_5_4_6_deterministic_bundle.",
+      "predicted_energy_saved_percent": 7.4231,
+      "actual_energy_saved_percent": 47.9725,
+      "carbon_reduced_percent": 47.9725,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 47.97% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "phase_5_4_6_deterministic_bundle",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "phase_5_4_6_deterministic_bundle_lighting_adjustment",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights in the empty room.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 4.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "phase_5_4_6_deterministic_bundle_hvac_setpoint_adjustment",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax cooling setpoint for the empty room.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 4.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "phase_5_4_6_deterministic_bundle_ventilation_adjustment",
+            "strategy_name": "eco_mode",
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce ventilation within safe bounds.",
+            "parameters": {
+              "ventilation_percent": 40,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 4.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_150353_405363_phase_5_4_6_deterministic_bundle",
+        "prediction_matched_actual": false
+      }
+    },
+    {
+      "id": "5c594c0a-2fc3-4774-b823-0e543dba70af",
+      "timestamp": "2026-07-25T15:05:34.490211+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for example_bundle_1.",
+      "predicted_energy_saved_percent": 48.833,
+      "actual_energy_saved_percent": 48.833,
+      "carbon_reduced_percent": 48.833,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 48.83% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "example_bundle_1",
+        "approved_action_count": 2,
+        "approved_actions": [
+          {
+            "action_id": "dcdea674-7a16-47ed-8fed-47c0fdf1562d",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Candidate action only.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 15.0,
+            "expected_carbon_reduced_percent": 12.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "564b287f-ca30-4d38-b8a7-aada9939285c",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Candidate action only.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 15.0,
+            "expected_carbon_reduced_percent": 12.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_150518_943864_example_bundle_1",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "1d7dae86-8ce7-4235-b1bd-c7e6b5e02af5",
+      "timestamp": "2026-07-25T15:06:42.464652+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for energy_efficiency_bundle.",
+      "predicted_energy_saved_percent": 48.833,
+      "actual_energy_saved_percent": 48.833,
+      "carbon_reduced_percent": 48.833,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 48.83% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle",
+        "approved_action_count": 2,
+        "approved_actions": [
+          {
+            "action_id": "5ecb38bf-3da1-46ac-a14a-d4e7efddece4",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights in unoccupied zones to conserve energy.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 15.0,
+            "expected_carbon_reduced_percent": 12.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "7b068394-92bb-4bc1-aa7f-b22427a27253",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax cooling setpoint for unoccupied zones to reduce energy consumption.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 15.0,
+            "expected_carbon_reduced_percent": 12.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_150627_487840_energy_efficiency_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "bfaa6122-4f7b-427e-b6a9-07d7c5eede69",
+      "timestamp": "2026-07-25T15:19:13.496913+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Optimization reduced energy consumption.",
+      "predicted_energy_saved_percent": 7.42,
+      "actual_energy_saved_percent": 7.42,
+      "carbon_reduced_percent": 7.42,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 7.42% energy savings.",
+      "metadata": {
+        "baseline_run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\baseline",
+        "optimized_run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\phase_1_5_eco_mode_20260724_231336",
+        "source": "latest_comparison_json",
+        "highest_anomaly_severity": "none"
+      }
+    },
+    {
+      "id": "248bc783-b30c-4834-a171-79566cc1a538",
+      "timestamp": "2026-07-25T15:19:13.498029+00:00",
+      "strategy": "comfort_mode",
+      "action_taken": "Maintained occupied-zone comfort during high CO2 condition.",
+      "predicted_energy_saved_percent": 2.0,
+      "actual_energy_saved_percent": 1.5,
+      "carbon_reduced_percent": 1.2,
+      "comfort_status": "Safe",
+      "anomalies_detected": 1,
+      "lesson": "Comfort mode protects IAQ and comfort during abnormal conditions.",
+      "metadata": {}
+    },
+    {
+      "id": "b2e851d8-2bbd-4cc4-87eb-c94357b0680f",
+      "timestamp": "2026-07-25T15:20:47.434645+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for learning_safe_bundle.",
+      "predicted_energy_saved_percent": 6.0,
+      "actual_energy_saved_percent": 5.0,
+      "carbon_reduced_percent": 5.0,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 5.00% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "learning_safe_bundle",
+        "approved_action_count": 1,
+        "approved_actions": [
+          {
+            "action_id": "safe_lighting",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights.",
+            "parameters": {
+              "lighting_level_percent": 25
+            }
+          }
+        ],
+        "execution_run_dir": "runs/layer_5/executions/test_learning",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "853ef263-2416-4f2d-849b-1fafaa89a660",
+      "timestamp": "2026-07-25T15:21:02.272107+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for phase_5_4_6_deterministic_bundle.",
+      "predicted_energy_saved_percent": 7.4231,
+      "actual_energy_saved_percent": 47.9725,
+      "carbon_reduced_percent": 47.9725,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 47.97% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "phase_5_4_6_deterministic_bundle",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "phase_5_4_6_deterministic_bundle_lighting_adjustment",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights in the empty room.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 4.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "phase_5_4_6_deterministic_bundle_hvac_setpoint_adjustment",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax cooling setpoint for the empty room.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 4.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "phase_5_4_6_deterministic_bundle_ventilation_adjustment",
+            "strategy_name": "eco_mode",
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce ventilation within safe bounds.",
+            "parameters": {
+              "ventilation_percent": 40,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 4.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_152047_642740_phase_5_4_6_deterministic_bundle",
+        "prediction_matched_actual": false
+      }
+    },
+    {
+      "id": "c8c60a57-97f5-4be0-82b7-0242522209f5",
+      "timestamp": "2026-07-25T15:22:27.409373+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for energy_efficiency_bundle.",
+      "predicted_energy_saved_percent": 48.833,
+      "actual_energy_saved_percent": 48.833,
+      "carbon_reduced_percent": 48.833,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 48.83% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle",
+        "approved_action_count": 2,
+        "approved_actions": [
+          {
+            "action_id": "10d32c60-0db5-4897-9e09-b37ef7d3eea9",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights in unoccupied zones to conserve energy.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "d9e86881-ce61-4b55-bef1-57684bd9fdfe",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax cooling setpoint for unoccupied zones to reduce energy consumption.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_152213_881944_energy_efficiency_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "7446884d-a2fb-4895-948b-d668799175b1",
+      "timestamp": "2026-07-25T15:23:55.787034+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for energy_efficiency_bundle.",
+      "predicted_energy_saved_percent": 48.833,
+      "actual_energy_saved_percent": 48.833,
+      "carbon_reduced_percent": 48.833,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 48.83% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle",
+        "approved_action_count": 2,
+        "approved_actions": [
+          {
+            "action_id": "d32b104e-48f2-4076-8e9a-f20bc3a9f858",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights in unoccupied zones to conserve energy.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 10.0,
+            "expected_carbon_reduced_percent": 8.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "97e83059-5aab-442a-bebb-65b9a1cd95d4",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax cooling setpoint for unoccupied zones to reduce energy consumption.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 10.0,
+            "expected_carbon_reduced_percent": 8.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_152341_452795_energy_efficiency_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "d4269a0b-d048-4e34-82d0-7facb2c84412",
+      "timestamp": "2026-07-25T15:29:17.742859+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Optimization reduced energy consumption.",
+      "predicted_energy_saved_percent": 7.42,
+      "actual_energy_saved_percent": 7.42,
+      "carbon_reduced_percent": 7.42,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 7.42% energy savings.",
+      "metadata": {
+        "baseline_run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\baseline",
+        "optimized_run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\phase_1_5_eco_mode_20260724_231336",
+        "source": "latest_comparison_json",
+        "highest_anomaly_severity": "none"
+      }
+    },
+    {
+      "id": "d5855607-17e0-4f53-867f-ef5d59ace984",
+      "timestamp": "2026-07-25T15:29:17.744097+00:00",
+      "strategy": "comfort_mode",
+      "action_taken": "Maintained occupied-zone comfort during high CO2 condition.",
+      "predicted_energy_saved_percent": 2.0,
+      "actual_energy_saved_percent": 1.5,
+      "carbon_reduced_percent": 1.2,
+      "comfort_status": "Safe",
+      "anomalies_detected": 1,
+      "lesson": "Comfort mode protects IAQ and comfort during abnormal conditions.",
+      "metadata": {}
+    },
+    {
+      "id": "ae2dd2a2-7b19-4ac1-a498-384a9c476cdf",
+      "timestamp": "2026-07-25T15:50:07.505543+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Optimization reduced energy consumption.",
+      "predicted_energy_saved_percent": 7.42,
+      "actual_energy_saved_percent": 7.42,
+      "carbon_reduced_percent": 7.42,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 7.42% energy savings.",
+      "metadata": {
+        "baseline_run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\baseline",
+        "optimized_run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\phase_1_5_eco_mode_20260724_231336",
+        "source": "latest_comparison_json",
+        "highest_anomaly_severity": "none"
+      }
+    },
+    {
+      "id": "f6e08ba0-6346-431f-bd89-53e02eb46d93",
+      "timestamp": "2026-07-25T15:50:07.506719+00:00",
+      "strategy": "comfort_mode",
+      "action_taken": "Maintained occupied-zone comfort during high CO2 condition.",
+      "predicted_energy_saved_percent": 2.0,
+      "actual_energy_saved_percent": 1.5,
+      "carbon_reduced_percent": 1.2,
+      "comfort_status": "Safe",
+      "anomalies_detected": 1,
+      "lesson": "Comfort mode protects IAQ and comfort during abnormal conditions.",
+      "metadata": {}
+    },
+    {
+      "id": "21b33a13-63de-4014-9569-a597af95fee7",
+      "timestamp": "2026-07-25T15:51:55.311344+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for learning_safe_bundle.",
+      "predicted_energy_saved_percent": 6.0,
+      "actual_energy_saved_percent": 5.0,
+      "carbon_reduced_percent": 5.0,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 5.00% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "learning_safe_bundle",
+        "approved_action_count": 1,
+        "approved_actions": [
+          {
+            "action_id": "safe_lighting",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights.",
+            "parameters": {
+              "lighting_level_percent": 25
+            }
+          }
+        ],
+        "execution_run_dir": "runs/layer_5/executions/test_learning",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "d0431838-26e6-4a09-bd93-3a81323c7235",
+      "timestamp": "2026-07-25T15:52:21.699686+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for phase_5_4_6_deterministic_bundle.",
+      "predicted_energy_saved_percent": 7.4231,
+      "actual_energy_saved_percent": 47.9725,
+      "carbon_reduced_percent": 47.9725,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 47.97% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "phase_5_4_6_deterministic_bundle",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "phase_5_4_6_deterministic_bundle_lighting_adjustment",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights in the empty room.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 4.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "phase_5_4_6_deterministic_bundle_hvac_setpoint_adjustment",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax cooling setpoint for the empty room.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 4.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "phase_5_4_6_deterministic_bundle_ventilation_adjustment",
+            "strategy_name": "eco_mode",
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce ventilation within safe bounds.",
+            "parameters": {
+              "ventilation_percent": 40,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 4.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_155155_542552_phase_5_4_6_deterministic_bundle",
+        "prediction_matched_actual": false
+      }
+    },
+    {
+      "id": "dede4725-3691-4db0-97b6-d65668af650c",
+      "timestamp": "2026-07-25T15:54:43.788276+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for energy_efficiency_bundle_1.",
+      "predicted_energy_saved_percent": 48.833,
+      "actual_energy_saved_percent": 48.833,
+      "carbon_reduced_percent": 48.833,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 48.83% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle_1",
+        "approved_action_count": 2,
+        "approved_actions": [
+          {
+            "action_id": "b0afc624-c84e-43c1-86ba-1aa17ea6609a",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights in unoccupied zones to conserve energy.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 8.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "018f7abf-37f1-4f04-9b25-79fbb9d841b9",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax cooling setpoint for unoccupied zones to reduce energy consumption.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 8.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_155417_471106_energy_efficiency_bundle_1",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "8be8e11b-d8e6-4a73-abf1-2c44e50597f4",
+      "timestamp": "2026-07-25T15:55:44.371975+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for energy_efficiency_bundle.",
+      "predicted_energy_saved_percent": 48.833,
+      "actual_energy_saved_percent": 48.833,
+      "carbon_reduced_percent": 48.833,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 48.83% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle",
+        "approved_action_count": 2,
+        "approved_actions": [
+          {
+            "action_id": "3e6b8032-ad00-4cfd-a7da-e2b7000e96ba",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Adjust cooling setpoints to reduce energy consumption.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 20.0,
+            "expected_carbon_reduced_percent": 15.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "a8be16e8-04da-4503-bdbd-2416d212d123",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights to conserve energy.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 20.0,
+            "expected_carbon_reduced_percent": 15.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_155532_030762_energy_efficiency_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "64ec1372-8293-404c-ab3d-3bafcde6dcf9",
+      "timestamp": "2026-07-25T17:16:26.320963+00:00",
+      "strategy": "balanced_mode",
+      "action_taken": "Layer 5 digital twin execution for energy_efficiency_bundle.",
+      "predicted_energy_saved_percent": 48.833,
+      "actual_energy_saved_percent": 48.833,
+      "carbon_reduced_percent": 48.833,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy balanced_mode performed safely with 48.83% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle",
+        "approved_action_count": 2,
+        "approved_actions": [
+          {
+            "action_id": "a8e0ed89-a537-4acc-b164-657a1b28bcd0",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights to reduce energy consumption.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 12.0,
+            "expected_carbon_reduced_percent": 10.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "ca13f079-51bb-4c64-bd4d-46d2273819fc",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Adjust cooling setpoints to reduce energy usage.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 12.0,
+            "expected_carbon_reduced_percent": 10.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_171611_723621_energy_efficiency_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "4e162266-6dc0-416f-8f80-ad3b1f3792b8",
+      "timestamp": "2026-07-25T17:20:51.181819+00:00",
+      "strategy": "balanced_mode",
+      "action_taken": "Layer 5 digital twin execution for learning_safe_bundle.",
+      "predicted_energy_saved_percent": 42.1613,
+      "actual_energy_saved_percent": 42.1613,
+      "carbon_reduced_percent": 42.1613,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy balanced_mode performed safely with 42.16% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "learning_safe_bundle",
+        "approved_action_count": 1,
+        "approved_actions": [
+          {
+            "action_id": "e63e994a-1619-4855-b6a5-ee52e154d1f2",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 3.2,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_172029_796887_learning_safe_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "12d40a8d-f829-43f6-834a-fa1dcba16a92",
+      "timestamp": "2026-07-25T17:40:31.101473+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for layer5_fallback_empty_room_bundle.",
+      "predicted_energy_saved_percent": 47.9725,
+      "actual_energy_saved_percent": 47.9725,
+      "carbon_reduced_percent": 47.9725,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 47.97% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "layer5_fallback_empty_room_bundle",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "layer5_fallback_empty_room_bundle_lighting_adjustment",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights for empty room.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "layer5_fallback_empty_room_bundle_hvac_setpoint_adjustment",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax cooling setpoint safely.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "layer5_fallback_empty_room_bundle_ventilation_adjustment",
+            "strategy_name": "eco_mode",
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce ventilation within safe bounds.",
+            "parameters": {
+              "ventilation_percent": 40,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_174013_022859_layer5_fallback_empty_room_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "08026e50-d5c9-4d00-8e4a-369bf24c623b",
+      "timestamp": "2026-07-25T17:43:00.062923+00:00",
+      "strategy": "comfort_mode",
+      "action_taken": "Layer 5 digital twin execution for energy_efficiency_bundle.",
+      "predicted_energy_saved_percent": 48.833,
+      "actual_energy_saved_percent": 48.833,
+      "carbon_reduced_percent": 48.833,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy comfort_mode performed safely with 48.83% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle",
+        "approved_action_count": 2,
+        "approved_actions": [
+          {
+            "action_id": "5c7106d4-d225-4a8c-9ed0-42048bde6a25",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Adjust cooling setpoints to reduce energy consumption.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 20.0,
+            "expected_carbon_reduced_percent": 15.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "884edac7-820d-4019-be00-66e290ec2023",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights in unoccupied zones to conserve energy.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 20.0,
+            "expected_carbon_reduced_percent": 15.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_174245_385511_energy_efficiency_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "d8a034a0-7801-4a9f-9252-e364de805ff9",
+      "timestamp": "2026-07-25T17:52:18.999165+00:00",
+      "strategy": "comfort_mode",
+      "action_taken": "Layer 5 digital twin execution for energy_efficiency_bundle.",
+      "predicted_energy_saved_percent": 48.833,
+      "actual_energy_saved_percent": 48.833,
+      "carbon_reduced_percent": 48.833,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy comfort_mode performed safely with 48.83% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle",
+        "approved_action_count": 2,
+        "approved_actions": [
+          {
+            "action_id": "0b404166-360e-428e-aa4a-4a26a322ed3e",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights to conserve energy.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "f9697a0a-019f-4fc3-a98a-f213b5e8842d",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Adjust cooling setpoints to reduce energy consumption.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_175206_027450_energy_efficiency_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "26137613-2c63-4e6d-9d6b-6111967d42e5",
+      "timestamp": "2026-07-25T17:54:06.129890+00:00",
+      "strategy": "balanced_mode",
+      "action_taken": "Layer 5 digital twin execution for energy_efficiency_bundle.",
+      "predicted_energy_saved_percent": 48.833,
+      "actual_energy_saved_percent": 48.833,
+      "carbon_reduced_percent": 48.833,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy balanced_mode performed safely with 48.83% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_efficiency_bundle",
+        "approved_action_count": 2,
+        "approved_actions": [
+          {
+            "action_id": "a7dc6521-da34-477d-b878-32c86c806e49",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights to reduce energy consumption.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 20.0,
+            "expected_carbon_reduced_percent": 18.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "57af084c-c252-4704-945f-15a6f81771dc",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Adjust cooling setpoints to reduce energy usage.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 20.0,
+            "expected_carbon_reduced_percent": 18.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_175351_253070_energy_efficiency_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "1c758646-bbde-4dfa-8b14-7c0f42ca2d3c",
+      "timestamp": "2026-07-25T18:00:53.155148+00:00",
+      "strategy": "comfort_mode",
+      "action_taken": "Layer 5 digital twin execution for comfort_bundle1.",
+      "predicted_energy_saved_percent": 39.2099,
+      "actual_energy_saved_percent": 39.2099,
+      "carbon_reduced_percent": 39.2099,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy comfort_mode performed safely with 39.21% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "comfort_bundle1",
+        "approved_action_count": 2,
+        "approved_actions": [
+          {
+            "action_id": "a23e718f-67ed-4433-8649-0063338d3394",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Adjust lighting for comfort.",
+            "parameters": {
+              "lighting_level_percent": 30
+            },
+            "expected_energy_saved_percent": 2.0,
+            "expected_carbon_reduced_percent": 1.6,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "7aba7f54-1fc4-4352-acd5-1213c03de208",
+            "strategy_name": "eco_mode",
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Adjust ventilation for comfort.",
+            "parameters": {
+              "ventilation_percent": 50,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 2.0,
+            "expected_carbon_reduced_percent": 1.6,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_180040_238272_comfort_bundle1",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "63cb10a7-0f06-4d67-a8d4-c6b4bc931c62",
+      "timestamp": "2026-07-25T18:05:39.872714+00:00",
+      "strategy": "comfort_mode",
+      "action_taken": "Layer 5 digital twin execution for example_bundle_1.",
+      "predicted_energy_saved_percent": 48.833,
+      "actual_energy_saved_percent": 48.833,
+      "carbon_reduced_percent": 48.833,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy comfort_mode performed safely with 48.83% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "example_bundle_1",
+        "approved_action_count": 2,
+        "approved_actions": [
+          {
+            "action_id": "00610403-6eca-49fa-82bd-6395ba4fa150",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights in unoccupied zones to conserve energy.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 10.0,
+            "expected_carbon_reduced_percent": 8.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "2a66f9bb-1157-401a-832c-d1a7c4d6dfca",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax cooling setpoint for unoccupied zones to reduce energy consumption.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 10.0,
+            "expected_carbon_reduced_percent": 8.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_180524_709787_example_bundle_1",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "a1a163e9-e4d2-412b-b598-b8a6fe9c9e29",
+      "timestamp": "2026-07-25T18:15:42.361578+00:00",
+      "strategy": "balanced_mode",
+      "action_taken": "Layer 5 digital twin execution for request_aligned_conservative_bundle.",
+      "predicted_energy_saved_percent": 19.8683,
+      "actual_energy_saved_percent": 19.8683,
+      "carbon_reduced_percent": 19.8683,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy balanced_mode performed safely with 19.87% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "request_aligned_conservative_bundle",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "6e0ac0bf-95cf-4fb2-acbd-205ff28e1471",
+            "strategy_name": "eco_mode_conservative",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase cooling to address the reported high temperature.",
+            "parameters": {
+              "cooling_setpoint_c": 24,
+              "applies_to_occupied_zones": true
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "d4c48742-933e-468d-8f06-7e9a0f0bc1a4",
+            "strategy_name": "eco_mode_conservative",
+            "action_type": "ventilation_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase fresh-air ventilation to address the reported suffocating air.",
+            "parameters": {
+              "ventilation_percent": 60,
+              "applies_to_occupied_zones": true
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "e0ef1473-ccf0-4407-8db4-cc83e9942e20",
+            "strategy_name": "eco_mode_conservative",
+            "action_type": "lighting_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase usable lighting for clear visibility.",
+            "parameters": {
+              "lighting_level_percent": 65
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_181530_033599_request_aligned_conservative_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "72c71751-777c-4e58-80bb-c826ba7cc735",
+      "timestamp": "2026-07-25T18:18:14.335064+00:00",
+      "strategy": "balanced_mode",
+      "action_taken": "Layer 5 digital twin execution for request_aligned_conservative_bundle.",
+      "predicted_energy_saved_percent": 19.8683,
+      "actual_energy_saved_percent": 19.8683,
+      "carbon_reduced_percent": 19.8683,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy balanced_mode performed safely with 19.87% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "request_aligned_conservative_bundle",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "e83bd206-3ff8-461c-bfc9-a778d39fc1ff",
+            "strategy_name": "eco_mode_conservative",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase cooling to address the reported high temperature.",
+            "parameters": {
+              "cooling_setpoint_c": 24,
+              "applies_to_occupied_zones": true
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "1c0716a5-4720-4122-819c-1e6196ed57b3",
+            "strategy_name": "eco_mode_conservative",
+            "action_type": "ventilation_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase fresh-air ventilation to address the reported suffocating air.",
+            "parameters": {
+              "ventilation_percent": 60,
+              "applies_to_occupied_zones": true
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "c934ee53-20cc-486e-ab89-91a7612e7c29",
+            "strategy_name": "eco_mode_conservative",
+            "action_type": "lighting_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase usable lighting for clear visibility.",
+            "parameters": {
+              "lighting_level_percent": 65
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_181801_248633_request_aligned_conservative_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "4a5eccf1-6899-42fb-8cc2-b905d4dc0079",
+      "timestamp": "2026-07-25T18:20:41.048574+00:00",
+      "strategy": "balanced_mode",
+      "action_taken": "Layer 5 digital twin execution for request_aligned_conservative_bundle.",
+      "predicted_energy_saved_percent": 19.8683,
+      "actual_energy_saved_percent": 19.8683,
+      "carbon_reduced_percent": 19.8683,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy balanced_mode performed safely with 19.87% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "request_aligned_conservative_bundle",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "1d1e598e-5f04-4e48-bd03-f08c6e829f38",
+            "strategy_name": "eco_mode_conservative",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase cooling to address the reported high temperature.",
+            "parameters": {
+              "cooling_setpoint_c": 24,
+              "applies_to_occupied_zones": true
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "79c9a7e5-1d7a-44a3-9b74-a2271c9cfd26",
+            "strategy_name": "eco_mode_conservative",
+            "action_type": "ventilation_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase fresh-air ventilation to address the reported suffocating air.",
+            "parameters": {
+              "ventilation_percent": 60,
+              "applies_to_occupied_zones": true
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "2bb35eb8-0e2d-499a-98cd-adc1782e14cc",
+            "strategy_name": "eco_mode_conservative",
+            "action_type": "lighting_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase usable lighting for clear visibility.",
+            "parameters": {
+              "lighting_level_percent": 65
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_182027_869752_request_aligned_conservative_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "c9979726-75c2-4831-a463-b50ef71478aa",
+      "timestamp": "2026-07-25T18:28:39.238499+00:00",
+      "strategy": "balanced_mode",
+      "action_taken": "Layer 5 digital twin execution for request_aligned_conservative_bundle.",
+      "predicted_energy_saved_percent": 19.8683,
+      "actual_energy_saved_percent": 19.8683,
+      "carbon_reduced_percent": 19.8683,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy balanced_mode performed safely with 19.87% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "request_aligned_conservative_bundle",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "e6738689-9043-4f5f-8989-f5b19088cba9",
+            "strategy_name": "eco_mode_conservative",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase cooling to address the reported high temperature.",
+            "parameters": {
+              "cooling_setpoint_c": 24,
+              "applies_to_occupied_zones": true
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "7475eb8c-e1c3-410f-99e4-d5ad264c017e",
+            "strategy_name": "eco_mode_conservative",
+            "action_type": "ventilation_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase fresh-air ventilation to address the reported suffocating air.",
+            "parameters": {
+              "ventilation_percent": 60,
+              "applies_to_occupied_zones": true
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "efadb7a0-0362-4ab6-a9f8-3e2e013b6686",
+            "strategy_name": "eco_mode_conservative",
+            "action_type": "lighting_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase usable lighting for clear visibility.",
+            "parameters": {
+              "lighting_level_percent": 65
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_182812_741562_request_aligned_conservative_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "f9d34874-c56e-43bb-8dd1-03908ab9b361",
+      "timestamp": "2026-07-25T18:31:06.327559+00:00",
+      "strategy": "balanced_mode",
+      "action_taken": "Layer 5 digital twin execution for llm_composed_plan_1.",
+      "predicted_energy_saved_percent": 17.4507,
+      "actual_energy_saved_percent": 17.4507,
+      "carbon_reduced_percent": 17.4508,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy balanced_mode performed safely with 17.45% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "llm_composed_plan_1",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "f9d8ae3a-7484-41f2-8e4f-01eebc642e2b",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "occupied_zones",
+            "description": "Adjust cooling setpoint for occupied zones to reduce energy consumption.",
+            "parameters": {
+              "cooling_setpoint_c": 25,
+              "applies_to_occupied_zones": true
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "f959d745-cff5-4d62-9ceb-fe6c77cb63b2",
+            "strategy_name": "eco_mode",
+            "action_type": "ventilation_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase fresh-air ventilation for occupied zones to improve indoor air quality.",
+            "parameters": {
+              "ventilation_rate_percentage": 30,
+              "applies_to_occupied_zones": true
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "d586b2c0-beaf-42d1-8313-b1677500957f",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase usable lighting for occupied zones to improve visibility.",
+            "parameters": {
+              "lighting_level_percent": 75
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_183053_129963_llm_composed_plan_1",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "9f35469d-6a6d-4dcc-891f-5dfca347270f",
+      "timestamp": "2026-07-25T18:38:04.595293+00:00",
+      "strategy": "balanced_mode",
+      "action_taken": "Layer 5 digital twin execution for llm_composed_plan_1.",
+      "predicted_energy_saved_percent": 19.8683,
+      "actual_energy_saved_percent": 19.8683,
+      "carbon_reduced_percent": 19.8683,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy balanced_mode performed safely with 19.87% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "llm_composed_plan_1",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "a54c9fe4-d118-4056-bc40-6fdb06088f0f",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase cooling to address the reported high temperature.",
+            "parameters": {
+              "cooling_setpoint_c": 24,
+              "applies_to_occupied_zones": true
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "d08d6b3e-6a61-4aac-875f-a0f8c70131b8",
+            "strategy_name": "eco_mode",
+            "action_type": "ventilation_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase fresh-air ventilation to address the reported suffocating air.",
+            "parameters": {
+              "ventilation_percent": 60,
+              "applies_to_occupied_zones": true
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "4dd7bde4-e375-42d6-b67b-7be580c107e4",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase usable lighting for clear visibility.",
+            "parameters": {
+              "lighting_level_percent": 65
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_183744_036304_llm_composed_plan_1",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "6540e1fb-2be6-4ace-9e8e-20f310af917a",
+      "timestamp": "2026-07-25T18:55:29.041096+00:00",
+      "strategy": "comfort_mode",
+      "action_taken": "Layer 5 digital twin execution for llm_composed_plan_1.",
+      "predicted_energy_saved_percent": 19.8174,
+      "actual_energy_saved_percent": 19.8174,
+      "carbon_reduced_percent": 19.8174,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy comfort_mode performed safely with 19.82% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "llm_composed_plan_1",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "cdedde51-4d0d-4bbd-8032-07733fdd2535",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "occupied_zones",
+            "description": "Cool the occupied room to reduce discomfort.",
+            "parameters": {
+              "cooling_setpoint_c": 24,
+              "applies_to_occupied_zones": true
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "07271816-001d-4862-b59f-5b2d97299a10",
+            "strategy_name": "eco_mode",
+            "action_type": "ventilation_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase fresh-air ventilation to improve air quality.",
+            "parameters": {
+              "ventilation_multiplier": 1.2,
+              "applies_to_occupied_zones": true
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "d0fa50dc-733c-45a1-9dca-164f0a3ce2de",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase usable lighting for clear visibility.",
+            "parameters": {
+              "lighting_level_percent": 65
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "positive",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_185516_318611_llm_composed_plan_1",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "af8f7701-838e-4fc0-a8bb-bc1431fd660c",
+      "timestamp": "2026-07-25T19:19:37.070056+00:00",
+      "strategy": "comfort_mode",
+      "action_taken": "Layer 5 digital twin execution for cooling_adjustment_bundle.",
+      "predicted_energy_saved_percent": 0.3925,
+      "actual_energy_saved_percent": 0.3925,
+      "carbon_reduced_percent": 0.3925,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy comfort_mode performed safely with 0.39% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "cooling_adjustment_bundle",
+        "approved_action_count": 1,
+        "approved_actions": [
+          {
+            "action_id": "1dda3771-6190-45a7-8dcb-b98f85a464f2",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "occupied_zones",
+            "description": "Increase cooling to address the reported high temperature.",
+            "parameters": {
+              "cooling_setpoint_c": 24,
+              "applies_to_occupied_zones": true
+            },
+            "expected_energy_saved_percent": 10.0,
+            "expected_carbon_reduced_percent": 8.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_191924_443992_cooling_adjustment_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "c1334143-5900-4278-8aae-4efd2130f17a",
+      "timestamp": "2026-07-25T19:26:28.979001+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for balanced_efficiency_bundle.",
+      "predicted_energy_saved_percent": 48.772,
+      "actual_energy_saved_percent": 48.772,
+      "carbon_reduced_percent": 48.772,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 48.77% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "balanced_efficiency_bundle",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "22b24acb-4411-41f3-a0d2-9002f6054c9b",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce lighting in empty rooms.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 4.5,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "f5d5e9b3-a17e-47f9-b0b8-4463026babf9",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax HVAC setpoint for longer empty-room window.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 4.5,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "76229875-fc78-4fbb-a913-2a1bddedd3e0",
+            "strategy_name": "eco_mode",
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce ventilation only within safe candidate bounds.",
+            "parameters": {
+              "ventilation_percent": 30,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 4.5,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_192617_042138_balanced_efficiency_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "787c2d3c-b656-4ba8-9752-fb3d880be0aa",
+      "timestamp": "2026-07-25T19:27:32.634613+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for balanced_efficiency_bundle.",
+      "predicted_energy_saved_percent": 47.535,
+      "actual_energy_saved_percent": 47.535,
+      "carbon_reduced_percent": 47.535,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 47.53% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "balanced_efficiency_bundle",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "f0adc0f7-ccc5-4f09-91b9-805a2927695a",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce unoccupied lighting.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "81d326e4-f9dc-4aad-9307-52ace46c6192",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax unoccupied cooling setpoint.",
+            "parameters": {
+              "cooling_setpoint_c": 26,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "487e8ae8-7cfd-45c8-904a-aa320d97e133",
+            "strategy_name": "eco_mode",
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce ventilation within safe candidate bounds.",
+            "parameters": {
+              "ventilation_percent": 40,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_192720_372865_balanced_efficiency_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "da44564a-9a98-44f9-b328-6c40def64878",
+      "timestamp": "2026-07-25T19:29:11.548726+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for balanced_efficiency_bundle.",
+      "predicted_energy_saved_percent": 48.772,
+      "actual_energy_saved_percent": 48.772,
+      "carbon_reduced_percent": 48.772,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 48.77% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "balanced_efficiency_bundle",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "022bb6bd-edb6-489a-9857-b464e7299f49",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce lighting in empty rooms.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 4.5,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "06992533-996e-4b7b-9fac-7efdf9359938",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax HVAC setpoint for longer empty-room window.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 4.5,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "64049b6f-e677-4616-84b0-2e2ba5339136",
+            "strategy_name": "eco_mode",
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce ventilation only within safe candidate bounds.",
+            "parameters": {
+              "ventilation_percent": 30,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 4.5,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_192859_574867_balanced_efficiency_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "b5f3cda8-d292-48c0-b4e3-f3974600b08d",
+      "timestamp": "2026-07-25T19:30:13.997300+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for empty_room_bundle.",
+      "predicted_energy_saved_percent": 48.833,
+      "actual_energy_saved_percent": 48.833,
+      "carbon_reduced_percent": 48.833,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 48.83% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "empty_room_bundle",
+        "approved_action_count": 2,
+        "approved_actions": [
+          {
+            "action_id": "0f966bae-6515-4773-b268-97abcb35034a",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights in unoccupied zones to conserve energy.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 20.0,
+            "expected_carbon_reduced_percent": 15.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "7d677550-0670-4574-8cb6-e7ccecf9af13",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax cooling setpoint for unoccupied zones to reduce energy consumption.",
+            "parameters": {
+              "cooling_setpoint_c": 28,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 20.0,
+            "expected_carbon_reduced_percent": 15.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_193001_627300_empty_room_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "4c341afa-0a6f-4cf7-8fcb-24f4687ab28b",
+      "timestamp": "2026-07-25T19:31:12.323471+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for balanced_efficiency_bundle.",
+      "predicted_energy_saved_percent": 47.535,
+      "actual_energy_saved_percent": 47.535,
+      "carbon_reduced_percent": 47.535,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 47.53% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "balanced_efficiency_bundle",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "e378cac4-1267-4b17-96af-ecb46925250b",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce unoccupied lighting.",
+            "parameters": {
+              "lighting_level_percent": 25
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "8b5ac534-41ad-4779-9edd-898cf5d2bb2b",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax unoccupied cooling setpoint.",
+            "parameters": {
+              "cooling_setpoint_c": 26,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "4913b877-dfff-4c2c-a006-876516c35034",
+            "strategy_name": "eco_mode",
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce ventilation within safe candidate bounds.",
+            "parameters": {
+              "ventilation_percent": 40,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 4.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_193101_023869_balanced_efficiency_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "ea87bfd6-22d6-417d-859a-87585b743df3",
+      "timestamp": "2026-07-25T19:32:55.354424+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for energy_savings_bundle.",
+      "predicted_energy_saved_percent": 49.0322,
+      "actual_energy_saved_percent": 49.0322,
+      "carbon_reduced_percent": 49.0322,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 49.03% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_savings_bundle",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "a97b4161-50a9-424f-a668-244cb3690997",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights in unoccupied zones to conserve energy.",
+            "parameters": {
+              "lighting_level_percent": 25.0
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 8.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "059972b7-fa68-4180-ae39-37bb9b3d3b3b",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax cooling setpoint for longer empty-room window.",
+            "parameters": {
+              "cooling_setpoint_c": 28.0,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 8.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "5773f18d-ac5c-4edb-8a31-97ba7442843a",
+            "strategy_name": "eco_mode",
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce ventilation within safe empty-room bounds.",
+            "parameters": {
+              "ventilation_percent": 40,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 8.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_193243_534746_energy_savings_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "9a7ebe37-cb4d-4c4b-aa7e-1a4b95eceef7",
+      "timestamp": "2026-07-25T19:37:45.956152+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for energy_savings_bundle.",
+      "predicted_energy_saved_percent": 49.0322,
+      "actual_energy_saved_percent": 49.0322,
+      "carbon_reduced_percent": 49.0322,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 49.03% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_savings_bundle",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "da27ef5e-ab26-4e7c-88ea-b62f25fd771c",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights in unoccupied zones to conserve energy.",
+            "parameters": {
+              "lighting_level_percent": 25.0
+            },
+            "expected_energy_saved_percent": 8.0,
+            "expected_carbon_reduced_percent": 8.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "3a33a4b7-4a6c-412f-957c-f909cb5b3b02",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax cooling setpoint for longer empty-room window.",
+            "parameters": {
+              "cooling_setpoint_c": 28.0,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 8.0,
+            "expected_carbon_reduced_percent": 8.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "4405a7eb-60e0-4d64-ab60-43fbdb914f09",
+            "strategy_name": "eco_mode",
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce ventilation within safe empty-room bounds.",
+            "parameters": {
+              "ventilation_percent": 40,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 8.0,
+            "expected_carbon_reduced_percent": 8.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_193734_884581_energy_savings_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "0698026f-c49d-46fe-bbac-d5ae7787300e",
+      "timestamp": "2026-07-25T19:44:37.754481+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for empty_room_energy_savings_bundle.",
+      "predicted_energy_saved_percent": 49.0322,
+      "actual_energy_saved_percent": 49.0322,
+      "carbon_reduced_percent": 49.0322,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 49.03% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "empty_room_energy_savings_bundle",
+        "approved_action_count": 4,
+        "approved_actions": [
+          {
+            "action_id": "921612cd-877a-499f-9538-02b7891549ef",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights in unoccupied zones to conserve energy.",
+            "parameters": {
+              "lighting_level_percent": 25.0
+            },
+            "expected_energy_saved_percent": 8.0,
+            "expected_carbon_reduced_percent": 8.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "a5f8332c-b35b-4d24-9ec4-1a8a7aa56900",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax cooling setpoint for longer empty-room window.",
+            "parameters": {
+              "cooling_setpoint_c": 28.0,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 8.0,
+            "expected_carbon_reduced_percent": 8.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "a9a4aca2-1557-471b-9206-47f72b954ac6",
+            "strategy_name": "eco_mode",
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce ventilation within safe empty-room bounds.",
+            "parameters": {
+              "ventilation_percent": 40,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 8.0,
+            "expected_carbon_reduced_percent": 8.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "916bdec3-7f6f-4282-8d74-8bfdd0b227b4",
+            "strategy_name": "eco_mode",
+            "action_type": "preconditioning_schedule",
+            "target": "meeting_room",
+            "description": "Restore comfort, lighting, and fresh-air readiness 20 minutes before the next meeting in 90 minutes.",
+            "parameters": {
+              "next_meeting_minutes": 90,
+              "restore_minutes_before_meeting": 20,
+              "restore_lighting_level_percent": 70,
+              "restore_cooling_setpoint_c": 24,
+              "restore_ventilation_multiplier": 1.0,
+              "execution_mode": "scheduled_metadata_for_digital_twin"
+            },
+            "expected_energy_saved_percent": 8.0,
+            "expected_carbon_reduced_percent": 8.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_194425_661604_empty_room_energy_savings_bundle",
+        "prediction_matched_actual": true
+      }
+    },
+    {
+      "id": "b0b9c0f3-4829-48df-8fe6-7b1daa8f7541",
+      "timestamp": "2026-07-25T19:46:11.749304+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for aggressive_but_safe_bundle.",
+      "predicted_energy_saved_percent": 54.6464,
+      "actual_energy_saved_percent": 48.094,
+      "carbon_reduced_percent": 48.094,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 48.09% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "aggressive_but_safe_bundle",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "e05025f9-44d6-404b-b215-e319ae6ac36f",
+            "strategy_name": "eco_mode_aggressive",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lighting more strongly in confirmed empty rooms.",
+            "parameters": {
+              "lighting_level_percent": 15.0
+            },
+            "expected_energy_saved_percent": 6.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "7e782c14-1634-462a-a88a-b8cc3b545b73",
+            "strategy_name": "eco_mode_aggressive",
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce ventilation within safe empty-room bounds.",
+            "parameters": {
+              "ventilation_percent": 40,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 6.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "6fef1543-c3e5-43cd-948c-e2547e332c44",
+            "strategy_name": "eco_mode_aggressive",
+            "action_type": "preconditioning_schedule",
+            "target": "meeting_room",
+            "description": "Restore comfort, lighting, and fresh-air readiness 20 minutes before the next meeting in 90 minutes.",
+            "parameters": {
+              "next_meeting_minutes": 90,
+              "restore_minutes_before_meeting": 20,
+              "restore_lighting_level_percent": 70,
+              "restore_cooling_setpoint_c": 24,
+              "restore_ventilation_multiplier": 1.0,
+              "execution_mode": "scheduled_metadata_for_digital_twin"
+            },
+            "expected_energy_saved_percent": 6.0,
+            "expected_carbon_reduced_percent": 0.0,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260725_194559_349266_aggressive_but_safe_bundle",
+        "prediction_matched_actual": false
+      }
+    },
+    {
+      "id": "ae7e276e-fc96-4e33-939f-8f092d0973e2",
+      "timestamp": "2026-07-26T11:14:28.527485+00:00",
+      "strategy": "eco_mode",
+      "action_taken": "Layer 5 digital twin execution for energy_savings_bundle.",
+      "predicted_energy_saved_percent": 49.0322,
+      "actual_energy_saved_percent": 49.0322,
+      "carbon_reduced_percent": 49.0322,
+      "comfort_status": "Safe",
+      "anomalies_detected": 0,
+      "lesson": "Strategy eco_mode performed safely with 49.03% energy savings.",
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "energy_savings_bundle",
+        "approved_action_count": 3,
+        "approved_actions": [
+          {
+            "action_id": "8bbb5b30-0117-4334-b0e6-95becc413295",
+            "strategy_name": "eco_mode",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights in unoccupied zones to conserve energy.",
+            "parameters": {
+              "lighting_level_percent": 25.0
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 49.0322,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "d5ecfd50-c942-4955-b14b-07f9f150105c",
+            "strategy_name": "eco_mode",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax cooling setpoint for longer empty-room window.",
+            "parameters": {
+              "cooling_setpoint_c": 28.0,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 49.0322,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          },
+          {
+            "action_id": "6f7d6bf1-da52-4c3f-9889-0d3343d8340f",
+            "strategy_name": "eco_mode",
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce ventilation within safe empty-room bounds.",
+            "parameters": {
+              "ventilation_percent": 40,
+              "applies_to_occupied_zones": false
+            },
+            "expected_energy_saved_percent": 0.0,
+            "expected_carbon_reduced_percent": 49.0322,
+            "expected_comfort_impact": "neutral",
+            "source_agent": "layer5_final_safety_gate",
+            "priority": "medium"
+          }
+        ],
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260726_111410_915661_energy_savings_bundle",
+        "prediction_matched_actual": true
+      }
+    }
+  ]
+}

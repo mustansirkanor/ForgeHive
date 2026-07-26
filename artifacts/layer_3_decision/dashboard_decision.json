@@ -1,0 +1,9 @@
+{
+  "goal": "reduce_carbon",
+  "selectedStrategy": "carbon_aware_mode",
+  "actionType": "carbon_schedule_shift",
+  "approved": true,
+  "riskLevel": "low",
+  "readyForExecution": true,
+  "summary": "Goal 'reduce_carbon' selected carbon_aware_mode via carbon_aware_schedule with action type carbon_schedule_shift; the plan is ready for Layer 5 closed-loop review. Layer 5.1-5.3 will simulate, rank, and safety-approve this plan; actual digital-twin execution is deferred to Phase 5.4."
+}

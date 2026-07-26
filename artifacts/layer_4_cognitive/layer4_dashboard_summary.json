@@ -1,0 +1,18 @@
+{
+  "layer": "Layer 4",
+  "phase": "Phase 4.6",
+  "status": "complete",
+  "naturalLanguageOperatorEnabled": true,
+  "realLLMProviderEnabled": false,
+  "providerFallbackEnabled": true,
+  "executionEnabled": false,
+  "reasoningOnly": true,
+  "mcpToolsAvailable": 17,
+  "knowledgeGraphEnabled": true,
+  "candidateBundleGenerationEnabled": true,
+  "demoScenarioCount": 6,
+  "sampleIntent": "empty_room_energy_saving",
+  "sampleSelectedProvider": "mock",
+  "sampleCandidateCount": 4,
+  "readyForLayer5": true
+}

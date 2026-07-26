@@ -1,0 +1,54 @@
+{
+  "project": {
+    "name": "ForgeHive",
+    "title": "ForgeHive: Safety-Shielded Autonomous Building Intelligence",
+    "layer": "Layer 1",
+    "phase": "Phase 1.6",
+    "purpose": "EnergyPlus digital twin proof and baseline-vs-optimized comparison"
+  },
+  "technical_proof": {
+    "energyplus_runner": true,
+    "output_parser": true,
+    "strategy_applier": true,
+    "baseline_vs_optimized_comparison": true,
+    "dashboard_ready_metrics": true
+  },
+  "simulation": {
+    "baseline_run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\baseline",
+    "optimized_run_dir": "C:\\Users\\musta\\projects\\ForgeHive\\runs\\phase_1_5_eco_mode_20260724_231336",
+    "strategy_name": "eco_mode",
+    "verdict": "Optimization reduced energy consumption."
+  },
+  "metrics": {
+    "baseline_electricity_kwh": 43510.130077608366,
+    "optimized_electricity_kwh": 40280.343798380236,
+    "electricity_saved_kwh": 3229.7862792281303,
+    "electricity_saved_percent": 7.423067394804862,
+    "baseline_carbon_kg": 19579.558534923766,
+    "optimized_carbon_kg": 18126.154709271108,
+    "carbon_saved_kg": 1453.4038256526583,
+    "carbon_saved_percent": 7.42306739480486
+  },
+  "strategy": {
+    "name": "eco_mode",
+    "changes_applied": [
+      "Reduced lighting level in 'SPACE1-1 Lights 1' by 10% from 1584 to 1425.6.",
+      "Reduced electric equipment design level in 'SPACE1-1 ElecEq 1' by 5% from 1056 to 1003.2.",
+      "Reduced lighting level in 'SPACE2-1 Lights 1' by 10% from 684 to 615.6.",
+      "Reduced electric equipment design level in 'SPACE2-1 ElecEq 1' by 5% from 456 to 433.2.",
+      "Reduced lighting level in 'SPACE3-1 Lights 1' by 10% from 1584 to 1425.6.",
+      "Reduced electric equipment design level in 'SPACE3-1 ElecEq 1' by 5% from 1056 to 1003.2.",
+      "Reduced lighting level in 'SPACE4-1 Lights 1' by 10% from 684 to 615.6.",
+      "Reduced electric equipment design level in 'SPACE4-1 ElecEq 1' by 5% from 456 to 433.2.",
+      "Reduced lighting level in 'SPACE5-1 Lights 1' by 10% from 2964 to 2667.6.",
+      "Reduced electric equipment design level in 'SPACE5-1 ElecEq 1' by 5% from 1976 to 1877.2."
+    ],
+    "warnings": []
+  },
+  "hackathon_story": {
+    "one_line": "ForgeHive proves an EnergyPlus digital twin can be optimized by a safety-conscious autonomous strategy pipeline.",
+    "proof_summary": "Layer 1 runs a baseline building simulation, applies a conservative eco strategy, simulates the optimized model, and exports measurable energy and carbon savings.",
+    "why_it_matters": "This creates trustworthy measured feedback before adding autonomous reasoning, safety governance, and learning loops.",
+    "next_step": "Layer 2 will add building state, strategy schema, safety governor and autonomous control brain."
+  }
+}

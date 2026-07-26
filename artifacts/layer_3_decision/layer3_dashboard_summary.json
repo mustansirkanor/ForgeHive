@@ -1,0 +1,15 @@
+{
+  "layer": "Layer 3",
+  "status": "complete",
+  "autonomousDecisionReady": true,
+  "executionEnabled": false,
+  "executionLayer": "Layer 5",
+  "safetyGovernorEnabled": true,
+  "multiAgentEnabled": true,
+  "banditEnabled": true,
+  "carbonAwareSchedulingEnabled": true,
+  "sampleSelectedStrategy": "comfort_preserving_lighting",
+  "sampleApproved": false,
+  "sampleRiskLevel": "medium",
+  "summary": "Layer 3 can select and safety-check actions but does not execute them yet."
+}

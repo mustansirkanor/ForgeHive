@@ -1,0 +1,35 @@
+{
+  "phase": "5.5",
+  "learning_status": "updated",
+  "execution_success": true,
+  "expected_vs_actual": {
+    "expected_energy_saved_percent": 49.0322,
+    "actual_energy_saved_percent": 49.0322,
+    "expected_carbon_reduced_percent": 49.0322,
+    "actual_carbon_reduced_percent": 49.0322,
+    "expected_comfort_status": "Safe",
+    "actual_comfort_status": "Safe",
+    "delta_energy_saving": 0.0,
+    "delta_carbon_reduction": 0.0,
+    "comfort_regression": false,
+    "execution_success": true
+  },
+  "actual_reward": 98.258,
+  "bandit_updated": true,
+  "bandit_strategy": "eco_mode",
+  "memory_updated": true,
+  "knowledge_graph_updated": true,
+  "self_correction": {
+    "recommendations": [
+      "increase confidence in selected strategy"
+    ],
+    "summary": "increase confidence in selected strategy",
+    "prediction_matched_actual": true
+  },
+  "learning_notes": [
+    "Bandit updated from successful digital twin execution.",
+    "Memory updated from successful digital twin execution.",
+    "Knowledge Graph updated from successful digital twin execution."
+  ],
+  "error": null
+}

@@ -1,0 +1,90 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+
+# Python
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+ENV/
+pip-wheel-metadata/
+*.egg-info/
+
+# Node / React / Vite
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Logs
+*.log
+logs/
+debug.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# EnergyPlus generated runtime folders and bulky simulation outputs
+runs/
+eplusout.*
+*.eso
+*.err
+*.audit
+*.mtd
+*.mtr
+*.rdd
+*.eio
+*.shd
+*.sql
+*.bnd
+*.dbg
+
+# ForgeHive temporary/runtime cache outputs
+.cache/
+tmp/
+temp/
+*.tmp
+artifacts/layer_5_closed_loop/simulation_cache.json
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Keep these for submission:
+# - README.md
+# - FORGEHIVE_SUBMISSION.md
+# - BUILDING_MODEL_MANIFEST.md
+# - ForgeHive_5ZoneAirCooled_Baseline.idf
+# - ForgeHive_5ZoneAirCooled_Optimized_RuntimeEvaluation.idf
+# - artifacts/final_submission/
+# - artifacts/layer_* proof exports
+# - data/memory, data/decision, data/knowledge_graph

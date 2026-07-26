@@ -1,0 +1,14 @@
+{
+  "buildingId": "forgehive_demo_building",
+  "timestamp": "2026-07-25T15:50:07.610267+00:00",
+  "overallScore": 93.33,
+  "grade": "Excellent",
+  "comfortStatus": "Safe",
+  "comfortScore": 100.0,
+  "energyEfficiency": 89.85,
+  "carbonOptimization": 89.85,
+  "anomalyCount": 0,
+  "highestAnomalySeverity": "none",
+  "bestStrategy": "eco_mode",
+  "summary": "ForgeHive is operating efficiently while maintaining comfort and carbon performance."
+}

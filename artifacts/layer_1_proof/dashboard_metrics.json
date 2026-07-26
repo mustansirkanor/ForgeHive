@@ -1,0 +1,12 @@
+{
+  "baselineElectricityKwh": 43510.130077608366,
+  "optimizedElectricityKwh": 40280.343798380236,
+  "electricitySavedKwh": 3229.7862792281303,
+  "electricitySavedPercent": 7.423067394804862,
+  "baselineCarbonKg": 19579.558534923766,
+  "optimizedCarbonKg": 18126.154709271108,
+  "carbonSavedKg": 1453.4038256526583,
+  "carbonSavedPercent": 7.42306739480486,
+  "verdict": "Optimization reduced energy consumption.",
+  "strategyName": "eco_mode"
+}

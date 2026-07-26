@@ -1,0 +1,431 @@
+{
+  "phase": "5.4",
+  "execution_status": "executed",
+  "execution_applied": true,
+  "execution_scope": "energyplus_digital_twin_only",
+  "selected_bundle_id": "be66e413-0b18-4005-b25a-6cdaf97b1c70",
+  "selected_bundle_name": "energy_savings_bundle",
+  "approved_actions_executed": [
+    {
+      "action_id": "8bbb5b30-0117-4334-b0e6-95becc413295",
+      "strategy_name": "eco_mode",
+      "action_type": "lighting_adjustment",
+      "target": "unoccupied_zones",
+      "description": "Dim lights in unoccupied zones to conserve energy.",
+      "parameters": {
+        "lighting_level_percent": 25.0
+      },
+      "expected_energy_saved_percent": 0.0,
+      "expected_carbon_reduced_percent": 49.0322,
+      "expected_comfort_impact": "neutral",
+      "source_agent": "layer5_final_safety_gate",
+      "priority": "medium"
+    },
+    {
+      "action_id": "d5ecfd50-c942-4955-b14b-07f9f150105c",
+      "strategy_name": "eco_mode",
+      "action_type": "hvac_setpoint_adjustment",
+      "target": "unoccupied_zones",
+      "description": "Relax cooling setpoint for longer empty-room window.",
+      "parameters": {
+        "cooling_setpoint_c": 28.0,
+        "applies_to_occupied_zones": false
+      },
+      "expected_energy_saved_percent": 0.0,
+      "expected_carbon_reduced_percent": 49.0322,
+      "expected_comfort_impact": "neutral",
+      "source_agent": "layer5_final_safety_gate",
+      "priority": "medium"
+    },
+    {
+      "action_id": "6f7d6bf1-da52-4c3f-9889-0d3343d8340f",
+      "strategy_name": "eco_mode",
+      "action_type": "ventilation_adjustment",
+      "target": "unoccupied_zones",
+      "description": "Reduce ventilation within safe empty-room bounds.",
+      "parameters": {
+        "ventilation_percent": 40,
+        "applies_to_occupied_zones": false
+      },
+      "expected_energy_saved_percent": 0.0,
+      "expected_carbon_reduced_percent": 49.0322,
+      "expected_comfort_impact": "neutral",
+      "source_agent": "layer5_final_safety_gate",
+      "priority": "medium"
+    }
+  ],
+  "blocked_actions_not_executed": [],
+  "run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260726_111410_915661_energy_savings_bundle",
+  "strategy_name": "eco_mode",
+  "baseline_energy_kwh": 43510.13,
+  "baseline_carbon_kg": 19579.56,
+  "executed_energy_kwh": 22176.1644,
+  "executed_carbon_kg": 9979.274,
+  "energy_saved_kwh": 21333.9656,
+  "energy_saved_percent": 49.0322,
+  "carbon_reduced_kg": 9600.286,
+  "carbon_reduced_percent": 49.0322,
+  "comfort_violation_minutes": 0.0,
+  "comfort_status": "Safe",
+  "anomaly_count": 0,
+  "parser_output": {
+    "run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260726_111410_915661_energy_savings_bundle",
+    "simulation": {
+      "completed": true,
+      "has_fatal": false,
+      "has_severe": false,
+      "end_summary": "EnergyPlus Completed Successfully-- 1 Warning; 0 Severe Errors; Elapsed Time=00hr 00min 17.34sec"
+    },
+    "metrics": {
+      "available": true,
+      "electricity_kwh": 22176.164377217174,
+      "cooling_kwh": 0.0,
+      "heating_kwh": 0.0,
+      "carbon_kg": 9979.273969747728,
+      "all_meters_kwh": {
+        "Electricity:Building": 18890.79375,
+        "Electricity:Facility": 22176.164377217174,
+        "Electricity:HVAC": 1133.6725490336262,
+        "Electricity:Plant": 2151.698078185631,
+        "InteriorLights:Electricity": 5641.59375,
+        "MYBUILDINGELECTRIC": 18890.79375,
+        "MYBUILDINGOTHER": 13249.2,
+        "MYGENERALLIGHTS": 5641.59375,
+        "NaturalGas:Facility": 13431.246198439616,
+        "NaturalGas:Plant": 13431.246198439616
+      }
+    },
+    "messages": [
+      "Meter CSV parsed successfully."
+    ]
+  },
+  "idf_adapter_report": {
+    "source_idf_path": "C:\\EnergyPlusV26-1-0\\ExampleFiles\\5ZoneAirCooled.idf",
+    "target_idf_path": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260726_111410_915661_energy_savings_bundle\\modified_model.idf",
+    "idf_adapter_version": "5.7",
+    "actions_requested": [
+      {
+        "action_id": "8bbb5b30-0117-4334-b0e6-95becc413295",
+        "strategy_name": "eco_mode",
+        "action_type": "lighting_adjustment",
+        "target": "unoccupied_zones",
+        "description": "Dim lights in unoccupied zones to conserve energy.",
+        "parameters": {
+          "lighting_level_percent": 25.0
+        },
+        "expected_energy_saved_percent": 0.0,
+        "expected_carbon_reduced_percent": 49.0322,
+        "expected_comfort_impact": "neutral",
+        "source_agent": "layer5_final_safety_gate",
+        "priority": "medium"
+      },
+      {
+        "action_id": "d5ecfd50-c942-4955-b14b-07f9f150105c",
+        "strategy_name": "eco_mode",
+        "action_type": "hvac_setpoint_adjustment",
+        "target": "unoccupied_zones",
+        "description": "Relax cooling setpoint for longer empty-room window.",
+        "parameters": {
+          "cooling_setpoint_c": 28.0,
+          "applies_to_occupied_zones": false
+        },
+        "expected_energy_saved_percent": 0.0,
+        "expected_carbon_reduced_percent": 49.0322,
+        "expected_comfort_impact": "neutral",
+        "source_agent": "layer5_final_safety_gate",
+        "priority": "medium"
+      },
+      {
+        "action_id": "6f7d6bf1-da52-4c3f-9889-0d3343d8340f",
+        "strategy_name": "eco_mode",
+        "action_type": "ventilation_adjustment",
+        "target": "unoccupied_zones",
+        "description": "Reduce ventilation within safe empty-room bounds.",
+        "parameters": {
+          "ventilation_percent": 40,
+          "applies_to_occupied_zones": false
+        },
+        "expected_energy_saved_percent": 0.0,
+        "expected_carbon_reduced_percent": 49.0322,
+        "expected_comfort_impact": "neutral",
+        "source_agent": "layer5_final_safety_gate",
+        "priority": "medium"
+      }
+    ],
+    "actions_applied": [
+      {
+        "action_id": "8bbb5b30-0117-4334-b0e6-95becc413295",
+        "strategy_name": "eco_mode",
+        "action_type": "lighting_adjustment",
+        "target": "unoccupied_zones",
+        "description": "Dim lights in unoccupied zones to conserve energy.",
+        "parameters": {
+          "lighting_level_percent": 25.0
+        },
+        "expected_energy_saved_percent": 0.0,
+        "expected_carbon_reduced_percent": 49.0322,
+        "expected_comfort_impact": "neutral",
+        "source_agent": "layer5_final_safety_gate",
+        "priority": "medium"
+      },
+      {
+        "action_id": "d5ecfd50-c942-4955-b14b-07f9f150105c",
+        "strategy_name": "eco_mode",
+        "action_type": "hvac_setpoint_adjustment",
+        "target": "unoccupied_zones",
+        "description": "Relax cooling setpoint for longer empty-room window.",
+        "parameters": {
+          "cooling_setpoint_c": 28.0,
+          "applies_to_occupied_zones": false
+        },
+        "expected_energy_saved_percent": 0.0,
+        "expected_carbon_reduced_percent": 49.0322,
+        "expected_comfort_impact": "neutral",
+        "source_agent": "layer5_final_safety_gate",
+        "priority": "medium"
+      },
+      {
+        "action_id": "6f7d6bf1-da52-4c3f-9889-0d3343d8340f",
+        "strategy_name": "eco_mode",
+        "action_type": "ventilation_adjustment",
+        "target": "unoccupied_zones",
+        "description": "Reduce ventilation within safe empty-room bounds.",
+        "parameters": {
+          "ventilation_percent": 40,
+          "applies_to_occupied_zones": false
+        },
+        "expected_energy_saved_percent": 0.0,
+        "expected_carbon_reduced_percent": 49.0322,
+        "expected_comfort_impact": "neutral",
+        "source_agent": "layer5_final_safety_gate",
+        "priority": "medium"
+      }
+    ],
+    "actions_metadata_only": [],
+    "actions_failed": [],
+    "lighting_applied": true,
+    "hvac_setpoint_applied": true,
+    "ventilation_applied": true,
+    "change_log": [
+      {
+        "object_type": "Lights",
+        "object_name": "SPACE1-1 Lights 1",
+        "field": "field_6",
+        "old_value": 1584.0,
+        "new_value": 396.0,
+        "action_type": "lighting_adjustment"
+      },
+      {
+        "object_type": "Lights",
+        "object_name": "SPACE2-1 Lights 1",
+        "field": "field_6",
+        "old_value": 684.0,
+        "new_value": 171.0,
+        "action_type": "lighting_adjustment"
+      },
+      {
+        "object_type": "Lights",
+        "object_name": "SPACE3-1 Lights 1",
+        "field": "field_6",
+        "old_value": 1584.0,
+        "new_value": 396.0,
+        "action_type": "lighting_adjustment"
+      },
+      {
+        "object_type": "Lights",
+        "object_name": "SPACE4-1 Lights 1",
+        "field": "field_6",
+        "old_value": 684.0,
+        "new_value": 171.0,
+        "action_type": "lighting_adjustment"
+      },
+      {
+        "object_type": "Lights",
+        "object_name": "SPACE5-1 Lights 1",
+        "field": "field_6",
+        "old_value": 2964.0,
+        "new_value": 741.0,
+        "action_type": "lighting_adjustment"
+      },
+      {
+        "object_type": "Schedule:Compact",
+        "object_name": "Clg-SetP-Sch",
+        "field": "field_6",
+        "old_value": 23.9,
+        "new_value": 28.0,
+        "action_type": "hvac_setpoint_adjustment"
+      },
+      {
+        "object_type": "Schedule:Compact",
+        "object_name": "Clg-SetP-Sch",
+        "field": "field_8",
+        "old_value": 29.4,
+        "new_value": 28.0,
+        "action_type": "hvac_setpoint_adjustment"
+      },
+      {
+        "object_type": "Schedule:Compact",
+        "object_name": "Clg-SetP-Sch",
+        "field": "field_10",
+        "old_value": 29.4,
+        "new_value": 28.0,
+        "action_type": "hvac_setpoint_adjustment"
+      },
+      {
+        "object_type": "Schedule:Compact",
+        "object_name": "Clg-SetP-Sch",
+        "field": "field_11",
+        "old_value": 23.9,
+        "new_value": 28.0,
+        "action_type": "hvac_setpoint_adjustment"
+      },
+      {
+        "object_type": "Schedule:Compact",
+        "object_name": "Clg-SetP-Sch",
+        "field": "field_12",
+        "old_value": 29.4,
+        "new_value": 28.0,
+        "action_type": "hvac_setpoint_adjustment"
+      },
+      {
+        "object_type": "Schedule:Compact",
+        "object_name": "Clg-SetP-Sch",
+        "field": "field_14",
+        "old_value": 29.4,
+        "new_value": 28.0,
+        "action_type": "hvac_setpoint_adjustment"
+      },
+      {
+        "object_type": "Schedule:Compact",
+        "object_name": "Clg-SetP-Sch",
+        "field": "field_16",
+        "old_value": 29.4,
+        "new_value": 28.0,
+        "action_type": "hvac_setpoint_adjustment"
+      },
+      {
+        "object_type": "DesignSpecification:OutdoorAir",
+        "object_name": "SZ DSOA SPACE1-1",
+        "field": "field_3",
+        "old_value": 0.00236,
+        "new_value": 0.000944,
+        "action_type": "ventilation_adjustment",
+        "multiplier": 0.4
+      },
+      {
+        "object_type": "DesignSpecification:OutdoorAir",
+        "object_name": "SZ DSOA SPACE1-1",
+        "field": "field_4",
+        "old_value": 0.000305,
+        "new_value": 0.000122,
+        "action_type": "ventilation_adjustment",
+        "multiplier": 0.4
+      },
+      {
+        "object_type": "DesignSpecification:OutdoorAir",
+        "object_name": "SZ DSOA SPACE2-1",
+        "field": "field_3",
+        "old_value": 0.00236,
+        "new_value": 0.000944,
+        "action_type": "ventilation_adjustment",
+        "multiplier": 0.4
+      },
+      {
+        "object_type": "DesignSpecification:OutdoorAir",
+        "object_name": "SZ DSOA SPACE2-1",
+        "field": "field_4",
+        "old_value": 0.000305,
+        "new_value": 0.000122,
+        "action_type": "ventilation_adjustment",
+        "multiplier": 0.4
+      },
+      {
+        "object_type": "DesignSpecification:OutdoorAir",
+        "object_name": "SZ DSOA SPACE3-1",
+        "field": "field_3",
+        "old_value": 0.00236,
+        "new_value": 0.000944,
+        "action_type": "ventilation_adjustment",
+        "multiplier": 0.4
+      },
+      {
+        "object_type": "DesignSpecification:OutdoorAir",
+        "object_name": "SZ DSOA SPACE3-1",
+        "field": "field_4",
+        "old_value": 0.000305,
+        "new_value": 0.000122,
+        "action_type": "ventilation_adjustment",
+        "multiplier": 0.4
+      },
+      {
+        "object_type": "DesignSpecification:OutdoorAir",
+        "object_name": "SZ DSOA SPACE4-1",
+        "field": "field_3",
+        "old_value": 0.00236,
+        "new_value": 0.000944,
+        "action_type": "ventilation_adjustment",
+        "multiplier": 0.4
+      },
+      {
+        "object_type": "DesignSpecification:OutdoorAir",
+        "object_name": "SZ DSOA SPACE4-1",
+        "field": "field_4",
+        "old_value": 0.000305,
+        "new_value": 0.000122,
+        "action_type": "ventilation_adjustment",
+        "multiplier": 0.4
+      },
+      {
+        "object_type": "DesignSpecification:OutdoorAir",
+        "object_name": "SZ DSOA SPACE5-1",
+        "field": "field_3",
+        "old_value": 0.00236,
+        "new_value": 0.000944,
+        "action_type": "ventilation_adjustment",
+        "multiplier": 0.4
+      },
+      {
+        "object_type": "DesignSpecification:OutdoorAir",
+        "object_name": "SZ DSOA SPACE5-1",
+        "field": "field_4",
+        "old_value": 0.000305,
+        "new_value": 0.000122,
+        "action_type": "ventilation_adjustment",
+        "multiplier": 0.4
+      }
+    ],
+    "warnings": [
+      "Controller:OutdoorAir detected but skipped because field-safe editing is not implemented."
+    ],
+    "success": true
+  },
+  "execution_notes": [
+    "IDF adapter changed Lights 'SPACE1-1 Lights 1' field_6 from 1584.0 to 396.0.",
+    "IDF adapter changed Lights 'SPACE2-1 Lights 1' field_6 from 684.0 to 171.0.",
+    "IDF adapter changed Lights 'SPACE3-1 Lights 1' field_6 from 1584.0 to 396.0.",
+    "IDF adapter changed Lights 'SPACE4-1 Lights 1' field_6 from 684.0 to 171.0.",
+    "IDF adapter changed Lights 'SPACE5-1 Lights 1' field_6 from 2964.0 to 741.0.",
+    "IDF adapter changed Schedule:Compact 'Clg-SetP-Sch' field_6 from 23.9 to 28.0.",
+    "IDF adapter changed Schedule:Compact 'Clg-SetP-Sch' field_8 from 29.4 to 28.0.",
+    "IDF adapter changed Schedule:Compact 'Clg-SetP-Sch' field_10 from 29.4 to 28.0.",
+    "IDF adapter changed Schedule:Compact 'Clg-SetP-Sch' field_11 from 23.9 to 28.0.",
+    "IDF adapter changed Schedule:Compact 'Clg-SetP-Sch' field_12 from 29.4 to 28.0.",
+    "IDF adapter changed Schedule:Compact 'Clg-SetP-Sch' field_14 from 29.4 to 28.0.",
+    "IDF adapter changed Schedule:Compact 'Clg-SetP-Sch' field_16 from 29.4 to 28.0.",
+    "IDF adapter changed DesignSpecification:OutdoorAir 'SZ DSOA SPACE1-1' field_3 from 0.00236 to 0.000944.",
+    "IDF adapter changed DesignSpecification:OutdoorAir 'SZ DSOA SPACE1-1' field_4 from 0.000305 to 0.000122.",
+    "IDF adapter changed DesignSpecification:OutdoorAir 'SZ DSOA SPACE2-1' field_3 from 0.00236 to 0.000944.",
+    "IDF adapter changed DesignSpecification:OutdoorAir 'SZ DSOA SPACE2-1' field_4 from 0.000305 to 0.000122.",
+    "IDF adapter changed DesignSpecification:OutdoorAir 'SZ DSOA SPACE3-1' field_3 from 0.00236 to 0.000944.",
+    "IDF adapter changed DesignSpecification:OutdoorAir 'SZ DSOA SPACE3-1' field_4 from 0.000305 to 0.000122.",
+    "IDF adapter changed DesignSpecification:OutdoorAir 'SZ DSOA SPACE4-1' field_3 from 0.00236 to 0.000944.",
+    "IDF adapter changed DesignSpecification:OutdoorAir 'SZ DSOA SPACE4-1' field_4 from 0.000305 to 0.000122.",
+    "IDF adapter changed DesignSpecification:OutdoorAir 'SZ DSOA SPACE5-1' field_3 from 0.00236 to 0.000944.",
+    "IDF adapter changed DesignSpecification:OutdoorAir 'SZ DSOA SPACE5-1' field_4 from 0.000305 to 0.000122.",
+    "Controller:OutdoorAir detected but skipped because field-safe editing is not implemented.",
+    "Approved Layer 5 actions were translated by the Phase 5.7 IDF adapter where safe objects were found.",
+    "EnergyPlus return_code=0.",
+    "This execution was applied only inside the EnergyPlus digital twin."
+  ],
+  "error": null
+}
