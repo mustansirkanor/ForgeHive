@@ -11,10 +11,12 @@ from backend.app.cognitive.knowledge_graph import (
     get_relevant_knowledge_context,
 )
 from backend.app.cognitive.mcp_tool_registry import execute_mcp_tool
+from backend.app.experience.seed_experiences import seed_demo_experiences
 
 
 if __name__ == "__main__":
     ensure_knowledge_graph()
+    seed_demo_experiences(force=True)
 
     kg_context = get_relevant_knowledge_context(
         goal="reduce_energy_keep_comfort_safe",
@@ -75,6 +77,8 @@ if __name__ == "__main__":
 
     candidate_bundles = candidate_generation.get("candidate_bundles", [])
     mcp_candidate_bundles = (mcp_candidate_result.get("result") or {}).get("candidate_bundles", [])
+    experience_graph = cognitive_result.get("experience_graph", {})
+    llm_experience_context = candidate_generation.get("llm_experience_context", "")
 
     passed = (
         bool(kg_context.get("matched_conditions"))
@@ -94,6 +98,9 @@ if __name__ == "__main__":
         and bool(cognitive_result.get("candidate_bundle_generation"))
         and cognitive_result["execution_allowed"] is False
         and cognitive_result["ready_for_layer5"] is True
+        and "experience_graph" in cognitive_result
+        and experience_graph.get("retrieval_used") in {True, False}
+        and "Previous similar operational experiences" in llm_experience_context
         and mcp_candidate_result["success"] is True
         and mcp_candidate_result["allowed"] is True
         and len(mcp_candidate_bundles) >= 2

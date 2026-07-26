@@ -7,6 +7,7 @@ from typing import Any
 ROOT_DIR = Path(__file__).resolve().parents[3]
 FINAL_DIR = ROOT_DIR / "artifacts" / "final_submission"
 LAYER5_DIR = ROOT_DIR / "artifacts" / "layer_5_closed_loop"
+LAYER8_DIR = ROOT_DIR / "artifacts" / "layer_8_experience_graph"
 
 IMPORTANT_ARTIFACTS = [
     FINAL_DIR / "forgehive_final_audit.json",
@@ -20,6 +21,10 @@ IMPORTANT_ARTIFACTS = [
     LAYER5_DIR / "layer5_7_idf_adapter_report.json",
     LAYER5_DIR / "layer5_7_dashboard_summary.json",
     LAYER5_DIR / "layer5_7_summary.md",
+    LAYER8_DIR / "experience_graph_summary.json",
+    LAYER8_DIR / "experience_retrieval_demo.json",
+    LAYER8_DIR / "experience_learning_demo.json",
+    LAYER8_DIR / "layer8_summary.md",
 ]
 
 
@@ -127,6 +132,51 @@ def normalize_bundle(bundle: dict, simulation: dict | None = None) -> dict:
         "carbonReducedPercent": simulation.get("carbon_reduced_percent"),
         "comfortStatus": simulation.get("comfort_status"),
     }
+
+
+def normalize_experience_graph_from_memory(memory: dict, retrieval: dict | None = None, update: dict | None = None) -> dict:
+    retrieval = retrieval or {}
+    update = update or {}
+    recommendation = retrieval.get("historical_recommendation") or {}
+    top_strategy = (memory.get("topStrategies") or [{}])[0]
+    return {
+        "enabled": True,
+        "retrievalUsed": bool(retrieval),
+        "similarExperiencesFound": retrieval.get("similar_experiences_found", update.get("similar_experiences_used", 0)),
+        "preferredHistoricalPlan": recommendation.get("preferred_plan") or top_strategy.get("strategy"),
+        "successRate": recommendation.get("success_rate", top_strategy.get("successRate", 0)),
+        "averageReward": recommendation.get("average_reward", top_strategy.get("averageReward", 0)),
+        "confidence": recommendation.get("confidence", top_strategy.get("confidence", 0)),
+        "actionsToPrefer": recommendation.get("actions_to_prefer", []),
+        "actionsToAvoid": recommendation.get("actions_to_avoid", [pattern.get("action_type") for pattern in memory.get("failurePatterns", [])]),
+        "experienceUpdated": bool(update.get("experience_graph_updated", update.get("experienceGraphUpdated", True))),
+        "experienceId": update.get("experience_id") or update.get("experienceId"),
+        "lessonsLearned": update.get("lessons_learned") or update.get("lessonsLearned") or memory.get("recentLessons", []),
+        "totalExperiences": memory.get("totalExperiences", 0),
+        "topStrategies": memory.get("topStrategies", []),
+        "failurePatterns": memory.get("failurePatterns", []),
+        "message": (
+            "ForgeHive has seen similar situations before and is using those experiences as a decision prior."
+            if retrieval.get("similar_experiences_found", 0)
+            else "No similar previous experience found. ForgeHive will explore safely using simulation and safety checks."
+        ),
+    }
+
+
+def experience_query_for_demo_cases(demo_cases: list[str], scenario: dict, user_message: str) -> dict:
+    event_map = {
+        "empty_room": ("empty_room_detected", "reduce_energy_keep_comfort_safe"),
+        "high_co2": ("high_co2_detected", "improve_iaq"),
+        "high_carbon": ("high_carbon_window", "reduce_carbon"),
+        "too_hot": ("comfort_request", "maintain_comfort"),
+        "unsafe_command": ("occupied_room", "reduce_energy_keep_comfort_safe"),
+    }
+    demo_case = demo_cases[0] if demo_cases else "empty_room"
+    event_type, goal = event_map.get(demo_case, event_map["empty_room"])
+    building_state = dict(scenario.get("before_state", {}))
+    if "empty" in (user_message or "").lower() and "occupancy" not in building_state:
+        building_state["occupancy"] = 0
+    return {"event_type": event_type, "goal": goal, "building_state": building_state}
 
 
 def build_pipeline(unsafe: bool = False) -> list[dict]:
@@ -633,6 +683,7 @@ def build_live_frontend_response(layer57: dict, scenario: dict, user_message: st
             "rewardScore": item.get("reward_score"),
             "banditPrior": item.get("bandit_prior_score"),
             "knowledgeGraphScore": item.get("kg_relevance_score"),
+            "experiencePriorScore": item.get("experience_prior_score"),
             "penalty": item.get("final_penalty"),
             "energySavedPercent": simulation.get("energy_saved_percent"),
             "carbonReducedPercent": simulation.get("carbon_reduced_percent"),
@@ -653,6 +704,23 @@ def build_live_frontend_response(layer57: dict, scenario: dict, user_message: st
     safety_text = safety.get("safety_summary") or "The Safety Governor returned a safe no-action decision."
     learning_text = nested_get(learning, ["self_correction", "summary"], "No learning update was recorded.")
     outcome_comfort = execution.get("comfort_status", selected_simulation.get("comfort_status", "Unknown"))
+    try:
+        from backend.app.experience.experience_api import get_experience_memory_summary
+
+        memory_summary = get_experience_memory_summary()
+    except Exception:
+        memory_summary = {"totalExperiences": 0, "topStrategies": [], "failurePatterns": [], "recentLessons": []}
+    experience_graph = normalize_experience_graph_from_memory(
+        memory_summary,
+        plan.get("experience_retrieval", {}),
+        {
+            "experience_graph_updated": learning.get("experience_graph_updated", False),
+            "experience_id": learning.get("experience_id"),
+            "similar_experiences_used": learning.get("similar_experiences_used", 0),
+            "experience_confidence": learning.get("experience_confidence", 0),
+            "lessons_learned": learning.get("lessons_learned", []),
+        },
+    )
 
     explanation_steps = [
         {
@@ -743,10 +811,13 @@ def build_live_frontend_response(layer57: dict, scenario: dict, user_message: st
             "memoryUpdated": bool(learning.get("memory_updated", False)),
             "banditUpdated": bool(learning.get("bandit_updated", False)),
             "knowledgeGraphUpdated": bool(learning.get("knowledge_graph_updated", False)),
+            "experienceGraphUpdated": bool(learning.get("experience_graph_updated", False)),
+            "experienceId": learning.get("experience_id"),
             "actualReward": learning.get("actual_reward"),
             "strategy": learning.get("bandit_strategy"),
             "selfCorrectionSummary": learning_text,
         },
+        "experienceGraph": experience_graph,
         "explanationSteps": explanation_steps,
         "plainOutcome": (
             f"ForgeHive completed the plan in the digital twin and finished with comfort marked {outcome_comfort}."
@@ -836,6 +907,23 @@ def build_frontend_demo_response(
         first_present(layer57.get("carbon_reduced_percent"), dashboard57.get("carbonReducedPercent"), dashboard.get("carbonReducedPercent"), default=0),
         first_present(layer57.get("comfort_status"), dashboard57.get("comfortStatus"), dashboard.get("comfortStatus"), default="Unknown"),
     )
+    try:
+        from backend.app.experience.experience_api import get_experience_memory_summary, query_experience_memory
+
+        memory_summary = get_experience_memory_summary()
+        retrieval = query_experience_memory(experience_query_for_demo_cases(demo_cases, scenario, user_message or scenario.get("user_message", "")))
+    except Exception:
+        memory_summary = {"totalExperiences": 0, "topStrategies": [], "failurePatterns": [], "recentLessons": []}
+        retrieval = {"similar_experiences_found": 0, "historical_recommendation": None}
+    experience_graph = normalize_experience_graph_from_memory(
+        memory_summary,
+        retrieval,
+        {
+            "experience_graph_updated": not unsafe,
+            "experience_id": layer57.get("experience_id") or "artifact_replay_experience",
+            "lessons_learned": memory_summary.get("recentLessons", []),
+        },
+    )
 
     response = {
         "project": "ForgeHive",
@@ -892,8 +980,11 @@ def build_frontend_demo_response(
             "memoryUpdated": bool(first_present(layer57.get("memory_updated"), dashboard57.get("memoryUpdated"), learning.get("memory_updated"), default=False)),
             "banditUpdated": bool(first_present(layer57.get("bandit_updated"), dashboard57.get("banditUpdated"), learning.get("bandit_updated"), default=False)),
             "knowledgeGraphUpdated": bool(first_present(layer57.get("knowledge_graph_updated"), dashboard57.get("knowledgeGraphUpdated"), learning.get("knowledge_graph_updated"), default=False)),
+            "experienceGraphUpdated": experience_graph["experienceUpdated"],
+            "experienceId": experience_graph["experienceId"],
             "selfCorrectionSummary": nested_get(learning, ["self_correction", "summary"], dashboard.get("selfCorrectionSummary", "")),
         },
+        "experienceGraph": experience_graph,
         "judge": {
             "judgeReady": bool(first_present(dashboard57.get("judgeReady"), nested_get(final_package, ["demo_audit", "judge_ready"]), default=True)),
             "readinessScore": first_present(readiness.get("score"), nested_get(final_package, ["readiness_score", "score"]), default=0),

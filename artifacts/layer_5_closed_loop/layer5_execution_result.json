@@ -3,43 +3,43 @@
   "execution_status": "executed",
   "execution_applied": true,
   "execution_scope": "energyplus_digital_twin_only",
-  "selected_bundle_id": "be66e413-0b18-4005-b25a-6cdaf97b1c70",
-  "selected_bundle_name": "energy_savings_bundle",
+  "selected_bundle_id": "b55b699a-baee-4174-be4f-2b4e30f1acfa",
+  "selected_bundle_name": "aggressive_but_safe_bundle",
   "approved_actions_executed": [
     {
-      "action_id": "8bbb5b30-0117-4334-b0e6-95becc413295",
-      "strategy_name": "eco_mode",
+      "action_id": "c20a8a32-e930-4b56-8571-c6bd27c216db",
+      "strategy_name": "eco_mode_aggressive",
       "action_type": "lighting_adjustment",
       "target": "unoccupied_zones",
       "description": "Dim lights in unoccupied zones to conserve energy.",
       "parameters": {
-        "lighting_level_percent": 25.0
+        "lighting_level_percent": 15.0
       },
-      "expected_energy_saved_percent": 0.0,
-      "expected_carbon_reduced_percent": 49.0322,
+      "expected_energy_saved_percent": 6.0,
+      "expected_carbon_reduced_percent": 4.0,
       "expected_comfort_impact": "neutral",
       "source_agent": "layer5_final_safety_gate",
       "priority": "medium"
     },
     {
-      "action_id": "d5ecfd50-c942-4955-b14b-07f9f150105c",
-      "strategy_name": "eco_mode",
+      "action_id": "1eda23f5-91bc-4c5d-a0f0-ba0343474c33",
+      "strategy_name": "eco_mode_aggressive",
       "action_type": "hvac_setpoint_adjustment",
       "target": "unoccupied_zones",
-      "description": "Relax cooling setpoint for longer empty-room window.",
+      "description": "Relax unoccupied cooling setpoint because the room is empty.",
       "parameters": {
         "cooling_setpoint_c": 28.0,
         "applies_to_occupied_zones": false
       },
-      "expected_energy_saved_percent": 0.0,
-      "expected_carbon_reduced_percent": 49.0322,
+      "expected_energy_saved_percent": 6.0,
+      "expected_carbon_reduced_percent": 4.0,
       "expected_comfort_impact": "neutral",
       "source_agent": "layer5_final_safety_gate",
       "priority": "medium"
     },
     {
-      "action_id": "6f7d6bf1-da52-4c3f-9889-0d3343d8340f",
-      "strategy_name": "eco_mode",
+      "action_id": "74cbda0c-0c55-4fd7-8f21-08ce6553aea4",
+      "strategy_name": "eco_mode_aggressive",
       "action_type": "ventilation_adjustment",
       "target": "unoccupied_zones",
       "description": "Reduce ventilation within safe empty-room bounds.",
@@ -47,52 +47,52 @@
         "ventilation_percent": 40,
         "applies_to_occupied_zones": false
       },
-      "expected_energy_saved_percent": 0.0,
-      "expected_carbon_reduced_percent": 49.0322,
+      "expected_energy_saved_percent": 6.0,
+      "expected_carbon_reduced_percent": 4.0,
       "expected_comfort_impact": "neutral",
       "source_agent": "layer5_final_safety_gate",
       "priority": "medium"
     }
   ],
   "blocked_actions_not_executed": [],
-  "run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260726_111410_915661_energy_savings_bundle",
-  "strategy_name": "eco_mode",
+  "run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260726_160207_062936_aggressive_but_safe_bundle",
+  "strategy_name": "eco_mode_aggressive",
   "baseline_energy_kwh": 43510.13,
   "baseline_carbon_kg": 19579.56,
-  "executed_energy_kwh": 22176.1644,
-  "executed_carbon_kg": 9979.274,
-  "energy_saved_kwh": 21333.9656,
-  "energy_saved_percent": 49.0322,
-  "carbon_reduced_kg": 9600.286,
-  "carbon_reduced_percent": 49.0322,
+  "executed_energy_kwh": 19889.1546,
+  "executed_carbon_kg": 8950.1196,
+  "energy_saved_kwh": 23620.9754,
+  "energy_saved_percent": 54.2885,
+  "carbon_reduced_kg": 10629.4404,
+  "carbon_reduced_percent": 54.2885,
   "comfort_violation_minutes": 0.0,
   "comfort_status": "Safe",
   "anomaly_count": 0,
   "parser_output": {
-    "run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260726_111410_915661_energy_savings_bundle",
+    "run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260726_160207_062936_aggressive_but_safe_bundle",
     "simulation": {
       "completed": true,
       "has_fatal": false,
       "has_severe": false,
-      "end_summary": "EnergyPlus Completed Successfully-- 1 Warning; 0 Severe Errors; Elapsed Time=00hr 00min 17.34sec"
+      "end_summary": "EnergyPlus Completed Successfully-- 2 Warning; 0 Severe Errors; Elapsed Time=00hr 00min 13.87sec"
     },
     "metrics": {
       "available": true,
-      "electricity_kwh": 22176.164377217174,
+      "electricity_kwh": 19889.154580847196,
       "cooling_kwh": 0.0,
       "heating_kwh": 0.0,
-      "carbon_kg": 9979.273969747728,
+      "carbon_kg": 8950.119561381238,
       "all_meters_kwh": {
-        "Electricity:Building": 18890.79375,
-        "Electricity:Facility": 22176.164377217174,
-        "Electricity:HVAC": 1133.6725490336262,
-        "Electricity:Plant": 2151.698078185631,
-        "InteriorLights:Electricity": 5641.59375,
-        "MYBUILDINGELECTRIC": 18890.79375,
+        "Electricity:Building": 16634.15625,
+        "Electricity:Facility": 19889.154580847196,
+        "Electricity:HVAC": 1126.5765401299388,
+        "Electricity:Plant": 2128.4217907173547,
+        "InteriorLights:Electricity": 3384.95625,
+        "MYBUILDINGELECTRIC": 16634.15625,
         "MYBUILDINGOTHER": 13249.2,
-        "MYGENERALLIGHTS": 5641.59375,
-        "NaturalGas:Facility": 13431.246198439616,
-        "NaturalGas:Plant": 13431.246198439616
+        "MYGENERALLIGHTS": 3384.95625,
+        "NaturalGas:Facility": 13815.47121226795,
+        "NaturalGas:Plant": 13815.47121226795
       }
     },
     "messages": [
@@ -101,43 +101,43 @@
   },
   "idf_adapter_report": {
     "source_idf_path": "C:\\EnergyPlusV26-1-0\\ExampleFiles\\5ZoneAirCooled.idf",
-    "target_idf_path": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260726_111410_915661_energy_savings_bundle\\modified_model.idf",
+    "target_idf_path": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260726_160207_062936_aggressive_but_safe_bundle\\modified_model.idf",
     "idf_adapter_version": "5.7",
     "actions_requested": [
       {
-        "action_id": "8bbb5b30-0117-4334-b0e6-95becc413295",
-        "strategy_name": "eco_mode",
+        "action_id": "c20a8a32-e930-4b56-8571-c6bd27c216db",
+        "strategy_name": "eco_mode_aggressive",
         "action_type": "lighting_adjustment",
         "target": "unoccupied_zones",
         "description": "Dim lights in unoccupied zones to conserve energy.",
         "parameters": {
-          "lighting_level_percent": 25.0
+          "lighting_level_percent": 15.0
         },
-        "expected_energy_saved_percent": 0.0,
-        "expected_carbon_reduced_percent": 49.0322,
+        "expected_energy_saved_percent": 6.0,
+        "expected_carbon_reduced_percent": 4.0,
         "expected_comfort_impact": "neutral",
         "source_agent": "layer5_final_safety_gate",
         "priority": "medium"
       },
       {
-        "action_id": "d5ecfd50-c942-4955-b14b-07f9f150105c",
-        "strategy_name": "eco_mode",
+        "action_id": "1eda23f5-91bc-4c5d-a0f0-ba0343474c33",
+        "strategy_name": "eco_mode_aggressive",
         "action_type": "hvac_setpoint_adjustment",
         "target": "unoccupied_zones",
-        "description": "Relax cooling setpoint for longer empty-room window.",
+        "description": "Relax unoccupied cooling setpoint because the room is empty.",
         "parameters": {
           "cooling_setpoint_c": 28.0,
           "applies_to_occupied_zones": false
         },
-        "expected_energy_saved_percent": 0.0,
-        "expected_carbon_reduced_percent": 49.0322,
+        "expected_energy_saved_percent": 6.0,
+        "expected_carbon_reduced_percent": 4.0,
         "expected_comfort_impact": "neutral",
         "source_agent": "layer5_final_safety_gate",
         "priority": "medium"
       },
       {
-        "action_id": "6f7d6bf1-da52-4c3f-9889-0d3343d8340f",
-        "strategy_name": "eco_mode",
+        "action_id": "74cbda0c-0c55-4fd7-8f21-08ce6553aea4",
+        "strategy_name": "eco_mode_aggressive",
         "action_type": "ventilation_adjustment",
         "target": "unoccupied_zones",
         "description": "Reduce ventilation within safe empty-room bounds.",
@@ -145,8 +145,8 @@
           "ventilation_percent": 40,
           "applies_to_occupied_zones": false
         },
-        "expected_energy_saved_percent": 0.0,
-        "expected_carbon_reduced_percent": 49.0322,
+        "expected_energy_saved_percent": 6.0,
+        "expected_carbon_reduced_percent": 4.0,
         "expected_comfort_impact": "neutral",
         "source_agent": "layer5_final_safety_gate",
         "priority": "medium"
@@ -154,39 +154,39 @@
     ],
     "actions_applied": [
       {
-        "action_id": "8bbb5b30-0117-4334-b0e6-95becc413295",
-        "strategy_name": "eco_mode",
+        "action_id": "c20a8a32-e930-4b56-8571-c6bd27c216db",
+        "strategy_name": "eco_mode_aggressive",
         "action_type": "lighting_adjustment",
         "target": "unoccupied_zones",
         "description": "Dim lights in unoccupied zones to conserve energy.",
         "parameters": {
-          "lighting_level_percent": 25.0
+          "lighting_level_percent": 15.0
         },
-        "expected_energy_saved_percent": 0.0,
-        "expected_carbon_reduced_percent": 49.0322,
+        "expected_energy_saved_percent": 6.0,
+        "expected_carbon_reduced_percent": 4.0,
         "expected_comfort_impact": "neutral",
         "source_agent": "layer5_final_safety_gate",
         "priority": "medium"
       },
       {
-        "action_id": "d5ecfd50-c942-4955-b14b-07f9f150105c",
-        "strategy_name": "eco_mode",
+        "action_id": "1eda23f5-91bc-4c5d-a0f0-ba0343474c33",
+        "strategy_name": "eco_mode_aggressive",
         "action_type": "hvac_setpoint_adjustment",
         "target": "unoccupied_zones",
-        "description": "Relax cooling setpoint for longer empty-room window.",
+        "description": "Relax unoccupied cooling setpoint because the room is empty.",
         "parameters": {
           "cooling_setpoint_c": 28.0,
           "applies_to_occupied_zones": false
         },
-        "expected_energy_saved_percent": 0.0,
-        "expected_carbon_reduced_percent": 49.0322,
+        "expected_energy_saved_percent": 6.0,
+        "expected_carbon_reduced_percent": 4.0,
         "expected_comfort_impact": "neutral",
         "source_agent": "layer5_final_safety_gate",
         "priority": "medium"
       },
       {
-        "action_id": "6f7d6bf1-da52-4c3f-9889-0d3343d8340f",
-        "strategy_name": "eco_mode",
+        "action_id": "74cbda0c-0c55-4fd7-8f21-08ce6553aea4",
+        "strategy_name": "eco_mode_aggressive",
         "action_type": "ventilation_adjustment",
         "target": "unoccupied_zones",
         "description": "Reduce ventilation within safe empty-room bounds.",
@@ -194,8 +194,8 @@
           "ventilation_percent": 40,
           "applies_to_occupied_zones": false
         },
-        "expected_energy_saved_percent": 0.0,
-        "expected_carbon_reduced_percent": 49.0322,
+        "expected_energy_saved_percent": 6.0,
+        "expected_carbon_reduced_percent": 4.0,
         "expected_comfort_impact": "neutral",
         "source_agent": "layer5_final_safety_gate",
         "priority": "medium"
@@ -212,7 +212,7 @@
         "object_name": "SPACE1-1 Lights 1",
         "field": "field_6",
         "old_value": 1584.0,
-        "new_value": 396.0,
+        "new_value": 237.6,
         "action_type": "lighting_adjustment"
       },
       {
@@ -220,7 +220,7 @@
         "object_name": "SPACE2-1 Lights 1",
         "field": "field_6",
         "old_value": 684.0,
-        "new_value": 171.0,
+        "new_value": 102.6,
         "action_type": "lighting_adjustment"
       },
       {
@@ -228,7 +228,7 @@
         "object_name": "SPACE3-1 Lights 1",
         "field": "field_6",
         "old_value": 1584.0,
-        "new_value": 396.0,
+        "new_value": 237.6,
         "action_type": "lighting_adjustment"
       },
       {
@@ -236,7 +236,7 @@
         "object_name": "SPACE4-1 Lights 1",
         "field": "field_6",
         "old_value": 684.0,
-        "new_value": 171.0,
+        "new_value": 102.6,
         "action_type": "lighting_adjustment"
       },
       {
@@ -244,7 +244,7 @@
         "object_name": "SPACE5-1 Lights 1",
         "field": "field_6",
         "old_value": 2964.0,
-        "new_value": 741.0,
+        "new_value": 444.6,
         "action_type": "lighting_adjustment"
       },
       {
@@ -400,11 +400,11 @@
     "success": true
   },
   "execution_notes": [
-    "IDF adapter changed Lights 'SPACE1-1 Lights 1' field_6 from 1584.0 to 396.0.",
-    "IDF adapter changed Lights 'SPACE2-1 Lights 1' field_6 from 684.0 to 171.0.",
-    "IDF adapter changed Lights 'SPACE3-1 Lights 1' field_6 from 1584.0 to 396.0.",
-    "IDF adapter changed Lights 'SPACE4-1 Lights 1' field_6 from 684.0 to 171.0.",
-    "IDF adapter changed Lights 'SPACE5-1 Lights 1' field_6 from 2964.0 to 741.0.",
+    "IDF adapter changed Lights 'SPACE1-1 Lights 1' field_6 from 1584.0 to 237.6.",
+    "IDF adapter changed Lights 'SPACE2-1 Lights 1' field_6 from 684.0 to 102.6.",
+    "IDF adapter changed Lights 'SPACE3-1 Lights 1' field_6 from 1584.0 to 237.6.",
+    "IDF adapter changed Lights 'SPACE4-1 Lights 1' field_6 from 684.0 to 102.6.",
+    "IDF adapter changed Lights 'SPACE5-1 Lights 1' field_6 from 2964.0 to 444.6.",
     "IDF adapter changed Schedule:Compact 'Clg-SetP-Sch' field_6 from 23.9 to 28.0.",
     "IDF adapter changed Schedule:Compact 'Clg-SetP-Sch' field_8 from 29.4 to 28.0.",
     "IDF adapter changed Schedule:Compact 'Clg-SetP-Sch' field_10 from 29.4 to 28.0.",

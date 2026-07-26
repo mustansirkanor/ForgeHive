@@ -1,6 +1,7 @@
 from backend.app.cognitive.knowledge_graph import get_relevant_knowledge_context
 from backend.app.cognitive.provider_schema_normalizer import CANONICAL_ACTION_TYPES
 from backend.app.decision.strategy_bandit import load_bandit_state
+from backend.app.experience.experience_ranker import apply_experience_prior_to_candidate_bundles
 
 
 def calculate_simulation_reward(simulation_result: dict) -> dict:
@@ -138,15 +139,47 @@ def conservative_tiebreaker(bundle: dict) -> int:
     return 1
 
 
-def rank_simulated_bundles(simulation_results: list[dict], original_bundles: list[dict], goal: str, event_type: str) -> dict:
+def summarize_experience_prior(retrieved_experience: dict | None) -> dict:
+    recommendation = (retrieved_experience or {}).get("historical_recommendation") or {}
+    return {
+        "similar_experiences_found": (retrieved_experience or {}).get("similar_experiences_found", 0),
+        "preferred_historical_plan": recommendation.get("preferred_plan"),
+        "actions_preferred": recommendation.get("actions_to_prefer", []),
+        "actions_avoided": recommendation.get("actions_to_avoid", []),
+        "average_reward": recommendation.get("average_reward"),
+        "success_rate": recommendation.get("success_rate"),
+        "reason": recommendation.get("reason") or (retrieved_experience or {}).get("message", ""),
+    }
+
+
+def rank_simulated_bundles(
+    simulation_results: list[dict],
+    original_bundles: list[dict],
+    goal: str,
+    event_type: str,
+    retrieved_experience: dict | None = None,
+) -> dict:
+    experience_prior = apply_experience_prior_to_candidate_bundles(original_bundles, retrieved_experience or {})
+    experience_by_id = {
+        bundle.get("bundle_id"): bundle
+        for bundle in experience_prior.get("candidate_bundles", [])
+        if isinstance(bundle, dict)
+    }
+    experience_by_name = {
+        bundle.get("bundle_name"): bundle
+        for bundle in experience_prior.get("candidate_bundles", [])
+        if isinstance(bundle, dict)
+    }
     ranked = []
     for result in simulation_results or []:
         bundle = find_original_bundle(result, original_bundles)
+        experience_bundle = experience_by_id.get(bundle.get("bundle_id")) or experience_by_name.get(bundle.get("bundle_name")) or {}
         reward = calculate_simulation_reward(result)
         bandit_prior = get_bandit_prior_for_bundle(bundle)
         kg = get_kg_relevance_score(bundle, goal, event_type)
         penalty = calculate_final_penalty(result)
-        total_score = reward["reward_score"] + (0.25 * bandit_prior) + (0.5 * kg["score"]) + penalty["final_penalty"]
+        experience_prior_score = float(experience_bundle.get("experience_prior_score", 0.0) or 0.0)
+        final_score = reward["reward_score"] + (0.25 * bandit_prior) + (0.5 * kg["score"]) + experience_prior_score + penalty["final_penalty"]
         penalty_text = (
             f" Penalties applied: {', '.join(penalty['penalty_reasons'])}."
             if penalty["penalty_reasons"]
@@ -158,7 +191,9 @@ def rank_simulated_bundles(simulation_results: list[dict], original_bundles: lis
                 "rank": 0,
                 "bundle_id": result.get("bundle_id"),
                 "bundle_name": result.get("bundle_name"),
-                "total_score": round(total_score, 4),
+                "total_score": round(final_score, 4),
+                "final_score": round(final_score, 4),
+                "base_reward_score": reward["reward_score"],
                 "reward_score": reward["reward_score"],
                 "energy_score": reward["energy_score"],
                 "carbon_score": reward["carbon_score"],
@@ -167,6 +202,9 @@ def rank_simulated_bundles(simulation_results: list[dict], original_bundles: lis
                 "anomaly_score": reward["anomaly_score"],
                 "bandit_prior_score": bandit_prior,
                 "kg_relevance_score": kg["score"],
+                "knowledge_graph_score": kg["score"],
+                "experience_prior_score": round(experience_prior_score, 4),
+                "experience_prior_reasons": experience_bundle.get("experience_prior_reasons", []),
                 "final_penalty": penalty["final_penalty"],
                 "penalty_reasons": penalty["penalty_reasons"],
                 "kg_details": kg,
@@ -174,7 +212,8 @@ def rank_simulated_bundles(simulation_results: list[dict], original_bundles: lis
                 "original_bundle": bundle,
                 "ranking_reason": (
                     f"Reward={reward['reward_score']}, bandit_prior={bandit_prior}, "
-                    f"kg_score={kg['score']}, final_penalty={penalty['final_penalty']}."
+                    f"kg_score={kg['score']}, experience_prior={experience_prior_score}, "
+                    f"final_penalty={penalty['final_penalty']}."
                     f"{penalty_text}"
                 ),
             }
@@ -201,4 +240,8 @@ def rank_simulated_bundles(simulation_results: list[dict], original_bundles: lis
         "ranking_summary": f"Ranked {len(ranked)} bundle(s); selected {selected.get('bundle_name') if selected else 'safe no-action'}." if ranked else "No bundles available to rank.",
         "rl_used": True,
         "kg_used": True,
+        "experience_prior_used": bool(experience_prior.get("experience_prior_used", False)),
+        "experience_prior_summary": summarize_experience_prior(retrieved_experience),
+        "experience_bonus_summary": experience_prior.get("experience_bonus_summary", []),
+        "experience_prior_warnings": experience_prior.get("warnings", []),
     }

@@ -14,7 +14,9 @@ import {
   Wrench,
   XCircle,
 } from "lucide-react";
-import { askOperator, getFinalSummary, getScenarios, runScenario } from "./api";
+import { askOperator, getExperienceMemory, getFinalSummary, getScenarios, runScenario } from "./api";
+import ExperienceGraphPanel from "./components/ExperienceGraphPanel";
+import ExperienceMemoryCard from "./components/ExperienceMemoryCard";
 
 const TABS = [
   { id: "template", label: "Ready Demo" },
@@ -380,6 +382,7 @@ function CandidatePlans({ result }) {
                 <span>Comfort {candidate.comfortStatus || "n/a"}</span>
                 <span>RL {candidate.banditPrior ?? "n/a"}</span>
                 <span>KG {candidate.knowledgeGraphScore ?? "n/a"}</span>
+                <span>EXP {candidate.experiencePriorScore ?? "n/a"}</span>
                 <span>Total {candidate.totalScore ?? "n/a"}</span>
               </div>
             </article>
@@ -416,7 +419,7 @@ function ExplanationSteps({ result }) {
   );
 }
 
-function ResultPanel({ result }) {
+function ResultPanel({ result, experienceMemory }) {
   const nodes = useMemo(() => buildWorkflowNodes(result), [result]);
   const [selectedNodeId, setSelectedNodeId] = useState("request");
   const [replayKey, setReplayKey] = useState(0);
@@ -486,6 +489,7 @@ function ResultPanel({ result }) {
       <AutonomySnapshot result={result} />
       <ExplanationSteps result={result} />
       <CandidatePlans result={result} />
+      <ExperienceGraphPanel result={result} memory={experienceMemory} />
 
       <div className="workflow-shell">
         <div className="workflow-toolbar">
@@ -578,7 +582,7 @@ function ResultPanel({ result }) {
         </div>
       </div>
 
-      {safety.blockedActions?.length > 0 && (
+      {safety.approved === false && safety.blockedActions?.length > 0 && (
         <div className="blocked-box">
           <strong>Blocked action</strong>
           <code>{JSON.stringify(safety.blockedActions[0], null, 2)}</code>
@@ -588,7 +592,7 @@ function ResultPanel({ result }) {
   );
 }
 
-function TemplatePage({ summary, onRun }) {
+function TemplatePage({ summary, experienceMemory, onRun }) {
   return (
     <section className="page-grid">
       <div className="hero-card">
@@ -617,6 +621,7 @@ function TemplatePage({ summary, onRun }) {
           <span>Readiness</span>
           <strong>{summary?.readinessScore ?? 100}/100</strong>
         </div>
+        <ExperienceMemoryCard memory={experienceMemory} />
       </div>
     </section>
   );
@@ -688,6 +693,7 @@ function SimulatePage({ scenarios, selectedScenarioId, setSelectedScenarioId, se
 export default function App() {
   const [tab, setTab] = useState("template");
   const [summary, setSummary] = useState(null);
+  const [experienceMemory, setExperienceMemory] = useState(null);
   const [scenarios, setScenarios] = useState([]);
   const [selectedScenarioId, setSelectedScenarioId] = useState("empty_room");
   const [result, setResult] = useState(null);
@@ -697,9 +703,10 @@ export default function App() {
   useEffect(() => {
     async function load() {
       try {
-        const [summaryData, scenarioData] = await Promise.all([getFinalSummary(), getScenarios()]);
+        const [summaryData, scenarioData, memoryData] = await Promise.all([getFinalSummary(), getScenarios(), getExperienceMemory()]);
         setSummary(summaryData);
         setScenarios(scenarioData);
+        setExperienceMemory(memoryData);
       } catch (err) {
         setError(err.message);
       }
@@ -721,6 +728,11 @@ export default function App() {
           ? await runScenario(payload.scenario_id, payload.mode)
           : await askOperator(payload.message, payload.mode);
       setResult(directResult);
+      try {
+        setExperienceMemory(await getExperienceMemory());
+      } catch (memoryErr) {
+        setError((current) => current || memoryErr.message);
+      }
     } catch (err) {
       setError(err.message);
     } finally {
@@ -763,7 +775,7 @@ export default function App() {
       {error && <section className="notice bad">{error}</section>}
       {loading && <section className="notice">{loading}</section>}
 
-      {tab === "template" && <TemplatePage summary={summary} onRun={runReadyDemo} />}
+      {tab === "template" && <TemplatePage summary={summary} experienceMemory={experienceMemory} onRun={runReadyDemo} />}
       {tab === "ask" && <AskPage defaultMessage={selectedScenario?.user_message || ""} onAsk={askForgeHive} />}
       {tab === "simulate" && (
         <SimulatePage
@@ -775,7 +787,7 @@ export default function App() {
         />
       )}
 
-      <ResultPanel result={result} />
+      <ResultPanel result={result} experienceMemory={experienceMemory} />
     </main>
   );
 }

@@ -45,6 +45,7 @@ def run_final_demo_audit() -> dict:
     add_check(checks, "safety_governor_used", final_dashboard.get("safetyGovernorUsed") is True or dashboard.get("safetyGovernorUsed") is True)
     add_check(checks, "rl_bandit_used", final_dashboard.get("rlBanditUsed") is True or dashboard.get("rlBanditUsed") is True)
     add_check(checks, "knowledge_graph_used", final_dashboard.get("knowledgeGraphUsed") is True or dashboard.get("knowledgeGraphUsed") is True)
+    add_check(checks, "experience_graph_enabled", final_dashboard.get("experienceGraphEnabled") is True or dashboard.get("experienceGraphEnabled") is True or demo_result.get("experience_graph_updated") is True)
     add_check(checks, "learning_updated", any(bool(demo_result.get(key)) for key in ["memory_updated", "bandit_updated", "knowledge_graph_updated"]))
     add_check(checks, "lighting_idf_applied", adapter.get("lighting_applied") is True)
     add_check(

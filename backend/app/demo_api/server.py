@@ -12,6 +12,7 @@ from backend.app.demo_api.artifact_loader import (
     read_text,
 )
 from backend.app.demo_api.scenarios import get_scenario, get_scenarios
+from backend.app.experience.experience_api import get_experience_memory_summary, query_experience_memory
 
 
 def health() -> dict:
@@ -74,7 +75,7 @@ def get_run(run_id: str) -> dict:
 try:
     from fastapi import FastAPI, HTTPException
     from fastapi.middleware.cors import CORSMiddleware
-    from pydantic import BaseModel
+    from pydantic import BaseModel, Field
 
     class ScenarioRunRequest(BaseModel):
         scenario_id: str
@@ -89,6 +90,11 @@ try:
         mode: str = "artifact"
         scenario_id: str | None = None
         message: str | None = None
+
+    class ExperienceQueryRequest(BaseModel):
+        event_type: str
+        goal: str
+        building_state: dict = Field(default_factory=dict)
 
     app = FastAPI(title="ForgeHive Layer 7 Demo API")
     app.add_middleware(
@@ -137,6 +143,14 @@ try:
     def api_artifacts() -> dict:
         return list_artifacts()
 
+    @app.get("/api/experience-memory")
+    def api_experience_memory() -> dict:
+        return get_experience_memory_summary()
+
+    @app.post("/api/experience/query")
+    def api_experience_query(request: ExperienceQueryRequest) -> dict:
+        return query_experience_memory(request.model_dump())
+
     @app.get("/api/judge-summary")
     def api_judge_summary() -> dict:
         from backend.app.demo_api.artifact_loader import FINAL_DIR
@@ -183,6 +197,7 @@ class DemoRequestHandler(BaseHTTPRequestHandler):
             "/api/final-summary": build_final_summary,
             "/api/scenarios": get_scenarios,
             "/api/artifacts": list_artifacts,
+            "/api/experience-memory": get_experience_memory_summary,
             "/api/judge-summary": lambda: {"project": "ForgeHive", "realBuildingExecution": False, "content": read_text(FINAL_DIR / "forgehive_judge_summary.md")},
             "/api/demo-script": lambda: {"project": "ForgeHive", "realBuildingExecution": False, "content": read_text(FINAL_DIR / "forgehive_demo_script.md")},
         }
@@ -207,6 +222,8 @@ class DemoRequestHandler(BaseHTTPRequestHandler):
                 self._send(run_demo_message(payload.get("message", ""), payload.get("mode", "artifact")))
             elif path == "/api/runs":
                 self._send(start_run(payload))
+            elif path == "/api/experience/query":
+                self._send(query_experience_memory(payload))
             else:
                 self._send({"error": "not_found"}, status=404)
         except ValueError as exc:

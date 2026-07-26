@@ -2,6 +2,8 @@ import json
 
 from backend.app.closed_loop.reward_ranker import rank_simulated_bundles
 from backend.app.closed_loop.schemas import to_jsonable
+from backend.app.experience.experience_retriever import retrieve_similar_experiences
+from backend.app.experience.seed_experiences import seed_demo_experiences
 
 
 SAFE_BUNDLE = {
@@ -47,6 +49,19 @@ def simulation(bundle: dict, status: str, comfort: str, energy_saved: float) -> 
 
 
 if __name__ == "__main__":
+    seed_demo_experiences(force=True)
+    retrieved = retrieve_similar_experiences(
+        {
+            "event_type": "empty_room_detected",
+            "goal": "reduce_energy_keep_comfort_safe",
+            "occupancy": 0,
+            "comfort_status": "Safe",
+            "carbon_state": "high",
+            "co2_ppm": 650,
+            "next_meeting_minutes": 90,
+            "anomaly_count": 0,
+        }
+    )
     output = rank_simulated_bundles(
         [
             simulation(FAILED_BUNDLE, "failed", "Unknown", 99),
@@ -56,6 +71,7 @@ if __name__ == "__main__":
         [SAFE_BUNDLE, FAILED_BUNDLE, UNSAFE_BUNDLE],
         "reduce_energy_keep_comfort_safe",
         "empty_room_detected",
+        retrieved,
     )
 
     print(json.dumps(to_jsonable(output), indent=2))
@@ -72,6 +88,11 @@ if __name__ == "__main__":
     assert ranked_by_id["failed_bundle"]["final_penalty"] <= -100
     assert output["ranked_bundles"][0]["bandit_prior_score"] is not None
     assert output["ranked_bundles"][0]["kg_relevance_score"] is not None
+    assert output["ranked_bundles"][0]["experience_prior_score"] is not None
+    assert output["ranked_bundles"][0]["base_reward_score"] is not None
+    assert output["ranked_bundles"][0]["final_score"] == output["ranked_bundles"][0]["total_score"]
+    assert output["experience_prior_used"] is True
+    assert output["experience_prior_summary"]["similar_experiences_found"] > 0
     assert output["rl_used"] is True
     assert output["kg_used"] is True
     json.dumps(to_jsonable(output))

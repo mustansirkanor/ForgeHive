@@ -194,6 +194,27 @@ def learn_from_execution(plan_5_1_3: dict, execution_result: dict) -> dict:
 
     notes.extend([memory_result.get("note", ""), kg_result.get("note", "")])
     learning_status = "updated" if comparison["execution_success"] and (bandit_updated or memory_result["updated"] or kg_result["updated"]) else "skipped"
+    experience_result = {
+        "experience_graph_updated": False,
+        "experience_id": None,
+        "similar_experiences_used": plan_5_1_3.get("experience_prior_summary", {}).get("similar_experiences_found", 0),
+        "experience_confidence": 0.0,
+        "lessons_learned": [],
+        "real_building_execution": False,
+    }
+    try:
+        from backend.app.experience.experience_api import record_experience_after_execution
+
+        learning_snapshot = {
+            "actual_reward": actual_reward,
+            "bandit_updated": bandit_updated,
+            "memory_updated": bool(memory_result["updated"]),
+            "knowledge_graph_updated": bool(kg_result["updated"]),
+        }
+        experience_result = record_experience_after_execution(plan_5_1_3, execution_result, learning_snapshot)
+        notes.append("Experience Graph updated with compact operational episode.")
+    except Exception as exc:
+        notes.append(f"Experience Graph update skipped safely: {exc}")
 
     return {
         "phase": "5.5",
@@ -205,6 +226,12 @@ def learn_from_execution(plan_5_1_3: dict, execution_result: dict) -> dict:
         "bandit_strategy": strategy,
         "memory_updated": bool(memory_result["updated"]),
         "knowledge_graph_updated": bool(kg_result["updated"]),
+        "experience_graph_updated": bool(experience_result.get("experience_graph_updated", False)),
+        "experience_id": experience_result.get("experience_id"),
+        "similar_experiences_used": experience_result.get("similar_experiences_used", 0),
+        "experience_confidence": experience_result.get("experience_confidence", 0),
+        "lessons_learned": experience_result.get("lessons_learned", []),
+        "real_building_execution": False,
         "self_correction": self_correction,
         "learning_notes": [note for note in notes if note],
         "error": None,

@@ -1,0 +1,19 @@
+{
+  "project": "ForgeHive",
+  "layer": "Layer 8",
+  "experienceGraphEnabled": true,
+  "storagePath": "data/experience/experience_graph.json",
+  "episodeFields": [
+    "situation",
+    "candidate_plans",
+    "selected_plan",
+    "approved_actions",
+    "blocked_actions",
+    "execution_outcome",
+    "lessons_learned",
+    "confidence"
+  ],
+  "realBuildingExecution": false,
+  "summary": "ForgeHive stores compact EnergyPlus-tested operational episodes and retrieves similar past situations as advisory context for future LLM planning and RL ranking."
+}
+

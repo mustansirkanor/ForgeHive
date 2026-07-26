@@ -42,6 +42,12 @@ def build_layer5_final_dashboard(
         "banditUpdated": bool(learning_report.get("bandit_updated", False)),
         "memoryUpdated": bool(learning_report.get("memory_updated", False)),
         "knowledgeGraphUpdated": bool(learning_report.get("knowledge_graph_updated", False)),
+        "experienceGraphEnabled": True,
+        "experienceGraphUpdated": bool(learning_report.get("experience_graph_updated", False)),
+        "experienceId": learning_report.get("experience_id"),
+        "similarExperiencesUsed": learning_report.get("similar_experiences_used", 0),
+        "experienceConfidence": learning_report.get("experience_confidence", 0),
+        "experienceLessonsLearned": learning_report.get("lessons_learned", []),
         "selfCorrectionSummary": learning_report.get("self_correction", {}).get("summary", ""),
         "safetySummary": approval.get("safety_summary", ""),
         "judgeSummary": (

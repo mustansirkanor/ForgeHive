@@ -4,6 +4,7 @@ import re
 from backend.app.demo_api.artifact_loader import build_final_summary, build_frontend_demo_response, list_artifacts, load_artifact_bundle
 from backend.app.demo_api.scenarios import get_scenarios
 from backend.app.demo_api.server import health, run_demo_message, run_demo_scenario
+from backend.app.experience.experience_api import get_experience_memory_summary, query_experience_memory
 from backend.app.cognitive.operator_intents import classify_operator_intent
 from backend.app.cognitive.request_semantics import bundle_semantic_violations
 from backend.app.cognitive.candidate_bundle_generator import (
@@ -54,6 +55,8 @@ def test_run_artifact_mode_normalized() -> None:
     assert payload["mode"] == "artifact"
     assert payload["pipeline"]
     assert payload["candidateBundles"]
+    assert payload["experienceGraph"]["enabled"] is True
+    assert payload["experienceGraph"]["similarExperiencesFound"] >= 1
     assert_no_secrets(payload)
 
 
@@ -75,6 +78,34 @@ def test_operator_ask_artifact_mode() -> None:
     assert payload["project"] == "ForgeHive"
     assert payload["userMessage"]
     assert payload["digitalTwin"]["realBuildingExecution"] is False
+    assert payload["experienceGraph"]["enabled"] is True
+    assert_no_secrets(payload)
+
+
+def test_experience_memory_endpoint_payload() -> None:
+    payload = get_experience_memory_summary()
+    assert payload["experienceGraphEnabled"] is True
+    assert payload["totalExperiences"] >= 5
+    assert payload["topStrategies"]
+    assert_no_secrets(payload)
+
+
+def test_experience_query_endpoint_payload() -> None:
+    payload = query_experience_memory(
+        {
+            "event_type": "empty_room_detected",
+            "goal": "reduce_energy_keep_comfort_safe",
+            "building_state": {
+                "occupancy": 0,
+                "temperature_c": 24,
+                "co2_ppm": 650,
+                "carbon_state": "high",
+                "next_meeting_minutes": 90,
+            },
+        }
+    )
+    assert payload["similar_experiences_found"] >= 1
+    assert payload["historical_recommendation"]["preferred_plan"]
     assert_no_secrets(payload)
 
 
@@ -355,6 +386,8 @@ def run_tests() -> None:
         test_empty_room_never_real_building,
         test_unsafe_command_rejected,
         test_operator_ask_artifact_mode,
+        test_experience_memory_endpoint_payload,
+        test_experience_query_endpoint_payload,
         test_empty_room_request_uses_unoccupied_energy_actions,
         test_empty_room_semantics_allow_unoccupied_targets_only,
         test_empty_room_with_future_meeting_schedules_recovery,

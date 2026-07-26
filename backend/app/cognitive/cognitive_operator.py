@@ -71,6 +71,8 @@ def run_cognitive_operator(user_input: str, extra_context: dict | None = None, n
             "anomaly_count": building.get("anomalies", {}).get("anomaly_count", 0),
         },
         "candidate_bundle_generation": candidate_result,
+        "experience_graph": candidate_result.get("experience_graph", {}),
+        "experience_retrieval": candidate_result.get("experience_retrieval", {}),
         "autonomous_decision": decision_result.get("result", {}),
         "execution_allowed": False,
         "ready_for_layer5": ready_for_layer5,

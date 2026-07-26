@@ -55,8 +55,14 @@ def calculate_forgehive_readiness_score(test_matrix: dict, artifact_audit: dict,
         5,
     )
     presentation_points = bool_points(dashboard.get("judgeReady") is True and artifact_audit.get("audit_passed") is True, 5)
+    experience_points = bool_points(
+        demo.get("experience_graph_updated") is True
+        or dashboard.get("experienceGraphUpdated") is True
+        or dashboard.get("experienceGraphEnabled") is True,
+        5,
+    )
 
-    score = round(
+    raw_score = (
         test_points
         + artifact_points
         + real_llm_points
@@ -64,8 +70,8 @@ def calculate_forgehive_readiness_score(test_matrix: dict, artifact_audit: dict,
         + safety_points
         + learning_points
         + presentation_points,
-        2,
     )
+    score = round(min(105.0, raw_score + experience_points), 2)
 
     if test_points >= 27:
         strengths.append("Automated test matrix is broadly passing.")
@@ -103,6 +109,12 @@ def calculate_forgehive_readiness_score(test_matrix: dict, artifact_audit: dict,
         risks.append("Learning updates were not proven.")
         recommended_next_actions.append("Inspect learning report and execution status.")
 
+    if experience_points:
+        strengths.append("Experience Graph enabled, retrieval-ready, and frontend-ready memory fields are available.")
+    else:
+        risks.append("Experience Graph update evidence was not found in the final demo output.")
+        recommended_next_actions.append("Run the Layer 8 experience graph test and regenerate final demo artifacts.")
+
     if adapter.get("lighting_applied") and adapter.get("hvac_setpoint_applied") and adapter.get("ventilation_applied"):
         strengths.append("IDF adapter applied lighting, HVAC setpoint, and ventilation changes.")
     else:
@@ -123,6 +135,7 @@ def calculate_forgehive_readiness_score(test_matrix: dict, artifact_audit: dict,
             "safety_guardrails_points": safety_points,
             "learning_loop_points": learning_points,
             "presentation_readiness_points": presentation_points,
+            "experience_graph_bonus_points": experience_points,
         },
     }
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,13 @@
+{
+  "experience_graph_updated": true,
+  "experience_id": "exp_demo_empty_room_layer8",
+  "similar_experiences_used": 1,
+  "experience_confidence": 0.92,
+  "lessons_learned": [
+    "Balanced empty-room strategy preserved comfort and saved energy.",
+    "Avoid aggressive HVAC shutdown when occupancy > 0."
+  ],
+  "real_building_execution": false,
+  "digital_twin_execution": true
+}
+

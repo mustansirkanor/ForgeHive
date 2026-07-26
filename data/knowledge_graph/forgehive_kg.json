@@ -578,14 +578,40 @@
       "type": "execution_outcome",
       "label": "Outcome for aggressive_but_safe_bundle",
       "properties": {
-        "expected_energy_saved_percent": 54.6464,
-        "actual_energy_saved_percent": 48.094,
-        "expected_carbon_reduced_percent": 54.6464,
-        "actual_carbon_reduced_percent": 48.094,
+        "expected_energy_saved_percent": 54.2885,
+        "actual_energy_saved_percent": 54.2885,
+        "expected_carbon_reduced_percent": 54.2885,
+        "actual_carbon_reduced_percent": 54.2885,
         "expected_comfort_status": "Safe",
         "actual_comfort_status": "Safe",
-        "delta_energy_saving": -6.5524,
-        "delta_carbon_reduction": -6.5524,
+        "delta_energy_saving": 0.0,
+        "delta_carbon_reduction": 0.0,
+        "comfort_regression": false,
+        "execution_success": true
+      }
+    },
+    "bundle:empty_room_energy_savings": {
+      "id": "bundle:empty_room_energy_savings",
+      "type": "action_bundle",
+      "label": "empty_room_energy_savings",
+      "properties": {
+        "phase": "5.5",
+        "goal": "reduce_energy_keep_comfort_safe"
+      }
+    },
+    "outcome:layer5_execution:empty_room_energy_savings": {
+      "id": "outcome:layer5_execution:empty_room_energy_savings",
+      "type": "execution_outcome",
+      "label": "Outcome for empty_room_energy_savings",
+      "properties": {
+        "expected_energy_saved_percent": 49.0322,
+        "actual_energy_saved_percent": 49.0322,
+        "expected_carbon_reduced_percent": 49.0322,
+        "actual_carbon_reduced_percent": 49.0322,
+        "expected_comfort_status": "Safe",
+        "actual_comfort_status": "Safe",
+        "delta_energy_saving": 0.0,
+        "delta_carbon_reduction": 0.0,
         "comfort_regression": false,
         "execution_success": true
       }
@@ -1046,6 +1072,22 @@
       "source": "strategy:eco_mode",
       "relation": "LEARNED_OUTCOME",
       "target": "outcome:layer5_execution:aggressive_but_safe_bundle",
+      "properties": {
+        "reward_source": "actual_execution"
+      }
+    },
+    {
+      "source": "bundle:empty_room_energy_savings",
+      "relation": "EXECUTED_IN_DIGITAL_TWIN",
+      "target": "outcome:layer5_execution:empty_room_energy_savings",
+      "properties": {
+        "run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260726_152937_552806_empty_room_energy_savings"
+      }
+    },
+    {
+      "source": "strategy:eco_mode",
+      "relation": "LEARNED_OUTCOME",
+      "target": "outcome:layer5_execution:empty_room_energy_savings",
       "properties": {
         "reward_source": "actual_execution"
       }
@@ -18028,6 +18070,411 @@
           "actual_energy_saved_percent": 49.0322,
           "expected_carbon_reduced_percent": 49.0322,
           "actual_carbon_reduced_percent": 49.0322,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-26T15:28:32.267011+00:00",
+      "event_type": "candidate_bundle_generated",
+      "details": {
+        "bundle_name": "empty_room_energy_savings",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "event_type": "empty_room_detected",
+        "action_types": [
+          "lighting_adjustment",
+          "hvac_setpoint_adjustment",
+          "ventilation_adjustment"
+        ],
+        "valid": true
+      }
+    },
+    {
+      "timestamp": "2026-07-26T15:28:32.292506+00:00",
+      "event_type": "candidate_bundle_generated",
+      "details": {
+        "bundle_name": "empty_room_preconditioning",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "event_type": "empty_room_detected",
+        "action_types": [
+          "lighting_adjustment",
+          "hvac_setpoint_adjustment",
+          "ventilation_adjustment"
+        ],
+        "valid": true
+      }
+    },
+    {
+      "timestamp": "2026-07-26T15:28:32.319413+00:00",
+      "event_type": "candidate_bundle_generated",
+      "details": {
+        "bundle_name": "empty_room_ventilation_only",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "event_type": "empty_room_detected",
+        "action_types": [
+          "lighting_adjustment",
+          "hvac_setpoint_adjustment",
+          "ventilation_adjustment"
+        ],
+        "valid": true
+      }
+    },
+    {
+      "timestamp": "2026-07-26T15:28:32.347698+00:00",
+      "event_type": "candidate_bundle_generated",
+      "details": {
+        "bundle_name": "empty_room_energy_savings",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "event_type": "empty_room_detected",
+        "action_types": [
+          "lighting_adjustment",
+          "hvac_setpoint_adjustment",
+          "ventilation_adjustment"
+        ],
+        "valid": true
+      }
+    },
+    {
+      "timestamp": "2026-07-26T15:28:32.370117+00:00",
+      "event_type": "candidate_bundle_generated",
+      "details": {
+        "bundle_name": "empty_room_preconditioning",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "event_type": "empty_room_detected",
+        "action_types": [
+          "lighting_adjustment",
+          "hvac_setpoint_adjustment",
+          "ventilation_adjustment"
+        ],
+        "valid": true
+      }
+    },
+    {
+      "timestamp": "2026-07-26T15:28:32.400312+00:00",
+      "event_type": "candidate_bundle_generated",
+      "details": {
+        "bundle_name": "comfort_guarded_plan_1",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "event_type": "empty_room_detected",
+        "action_types": [
+          "lighting_adjustment",
+          "hvac_setpoint_adjustment",
+          "ventilation_adjustment"
+        ],
+        "valid": true
+      }
+    },
+    {
+      "timestamp": "2026-07-26T15:28:32.468340+00:00",
+      "event_type": "cognitive_operator_trace",
+      "details": {
+        "user_input": "The meeting room is empty now. Save energy but keep comfort safe.",
+        "normalized": {
+          "goal": "reduce_energy_keep_comfort_safe",
+          "event_type": "empty_room_detected",
+          "reason": "Matched keyword 'empty'."
+        },
+        "tool_trace": [
+          {
+            "step_name": "observe_building",
+            "tool_name": "get_building_intelligence_package",
+            "result_summary": "Loaded score 93.33 with comfort Safe.",
+            "success": true
+          },
+          {
+            "step_name": "generate_candidate_bundles",
+            "tool_name": "generate_candidate_action_bundles",
+            "result_summary": "Generated 3 valid bundles.",
+            "success": true
+          },
+          {
+            "step_name": "get_layer3_decision",
+            "tool_name": "get_autonomous_decision",
+            "result_summary": "Decision ready=False.",
+            "success": true
+          },
+          {
+            "step_name": "validate_candidate_bundle",
+            "tool_name": "validate_action_bundle",
+            "result_summary": "Bundle empty_room_energy_savings valid=True.",
+            "success": true
+          },
+          {
+            "step_name": "validate_candidate_bundle",
+            "tool_name": "validate_action_bundle",
+            "result_summary": "Bundle comfort_guarded_plan_1 valid=True.",
+            "success": true
+          },
+          {
+            "step_name": "validate_candidate_bundle",
+            "tool_name": "validate_action_bundle",
+            "result_summary": "Bundle empty_room_preconditioning valid=True.",
+            "success": true
+          }
+        ],
+        "ready_for_layer5": true
+      }
+    },
+    {
+      "timestamp": "2026-07-26T15:30:00.068105+00:00",
+      "event_type": "layer5_digital_twin_execution_learned",
+      "details": {
+        "strategy": "eco_mode",
+        "bundle_name": "empty_room_energy_savings",
+        "run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260726_152937_552806_empty_room_energy_savings",
+        "comparison": {
+          "expected_energy_saved_percent": 49.0322,
+          "actual_energy_saved_percent": 49.0322,
+          "expected_carbon_reduced_percent": 49.0322,
+          "actual_carbon_reduced_percent": 49.0322,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-26T15:58:04.356869+00:00",
+      "event_type": "candidate_bundle_generated",
+      "details": {
+        "bundle_name": "empty_room_energy_savings",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "event_type": "empty_room_detected",
+        "action_types": [
+          "lighting_adjustment",
+          "hvac_setpoint_adjustment",
+          "ventilation_adjustment"
+        ],
+        "valid": true
+      }
+    },
+    {
+      "timestamp": "2026-07-26T15:58:04.367721+00:00",
+      "event_type": "candidate_bundle_generated",
+      "details": {
+        "bundle_name": "empty_room_savings_with_preconditioning",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "event_type": "empty_room_detected",
+        "action_types": [
+          "lighting_adjustment",
+          "hvac_setpoint_adjustment",
+          "ventilation_adjustment"
+        ],
+        "valid": true
+      }
+    },
+    {
+      "timestamp": "2026-07-26T15:58:04.378118+00:00",
+      "event_type": "candidate_bundle_generated",
+      "details": {
+        "bundle_name": "empty_room_energy_savings",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "event_type": "empty_room_detected",
+        "action_types": [
+          "lighting_adjustment",
+          "hvac_setpoint_adjustment",
+          "ventilation_adjustment"
+        ],
+        "valid": true
+      }
+    },
+    {
+      "timestamp": "2026-07-26T15:58:04.387872+00:00",
+      "event_type": "candidate_bundle_generated",
+      "details": {
+        "bundle_name": "comfort_guarded_plan_1",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "event_type": "empty_room_detected",
+        "action_types": [
+          "lighting_adjustment",
+          "hvac_setpoint_adjustment",
+          "ventilation_adjustment"
+        ],
+        "valid": true
+      }
+    },
+    {
+      "timestamp": "2026-07-26T15:58:04.397937+00:00",
+      "event_type": "candidate_bundle_generated",
+      "details": {
+        "bundle_name": "balanced_plan_2",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "event_type": "empty_room_detected",
+        "action_types": [
+          "lighting_adjustment",
+          "hvac_setpoint_adjustment",
+          "ventilation_adjustment"
+        ],
+        "valid": true
+      }
+    },
+    {
+      "timestamp": "2026-07-26T15:58:04.450713+00:00",
+      "event_type": "cognitive_operator_trace",
+      "details": {
+        "user_input": "The meeting room is empty now. Save energy but keep comfort safe.",
+        "normalized": {
+          "goal": "reduce_energy_keep_comfort_safe",
+          "event_type": "empty_room_detected",
+          "reason": "Matched keyword 'empty'."
+        },
+        "tool_trace": [
+          {
+            "step_name": "observe_building",
+            "tool_name": "get_building_intelligence_package",
+            "result_summary": "Loaded score 93.33 with comfort Safe.",
+            "success": true
+          },
+          {
+            "step_name": "generate_candidate_bundles",
+            "tool_name": "generate_candidate_action_bundles",
+            "result_summary": "Generated 3 valid bundles.",
+            "success": true
+          },
+          {
+            "step_name": "get_layer3_decision",
+            "tool_name": "get_autonomous_decision",
+            "result_summary": "Decision ready=False.",
+            "success": true
+          },
+          {
+            "step_name": "validate_candidate_bundle",
+            "tool_name": "validate_action_bundle",
+            "result_summary": "Bundle empty_room_energy_savings valid=True.",
+            "success": true
+          },
+          {
+            "step_name": "validate_candidate_bundle",
+            "tool_name": "validate_action_bundle",
+            "result_summary": "Bundle comfort_guarded_plan_1 valid=True.",
+            "success": true
+          },
+          {
+            "step_name": "validate_candidate_bundle",
+            "tool_name": "validate_action_bundle",
+            "result_summary": "Bundle balanced_plan_2 valid=True.",
+            "success": true
+          }
+        ],
+        "ready_for_layer5": true
+      }
+    },
+    {
+      "timestamp": "2026-07-26T16:01:30.276549+00:00",
+      "event_type": "candidate_bundle_generated",
+      "details": {
+        "bundle_name": "empty_room_energy_savings",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "event_type": "empty_room_detected",
+        "action_types": [
+          "lighting_adjustment",
+          "hvac_setpoint_adjustment",
+          "ventilation_adjustment"
+        ],
+        "valid": true
+      }
+    },
+    {
+      "timestamp": "2026-07-26T16:01:30.286844+00:00",
+      "event_type": "candidate_bundle_generated",
+      "details": {
+        "bundle_name": "mild_setback_restore_before_meeting",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "event_type": "empty_room_detected",
+        "action_types": [
+          "lighting_adjustment",
+          "hvac_setpoint_adjustment",
+          "ventilation_adjustment"
+        ],
+        "valid": true
+      }
+    },
+    {
+      "timestamp": "2026-07-26T16:01:30.296638+00:00",
+      "event_type": "candidate_bundle_generated",
+      "details": {
+        "bundle_name": "aggressive_but_safe_bundle",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "event_type": "empty_room_detected",
+        "action_types": [
+          "lighting_adjustment",
+          "hvac_setpoint_adjustment",
+          "ventilation_adjustment"
+        ],
+        "valid": true
+      }
+    },
+    {
+      "timestamp": "2026-07-26T16:01:30.325582+00:00",
+      "event_type": "cognitive_operator_trace",
+      "details": {
+        "user_input": "The meeting room is empty now. Save energy but keep comfort safe.",
+        "normalized": {
+          "goal": "reduce_energy_keep_comfort_safe",
+          "event_type": "empty_room_detected",
+          "reason": "Matched keyword 'empty'."
+        },
+        "tool_trace": [
+          {
+            "step_name": "observe_building",
+            "tool_name": "get_building_intelligence_package",
+            "result_summary": "Loaded score 93.33 with comfort Safe.",
+            "success": true
+          },
+          {
+            "step_name": "generate_candidate_bundles",
+            "tool_name": "generate_candidate_action_bundles",
+            "result_summary": "Generated 3 valid bundles.",
+            "success": true
+          },
+          {
+            "step_name": "get_layer3_decision",
+            "tool_name": "get_autonomous_decision",
+            "result_summary": "Decision ready=False.",
+            "success": true
+          },
+          {
+            "step_name": "validate_candidate_bundle",
+            "tool_name": "validate_action_bundle",
+            "result_summary": "Bundle empty_room_energy_savings valid=True.",
+            "success": true
+          },
+          {
+            "step_name": "validate_candidate_bundle",
+            "tool_name": "validate_action_bundle",
+            "result_summary": "Bundle aggressive_but_safe_bundle valid=True.",
+            "success": true
+          },
+          {
+            "step_name": "validate_candidate_bundle",
+            "tool_name": "validate_action_bundle",
+            "result_summary": "Bundle mild_setback_restore_before_meeting valid=True.",
+            "success": true
+          }
+        ],
+        "ready_for_layer5": true
+      }
+    },
+    {
+      "timestamp": "2026-07-26T16:02:21.270334+00:00",
+      "event_type": "layer5_digital_twin_execution_learned",
+      "details": {
+        "strategy": "eco_mode",
+        "bundle_name": "aggressive_but_safe_bundle",
+        "run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260726_160207_062936_aggressive_but_safe_bundle",
+        "comparison": {
+          "expected_energy_saved_percent": 54.2885,
+          "actual_energy_saved_percent": 54.2885,
+          "expected_carbon_reduced_percent": 54.2885,
+          "actual_carbon_reduced_percent": 54.2885,
           "expected_comfort_status": "Safe",
           "actual_comfort_status": "Safe",
           "delta_energy_saving": 0.0,

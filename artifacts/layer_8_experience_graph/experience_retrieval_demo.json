@@ -1,0 +1,29 @@
+{
+  "query_situation": {
+    "event_type": "empty_room_detected",
+    "goal": "reduce_energy_keep_comfort_safe",
+    "occupancy": 0,
+    "temperature_c": 24,
+    "co2_ppm": 650,
+    "carbon_state": "high",
+    "next_meeting_minutes": 90,
+    "comfort_status": "Safe",
+    "anomaly_count": 0
+  },
+  "similar_experiences_found": 1,
+  "historical_recommendation": {
+    "preferred_plan": "balanced_empty_room_mode",
+    "success_rate": 0.92,
+    "average_reward": 45,
+    "actions_to_prefer": [
+      "lighting_adjustment",
+      "hvac_setpoint_adjustment",
+      "ventilation_adjustment"
+    ],
+    "actions_to_avoid": [
+      "hvac_shutdown"
+    ]
+  },
+  "realBuildingExecution": false
+}
+

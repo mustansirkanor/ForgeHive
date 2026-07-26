@@ -40,6 +40,12 @@ REQUIRED_ARTIFACTS = {
         "artifacts/layer_5_closed_loop/layer5_7_dashboard_summary.json",
         "artifacts/layer_5_closed_loop/layer5_7_summary.md",
     ],
+    "Layer 8": [
+        "artifacts/layer_8_experience_graph/experience_graph_summary.json",
+        "artifacts/layer_8_experience_graph/experience_retrieval_demo.json",
+        "artifacts/layer_8_experience_graph/experience_learning_demo.json",
+        "artifacts/layer_8_experience_graph/layer8_summary.md",
+    ],
 }
 
 

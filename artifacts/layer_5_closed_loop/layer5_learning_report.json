@@ -3,10 +3,10 @@
   "learning_status": "updated",
   "execution_success": true,
   "expected_vs_actual": {
-    "expected_energy_saved_percent": 49.0322,
-    "actual_energy_saved_percent": 49.0322,
-    "expected_carbon_reduced_percent": 49.0322,
-    "actual_carbon_reduced_percent": 49.0322,
+    "expected_energy_saved_percent": 54.2885,
+    "actual_energy_saved_percent": 54.2885,
+    "expected_carbon_reduced_percent": 54.2885,
+    "actual_carbon_reduced_percent": 54.2885,
     "expected_comfort_status": "Safe",
     "actual_comfort_status": "Safe",
     "delta_energy_saving": 0.0,
@@ -14,11 +14,20 @@
     "comfort_regression": false,
     "execution_success": true
   },
-  "actual_reward": 98.258,
+  "actual_reward": 107.7193,
   "bandit_updated": true,
   "bandit_strategy": "eco_mode",
   "memory_updated": true,
   "knowledge_graph_updated": true,
+  "experience_graph_updated": true,
+  "experience_id": "exp_20260726T160221z0000_empty_room_detected",
+  "similar_experiences_used": 4,
+  "experience_confidence": 0.92,
+  "lessons_learned": [
+    "aggressive_but_safe_bundle preserved comfort and produced reward 107.7193.",
+    "Historical experience prior helped bias ranking toward a previously successful pattern."
+  ],
+  "real_building_execution": false,
   "self_correction": {
     "recommendations": [
       "increase confidence in selected strategy"
@@ -29,7 +38,8 @@
   "learning_notes": [
     "Bandit updated from successful digital twin execution.",
     "Memory updated from successful digital twin execution.",
-    "Knowledge Graph updated from successful digital twin execution."
+    "Knowledge Graph updated from successful digital twin execution.",
+    "Experience Graph updated with compact operational episode."
   ],
   "error": null
 }

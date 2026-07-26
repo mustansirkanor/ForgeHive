@@ -34,6 +34,17 @@ export function askOperator(message, mode) {
   });
 }
 
+export function getExperienceMemory() {
+  return request("/api/experience-memory");
+}
+
+export function queryExperience(payload) {
+  return request("/api/experience/query", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
 export function getJudgeSummary() {
   return request("/api/judge-summary");
 }

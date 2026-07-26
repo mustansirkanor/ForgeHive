@@ -35,6 +35,14 @@ def run_layer5_full_closed_loop(
     artifacts_exported = bool((artifacts.get("generated_files") or {}))
     execution_succeeded = execution_result.get("execution_status") == "executed" and execution_result.get("execution_applied") is True
     closed_loop_complete = bool(plan_5_1_3 and execution_result and learning_report and dashboard and artifacts_exported and execution_succeeded)
+    experience_graph = {
+        "experience_graph_updated": bool(learning_report.get("experience_graph_updated", False)),
+        "experience_id": learning_report.get("experience_id"),
+        "similar_experiences_used": learning_report.get("similar_experiences_used", 0),
+        "experience_confidence": learning_report.get("experience_confidence", 0),
+        "lessons_learned": learning_report.get("lessons_learned", []),
+        "real_building_execution": False,
+    }
 
     return {
         "project": {
@@ -51,6 +59,9 @@ def run_layer5_full_closed_loop(
         "closed_loop_complete": closed_loop_complete,
         "real_building_execution": False,
         "digital_twin_execution": execution_succeeded,
+        "experience_graph": experience_graph,
+        "experience_graph_updated": experience_graph["experience_graph_updated"],
+        "experience_id": experience_graph["experience_id"],
         "summary": (
             "Layer 5 full closed loop completed successfully inside the EnergyPlus digital twin."
             if closed_loop_complete

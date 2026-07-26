@@ -267,6 +267,24 @@ It shows:
 
 ---
 
+## Experience Graph / Episodic Memory
+
+ForgeHive remembers previous building-control episodes.
+
+It stores:
+- situation
+- generated plans
+- simulated outcomes
+- selected plan
+- safety decision
+- execution result
+- reward
+- lessons learned
+
+On future similar scenarios, it retrieves relevant experiences and uses them as a decision prior for LLM planning and RL ranking.
+
+It still simulates and safety-checks every decision before execution.
+
 ## Architecture
 
 ```text

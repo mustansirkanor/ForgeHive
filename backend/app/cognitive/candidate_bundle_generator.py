@@ -18,6 +18,9 @@ from backend.app.cognitive.llm_client import (
     extract_json_from_llm_text,
 )
 from backend.app.cognitive.request_semantics import action_semantic_violations, bundle_semantic_violations
+from backend.app.experience.experience_retriever import retrieve_similar_experiences
+from backend.app.experience.llm_context_builder import build_experience_context_for_llm
+from backend.app.experience.similarity import extract_situation_signature_from_context
 
 
 GUARDRAILS = [
@@ -34,11 +37,25 @@ def build_candidate_generation_context(goal: str, event_type: str = "operator_re
     intelligence_result = execute_mcp_tool("get_building_intelligence_package")
     building_context = intelligence_result.get("result", {}) if intelligence_result.get("success") else {}
     knowledge_context = get_relevant_knowledge_context(goal, event_type, building_context)
+    situation_signature = extract_situation_signature_from_context(
+        {
+            "goal": goal,
+            "event_type": event_type,
+            "building_context": building_context,
+            "extra_context": extra_context or {},
+            **(extra_context or {}),
+        }
+    )
+    experience_retrieval = retrieve_similar_experiences(situation_signature)
+    experience_context = build_experience_context_for_llm(experience_retrieval)
     return {
         "goal": goal,
         "event_type": event_type,
         "building_context": building_context,
         "knowledge_context": knowledge_context,
+        "situation_signature": situation_signature,
+        "experience_retrieval": experience_retrieval,
+        "experience_context_for_llm": experience_context,
         "constraints": [
             "comfort must remain safe",
             "occupied-zone lighting must remain usable",
@@ -106,6 +123,9 @@ def build_candidate_generation_prompt(context: dict) -> str:
     }
     return (
         f"Context JSON:\n{json.dumps(context, indent=2)}\n\n"
+        f"Experience Graph advisory context:\n{context.get('experience_context_for_llm', '')}\n\n"
+        "Previous experiences are advisory. Current safety rules override history. Safety Governor remains final authority. "
+        "Real building execution is not allowed.\n"
         f"Original operator request: {context.get('extra_context', {}).get('operator_request', '')}\n"
         f"Mandatory request requirements: {json.dumps(context.get('extra_context', {}).get('required_outcomes', []))}\n"
         f"Required action_type values in EVERY candidate bundle: {json.dumps(required_action_types)}\n"
@@ -783,6 +803,8 @@ def generate_candidate_action_bundles(goal: str, event_type: str = "operator_req
 
     building = context["building_context"]
     knowledge = context["knowledge_context"]
+    experience_retrieval = context.get("experience_retrieval", {})
+    recommendation = experience_retrieval.get("historical_recommendation") or {}
     return {
         "goal": goal,
         "event_type": event_type,
@@ -818,7 +840,20 @@ def generate_candidate_action_bundles(goal: str, event_type: str = "operator_req
             "anomaly_count": building.get("anomalies", {}).get("anomaly_count", 0),
             "overall_score": building.get("score", {}).get("overall", 0),
             "knowledge_matches": len(knowledge.get("matched_conditions", [])),
+            "similar_experiences_found": experience_retrieval.get("similar_experiences_found", 0),
         },
+        "experience_graph": {
+            "retrieval_used": True,
+            "similar_experiences_found": experience_retrieval.get("similar_experiences_found", 0),
+            "preferred_plan": recommendation.get("preferred_plan"),
+            "average_reward": recommendation.get("average_reward"),
+            "success_rate": recommendation.get("success_rate"),
+            "actions_to_prefer": recommendation.get("actions_to_prefer", []),
+            "actions_to_avoid": recommendation.get("actions_to_avoid", []),
+            "message": experience_retrieval.get("message"),
+        },
+        "experience_retrieval": experience_retrieval,
+        "llm_experience_context": context.get("experience_context_for_llm", ""),
         "candidate_bundles": validation["valid_bundles"],
         "invalid_bundles": validation["invalid_bundles"],
         "validation_results": validation["validation_results"],

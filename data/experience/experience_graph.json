@@ -1,0 +1,1438 @@
+{
+  "version": "8.0",
+  "project": "ForgeHive",
+  "episodes": [
+    {
+      "experience_id": "exp_seed_empty_room_001",
+      "created_at": "2026-07-25T15:00:00+00:00",
+      "situation": {
+        "event_type": "empty_room_detected",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "occupancy": 0,
+        "temperature_c": 24,
+        "co2_ppm": 650,
+        "carbon_state": "high",
+        "next_meeting_minutes": 90,
+        "comfort_status": "Safe",
+        "anomaly_count": 0,
+        "timestamp": "2026-07-25T15:00:00+00:00"
+      },
+      "candidate_plans": [
+        {
+          "bundle_id": "seed_empty_room_balanced",
+          "bundle_name": "balanced_empty_room_mode",
+          "action_types": [
+            "lighting_adjustment",
+            "hvac_setpoint_adjustment",
+            "ventilation_adjustment"
+          ],
+          "actions": [
+            {
+              "action_type": "lighting_adjustment",
+              "target": "unoccupied_zones",
+              "parameters": {
+                "lighting_level_percent": 25
+              }
+            },
+            {
+              "action_type": "hvac_setpoint_adjustment",
+              "target": "unoccupied_zones",
+              "parameters": {
+                "cooling_setpoint_c": 28
+              }
+            },
+            {
+              "action_type": "ventilation_adjustment",
+              "target": "unoccupied_zones",
+              "parameters": {
+                "ventilation_percent": 40
+              }
+            }
+          ],
+          "simulated_energy_saved_percent": 12,
+          "simulated_carbon_reduced_percent": 10,
+          "simulated_comfort_status": "Safe",
+          "simulation_success": true,
+          "rank": 1,
+          "score": 45,
+          "reward": 45,
+          "safety_status": "approved",
+          "blocked": false
+        }
+      ],
+      "selected_plan": {
+        "bundle_name": "balanced_empty_room_mode",
+        "reward": 45
+      },
+      "approved_actions": [
+        {
+          "action_type": "lighting_adjustment",
+          "target": "unoccupied_zones",
+          "parameters": {
+            "lighting_level_percent": 25
+          }
+        },
+        {
+          "action_type": "hvac_setpoint_adjustment",
+          "target": "unoccupied_zones",
+          "parameters": {
+            "cooling_setpoint_c": 28
+          }
+        },
+        {
+          "action_type": "ventilation_adjustment",
+          "target": "unoccupied_zones",
+          "parameters": {
+            "ventilation_percent": 40
+          }
+        }
+      ],
+      "blocked_actions": [],
+      "execution_outcome": {
+        "execution_status": "executed",
+        "energy_saved_percent": 12,
+        "carbon_reduced_percent": 10,
+        "comfort_status": "Safe",
+        "anomaly_count": 0,
+        "reward": 45,
+        "bandit_updated": true,
+        "memory_updated": true,
+        "knowledge_graph_updated": true,
+        "real_building_execution": false,
+        "digital_twin_execution": true
+      },
+      "lessons_learned": [
+        "Balanced empty-room strategy preserved comfort and saved energy.",
+        "Avoid aggressive shutdown when comfort risk is high."
+      ],
+      "confidence": 0.92,
+      "tags": [
+        "empty_room",
+        "energy_saving",
+        "comfort_safe"
+      ],
+      "source": "layer8_demo_seed"
+    },
+    {
+      "experience_id": "exp_seed_empty_room_short_gap_001",
+      "created_at": "2026-07-25T15:10:00+00:00",
+      "situation": {
+        "event_type": "empty_room_short_gap",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "occupancy": 0,
+        "temperature_c": 24,
+        "co2_ppm": 680,
+        "carbon_state": "normal",
+        "next_meeting_minutes": 30,
+        "comfort_status": "Safe",
+        "anomaly_count": 0,
+        "timestamp": "2026-07-25T15:10:00+00:00"
+      },
+      "candidate_plans": [
+        {
+          "bundle_id": "seed_short_gap",
+          "bundle_name": "mild_setback_restore_before_meeting",
+          "action_types": [
+            "lighting_adjustment",
+            "hvac_setpoint_adjustment",
+            "preconditioning_schedule"
+          ],
+          "actions": [],
+          "simulated_energy_saved_percent": 7,
+          "simulated_carbon_reduced_percent": 5,
+          "simulated_comfort_status": "Safe",
+          "simulation_success": true,
+          "rank": 1,
+          "score": 32,
+          "reward": 32,
+          "safety_status": "approved",
+          "blocked": false
+        }
+      ],
+      "selected_plan": {
+        "bundle_name": "mild_setback_restore_before_meeting",
+        "reward": 32
+      },
+      "approved_actions": [],
+      "blocked_actions": [],
+      "execution_outcome": {
+        "execution_status": "executed",
+        "energy_saved_percent": 7,
+        "carbon_reduced_percent": 5,
+        "comfort_status": "Safe",
+        "anomaly_count": 0,
+        "reward": 32,
+        "bandit_updated": true,
+        "memory_updated": true,
+        "knowledge_graph_updated": true,
+        "real_building_execution": false,
+        "digital_twin_execution": true
+      },
+      "lessons_learned": [
+        "Short gaps work best with mild setback and scheduled recovery before occupants return."
+      ],
+      "confidence": 0.87,
+      "tags": [
+        "empty_room_short_gap",
+        "comfort_safe"
+      ],
+      "source": "layer8_demo_seed"
+    },
+    {
+      "experience_id": "exp_seed_high_co2_001",
+      "created_at": "2026-07-25T15:20:00+00:00",
+      "situation": {
+        "event_type": "high_co2_detected",
+        "goal": "improve_iaq",
+        "occupancy": 12,
+        "temperature_c": 24,
+        "co2_ppm": 1250,
+        "carbon_state": "normal",
+        "next_meeting_minutes": null,
+        "comfort_status": "Safe",
+        "anomaly_count": 1,
+        "timestamp": "2026-07-25T15:20:00+00:00"
+      },
+      "candidate_plans": [
+        {
+          "bundle_id": "seed_iaq",
+          "bundle_name": "iaq_priority_mode",
+          "action_types": [
+            "ventilation_adjustment"
+          ],
+          "actions": [
+            {
+              "action_type": "ventilation_adjustment",
+              "target": "occupied_zones",
+              "parameters": {
+                "ventilation_multiplier": 1.35
+              }
+            }
+          ],
+          "simulated_energy_saved_percent": 1,
+          "simulated_carbon_reduced_percent": 1,
+          "simulated_comfort_status": "Safe",
+          "simulation_success": true,
+          "rank": 1,
+          "score": 28,
+          "reward": 28,
+          "safety_status": "approved",
+          "blocked": false
+        }
+      ],
+      "selected_plan": {
+        "bundle_name": "iaq_priority_mode",
+        "reward": 28
+      },
+      "approved_actions": [
+        {
+          "action_type": "ventilation_adjustment",
+          "target": "occupied_zones",
+          "parameters": {
+            "ventilation_multiplier": 1.35
+          }
+        }
+      ],
+      "blocked_actions": [],
+      "execution_outcome": {
+        "execution_status": "executed",
+        "energy_saved_percent": 1,
+        "carbon_reduced_percent": 1,
+        "comfort_status": "Safe",
+        "anomaly_count": 0,
+        "reward": 28,
+        "bandit_updated": true,
+        "memory_updated": true,
+        "knowledge_graph_updated": true,
+        "real_building_execution": false,
+        "digital_twin_execution": true
+      },
+      "lessons_learned": [
+        "IAQ priority ventilation recovered CO2 while keeping comfort safe."
+      ],
+      "confidence": 0.84,
+      "tags": [
+        "high_co2",
+        "iaq"
+      ],
+      "source": "layer8_demo_seed"
+    },
+    {
+      "experience_id": "exp_seed_high_carbon_001",
+      "created_at": "2026-07-25T15:30:00+00:00",
+      "situation": {
+        "event_type": "high_carbon_window",
+        "goal": "reduce_carbon",
+        "occupancy": 20,
+        "temperature_c": 24,
+        "co2_ppm": 700,
+        "carbon_state": "high",
+        "next_meeting_minutes": null,
+        "comfort_status": "Safe",
+        "anomaly_count": 0,
+        "timestamp": "2026-07-25T15:30:00+00:00"
+      },
+      "candidate_plans": [
+        {
+          "bundle_id": "seed_carbon",
+          "bundle_name": "carbon_aware_mode",
+          "action_types": [
+            "carbon_schedule_shift"
+          ],
+          "actions": [
+            {
+              "action_type": "carbon_schedule_shift",
+              "target": "whole_building",
+              "parameters": {
+                "comfort_guard_enabled": true
+              }
+            }
+          ],
+          "simulated_energy_saved_percent": 4,
+          "simulated_carbon_reduced_percent": 14,
+          "simulated_comfort_status": "Safe",
+          "simulation_success": true,
+          "rank": 1,
+          "score": 35,
+          "reward": 35,
+          "safety_status": "approved",
+          "blocked": false
+        }
+      ],
+      "selected_plan": {
+        "bundle_name": "carbon_aware_mode",
+        "reward": 35
+      },
+      "approved_actions": [
+        {
+          "action_type": "carbon_schedule_shift",
+          "target": "whole_building",
+          "parameters": {
+            "comfort_guard_enabled": true
+          }
+        }
+      ],
+      "blocked_actions": [],
+      "execution_outcome": {
+        "execution_status": "executed",
+        "energy_saved_percent": 4,
+        "carbon_reduced_percent": 14,
+        "comfort_status": "Safe",
+        "anomaly_count": 0,
+        "reward": 35,
+        "bandit_updated": true,
+        "memory_updated": true,
+        "knowledge_graph_updated": true,
+        "real_building_execution": false,
+        "digital_twin_execution": true
+      },
+      "lessons_learned": [
+        "Carbon-aware mode reduced emissions without comfort regression."
+      ],
+      "confidence": 0.86,
+      "tags": [
+        "high_carbon",
+        "carbon"
+      ],
+      "source": "layer8_demo_seed"
+    },
+    {
+      "experience_id": "exp_seed_unsafe_shutdown_001",
+      "created_at": "2026-07-25T15:40:00+00:00",
+      "situation": {
+        "event_type": "occupied_room",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "occupancy": 8,
+        "temperature_c": 24,
+        "co2_ppm": 700,
+        "carbon_state": "normal",
+        "next_meeting_minutes": null,
+        "comfort_status": "Unsafe",
+        "anomaly_count": 1,
+        "timestamp": "2026-07-25T15:40:00+00:00"
+      },
+      "candidate_plans": [
+        {
+          "bundle_id": "seed_shutdown",
+          "bundle_name": "aggressive_shutdown",
+          "action_types": [
+            "hvac_shutdown"
+          ],
+          "actions": [
+            {
+              "action_type": "hvac_shutdown",
+              "target": "occupied_zones",
+              "parameters": {}
+            }
+          ],
+          "simulated_energy_saved_percent": 0,
+          "simulated_carbon_reduced_percent": 0,
+          "simulated_comfort_status": "Unsafe",
+          "simulation_success": false,
+          "rank": 3,
+          "score": -100,
+          "reward": -100,
+          "safety_status": "blocked",
+          "blocked": true
+        }
+      ],
+      "selected_plan": {
+        "bundle_name": "aggressive_shutdown",
+        "reward": -100
+      },
+      "approved_actions": [],
+      "blocked_actions": [
+        {
+          "action_type": "hvac_shutdown",
+          "target": "occupied_zones",
+          "parameters": {}
+        }
+      ],
+      "execution_outcome": {
+        "execution_status": "blocked",
+        "energy_saved_percent": 0,
+        "carbon_reduced_percent": 0,
+        "comfort_status": "Unsafe",
+        "anomaly_count": 1,
+        "reward": -100,
+        "bandit_updated": false,
+        "memory_updated": true,
+        "knowledge_graph_updated": true,
+        "real_building_execution": false,
+        "digital_twin_execution": false
+      },
+      "lessons_learned": [
+        "Avoid aggressive HVAC shutdown when occupancy > 0."
+      ],
+      "confidence": 0.96,
+      "tags": [
+        "occupied_room",
+        "unsafe",
+        "failure_memory"
+      ],
+      "source": "layer8_demo_seed"
+    },
+    {
+      "experience_id": "exp_20260726T153000z0000_empty_room_detected",
+      "created_at": "2026-07-26T15:30:00+00:00",
+      "situation": {
+        "event_type": "empty_room_detected",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "occupancy": 0,
+        "temperature_c": null,
+        "co2_ppm": null,
+        "carbon_state": null,
+        "next_meeting_minutes": null,
+        "comfort_status": null,
+        "anomaly_count": 0,
+        "timestamp": "2026-07-26T15:30:00+00:00"
+      },
+      "candidate_plans": [
+        {
+          "bundle_id": "e29684ca-4f67-4462-b02d-085e0ab68a16",
+          "bundle_name": "empty_room_energy_savings",
+          "action_types": [
+            "lighting_adjustment",
+            "hvac_setpoint_adjustment",
+            "ventilation_adjustment"
+          ],
+          "actions": [
+            {
+              "action_id": "acbe2f45-0788-4b3f-92ea-acf17f447ff6",
+              "action_type": "lighting_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Dim lights in unoccupied zones to conserve energy.",
+              "parameters": {
+                "lighting_level_percent": 25.0
+              },
+              "source": "llm_generated",
+              "confidence": 0.8
+            },
+            {
+              "action_id": "09467812-8aa3-4a21-95d4-1cda921deddf",
+              "action_type": "hvac_setpoint_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Relax cooling setpoint for longer empty-room window.",
+              "parameters": {
+                "cooling_setpoint_c": 28.0,
+                "applies_to_occupied_zones": false
+              },
+              "source": "llm_generated",
+              "confidence": 0.8
+            },
+            {
+              "action_id": "abea2a51-583b-483f-9b27-35d8a0d9afd7",
+              "action_type": "ventilation_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Reduce ventilation within safe empty-room bounds.",
+              "parameters": {
+                "ventilation_percent": 40,
+                "applies_to_occupied_zones": false
+              },
+              "source": "llm_generated",
+              "confidence": 0.8
+            }
+          ],
+          "simulated_energy_saved_percent": 49.0322,
+          "simulated_carbon_reduced_percent": 49.0322,
+          "simulated_comfort_status": "Safe",
+          "simulation_success": true,
+          "rank": 1,
+          "score": 147.0205,
+          "reward": 118.258,
+          "safety_status": "approved",
+          "blocked": false
+        },
+        {
+          "bundle_id": "9b4a01f2-b954-439d-9080-0e96c917d6a9",
+          "bundle_name": "empty_room_preconditioning",
+          "action_types": [
+            "lighting_adjustment",
+            "hvac_setpoint_adjustment",
+            "ventilation_adjustment"
+          ],
+          "actions": [
+            {
+              "action_id": "f9310e7c-4d58-4ed8-ab93-7f04285f644f",
+              "action_type": "lighting_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Reduce unoccupied lighting because the room is empty.",
+              "parameters": {
+                "lighting_level_percent": 25.0
+              },
+              "source": "semantic_repair_controller",
+              "confidence": 0.72
+            },
+            {
+              "action_id": "d1b20246-28da-496e-9a5a-2eeaedfa4930",
+              "action_type": "hvac_setpoint_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Relax unoccupied cooling setpoint because the room is empty.",
+              "parameters": {
+                "cooling_setpoint_c": 28.0,
+                "applies_to_occupied_zones": false
+              },
+              "source": "semantic_repair_controller",
+              "confidence": 0.72
+            },
+            {
+              "action_id": "d16afb49-c74c-40b3-a71d-a9257c3fc2b7",
+              "action_type": "ventilation_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Reduce ventilation within safe empty-room bounds.",
+              "parameters": {
+                "ventilation_percent": 40
+              },
+              "source": "semantic_repair_controller",
+              "confidence": 0.68
+            }
+          ],
+          "simulated_energy_saved_percent": 49.0322,
+          "simulated_carbon_reduced_percent": 49.0322,
+          "simulated_comfort_status": "Safe",
+          "simulation_success": true,
+          "rank": 2,
+          "score": 147.0205,
+          "reward": 118.258,
+          "safety_status": "approved",
+          "blocked": false
+        },
+        {
+          "bundle_id": "ef8302ca-3ff3-40a1-a82b-ddf7bcaf9e0e",
+          "bundle_name": "comfort_guarded_plan_1",
+          "action_types": [
+            "lighting_adjustment",
+            "hvac_setpoint_adjustment",
+            "ventilation_adjustment"
+          ],
+          "actions": [
+            {
+              "action_id": "58e7b754-3c06-4fb5-9366-36716b237bf4",
+              "action_type": "lighting_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Keep occupied lighting brighter while improving usability.",
+              "parameters": {
+                "lighting_level_percent": 35
+              },
+              "source": "llm_generated",
+              "confidence": 0.8
+            },
+            {
+              "action_id": "847682d5-f969-4598-b2d7-7d76195590f3",
+              "action_type": "hvac_setpoint_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Use a conservative occupied cooling adjustment within safe comfort limits.",
+              "parameters": {
+                "cooling_setpoint_c": 27,
+                "applies_to_occupied_zones": false
+              },
+              "source": "llm_generated",
+              "confidence": 0.8
+            },
+            {
+              "action_id": "884f59e2-74a2-4d23-9f1a-376c670579c8",
+              "action_type": "ventilation_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Increase fresh air moderately while watching energy use.",
+              "parameters": {
+                "applies_to_occupied_zones": false,
+                "ventilation_percent": 50
+              },
+              "source": "llm_generated",
+              "confidence": 0.8
+            }
+          ],
+          "simulated_energy_saved_percent": 43.1003,
+          "simulated_carbon_reduced_percent": 43.1003,
+          "simulated_comfort_status": "Safe",
+          "simulation_success": true,
+          "rank": 3,
+          "score": 136.343,
+          "reward": 107.5805,
+          "safety_status": "approved",
+          "blocked": false
+        }
+      ],
+      "selected_plan": {
+        "bundle_id": "e29684ca-4f67-4462-b02d-085e0ab68a16",
+        "bundle_name": "empty_room_energy_savings",
+        "action_types": [
+          "lighting_adjustment",
+          "hvac_setpoint_adjustment",
+          "ventilation_adjustment"
+        ],
+        "actions": [
+          {
+            "action_id": "acbe2f45-0788-4b3f-92ea-acf17f447ff6",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights in unoccupied zones to conserve energy.",
+            "parameters": {
+              "lighting_level_percent": 25.0
+            },
+            "source": "llm_generated",
+            "confidence": 0.8
+          },
+          {
+            "action_id": "09467812-8aa3-4a21-95d4-1cda921deddf",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax cooling setpoint for longer empty-room window.",
+            "parameters": {
+              "cooling_setpoint_c": 28.0,
+              "applies_to_occupied_zones": false
+            },
+            "source": "llm_generated",
+            "confidence": 0.8
+          },
+          {
+            "action_id": "abea2a51-583b-483f-9b27-35d8a0d9afd7",
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce ventilation within safe empty-room bounds.",
+            "parameters": {
+              "ventilation_percent": 40,
+              "applies_to_occupied_zones": false
+            },
+            "source": "llm_generated",
+            "confidence": 0.8
+          }
+        ],
+        "simulated_energy_saved_percent": 49.0322,
+        "simulated_carbon_reduced_percent": 49.0322,
+        "simulated_comfort_status": "Safe",
+        "simulation_success": true,
+        "rank": 1,
+        "score": 147.0205,
+        "reward": 118.258,
+        "safety_status": "approved",
+        "blocked": false
+      },
+      "approved_actions": [
+        {
+          "action_id": "acbe2f45-0788-4b3f-92ea-acf17f447ff6",
+          "strategy_name": "eco_mode",
+          "action_type": "lighting_adjustment",
+          "target": "unoccupied_zones",
+          "description": "Dim lights in unoccupied zones to conserve energy.",
+          "parameters": {
+            "lighting_level_percent": 25.0
+          },
+          "expected_energy_saved_percent": 10.0,
+          "expected_carbon_reduced_percent": 8.0,
+          "expected_comfort_impact": "neutral",
+          "source_agent": "layer5_final_safety_gate",
+          "priority": "medium"
+        },
+        {
+          "action_id": "09467812-8aa3-4a21-95d4-1cda921deddf",
+          "strategy_name": "eco_mode",
+          "action_type": "hvac_setpoint_adjustment",
+          "target": "unoccupied_zones",
+          "description": "Relax cooling setpoint for longer empty-room window.",
+          "parameters": {
+            "cooling_setpoint_c": 28.0,
+            "applies_to_occupied_zones": false
+          },
+          "expected_energy_saved_percent": 10.0,
+          "expected_carbon_reduced_percent": 8.0,
+          "expected_comfort_impact": "neutral",
+          "source_agent": "layer5_final_safety_gate",
+          "priority": "medium"
+        },
+        {
+          "action_id": "abea2a51-583b-483f-9b27-35d8a0d9afd7",
+          "strategy_name": "eco_mode",
+          "action_type": "ventilation_adjustment",
+          "target": "unoccupied_zones",
+          "description": "Reduce ventilation within safe empty-room bounds.",
+          "parameters": {
+            "ventilation_percent": 40,
+            "applies_to_occupied_zones": false
+          },
+          "expected_energy_saved_percent": 10.0,
+          "expected_carbon_reduced_percent": 8.0,
+          "expected_comfort_impact": "neutral",
+          "source_agent": "layer5_final_safety_gate",
+          "priority": "medium"
+        }
+      ],
+      "blocked_actions": [],
+      "execution_outcome": {
+        "execution_status": "executed",
+        "energy_saved_percent": 49.0322,
+        "carbon_reduced_percent": 49.0322,
+        "comfort_status": "Safe",
+        "anomaly_count": 0,
+        "reward": 98.258,
+        "bandit_updated": true,
+        "memory_updated": true,
+        "knowledge_graph_updated": true,
+        "real_building_execution": false,
+        "digital_twin_execution": true
+      },
+      "lessons_learned": [
+        "empty_room_energy_savings preserved comfort and produced reward 98.258.",
+        "Historical experience prior helped bias ranking toward a previously successful pattern."
+      ],
+      "confidence": 0.92,
+      "tags": [
+        "empty_room_detected",
+        "reduce_energy_keep_comfort_safe",
+        "digital_twin"
+      ],
+      "source": "layer5_closed_loop_execution"
+    },
+    {
+      "experience_id": "exp_20260726T155853z0000_empty_room_detected",
+      "created_at": "2026-07-26T15:58:53+00:00",
+      "situation": {
+        "event_type": "empty_room_detected",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "occupancy": 0,
+        "temperature_c": null,
+        "co2_ppm": null,
+        "carbon_state": null,
+        "next_meeting_minutes": null,
+        "comfort_status": null,
+        "anomaly_count": 0,
+        "timestamp": "2026-07-26T15:58:53+00:00"
+      },
+      "candidate_plans": [
+        {
+          "bundle_id": "69e816b9-9cc3-4599-9366-a548ea4655b1",
+          "bundle_name": "empty_room_energy_savings",
+          "action_types": [
+            "lighting_adjustment",
+            "hvac_setpoint_adjustment",
+            "ventilation_adjustment"
+          ],
+          "actions": [
+            {
+              "action_id": "580ad7d8-4637-4e41-bd94-e227429045e3",
+              "action_type": "lighting_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Dim lights to reduce energy consumption",
+              "parameters": {
+                "lighting_percentage": 50,
+                "lighting_level_percent": 25.0
+              },
+              "source": "historical_recommendation",
+              "confidence": 0.92
+            },
+            {
+              "action_id": "c3da5096-72ea-4c6c-8bb5-7bf95cf56e0f",
+              "action_type": "hvac_setpoint_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Relax unoccupied cooling setpoint to reduce energy consumption",
+              "parameters": {
+                "temperature": 22,
+                "cooling_setpoint_c": 28.0,
+                "applies_to_occupied_zones": false
+              },
+              "source": "historical_recommendation",
+              "confidence": 0.92
+            },
+            {
+              "action_id": "81e91368-13c7-4870-8b9b-d80193b79266",
+              "action_type": "ventilation_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Reduce ventilation to reduce energy consumption and maintain air quality",
+              "parameters": {
+                "ventilation_percent": 40
+              },
+              "source": "historical_recommendation",
+              "confidence": 0.92
+            }
+          ],
+          "simulated_energy_saved_percent": 49.0322,
+          "simulated_carbon_reduced_percent": 49.0322,
+          "simulated_comfort_status": "Safe",
+          "simulation_success": true,
+          "rank": 1,
+          "score": 147.183,
+          "reward": 118.258,
+          "safety_status": "approved",
+          "blocked": false
+        },
+        {
+          "bundle_id": "de2388df-05c0-41a9-94ad-5c5faa462394",
+          "bundle_name": "balanced_plan_2",
+          "action_types": [
+            "lighting_adjustment",
+            "hvac_setpoint_adjustment",
+            "ventilation_adjustment"
+          ],
+          "actions": [
+            {
+              "action_id": "0ff041f9-5bbb-4342-9b13-a3b420f63038",
+              "action_type": "lighting_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Dim lights to reduce energy consumption",
+              "parameters": {
+                "lighting_percentage": 50,
+                "lighting_level_percent": 25
+              },
+              "source": "historical_recommendation",
+              "confidence": 0.92
+            },
+            {
+              "action_id": "f9aa5bb5-5a9d-4edd-bd31-a30fefb55615",
+              "action_type": "hvac_setpoint_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Relax unoccupied cooling setpoint to reduce energy consumption",
+              "parameters": {
+                "temperature": 22,
+                "cooling_setpoint_c": 28,
+                "applies_to_occupied_zones": false
+              },
+              "source": "historical_recommendation",
+              "confidence": 0.92
+            },
+            {
+              "action_id": "dcbc69a0-0b48-4fff-ab71-4d610dee9454",
+              "action_type": "ventilation_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Reduce ventilation to reduce energy consumption and maintain air quality",
+              "parameters": {
+                "ventilation_percent": 40
+              },
+              "source": "historical_recommendation",
+              "confidence": 0.92
+            }
+          ],
+          "simulated_energy_saved_percent": 49.0322,
+          "simulated_carbon_reduced_percent": 49.0322,
+          "simulated_comfort_status": "Safe",
+          "simulation_success": true,
+          "rank": 2,
+          "score": 147.183,
+          "reward": 118.258,
+          "safety_status": "approved",
+          "blocked": false
+        },
+        {
+          "bundle_id": "fbd44344-5211-4780-b709-61f30d1e1ffa",
+          "bundle_name": "comfort_guarded_plan_1",
+          "action_types": [
+            "lighting_adjustment",
+            "hvac_setpoint_adjustment",
+            "ventilation_adjustment"
+          ],
+          "actions": [
+            {
+              "action_id": "eaffe37d-804b-413f-b1f9-bfe58d4bab23",
+              "action_type": "lighting_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Keep occupied lighting brighter while improving usability.",
+              "parameters": {
+                "lighting_percentage": 50,
+                "lighting_level_percent": 35
+              },
+              "source": "historical_recommendation",
+              "confidence": 0.92
+            },
+            {
+              "action_id": "93d7e68c-b6fd-4755-890d-55522462d2e2",
+              "action_type": "hvac_setpoint_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Use a conservative occupied cooling adjustment within safe comfort limits.",
+              "parameters": {
+                "temperature": 22,
+                "cooling_setpoint_c": 27,
+                "applies_to_occupied_zones": false
+              },
+              "source": "historical_recommendation",
+              "confidence": 0.92
+            },
+            {
+              "action_id": "44475e75-6532-4c99-a465-784c6fde4e67",
+              "action_type": "ventilation_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Increase fresh air moderately while watching energy use.",
+              "parameters": {
+                "ventilation_percent": 50
+              },
+              "source": "historical_recommendation",
+              "confidence": 0.92
+            }
+          ],
+          "simulated_energy_saved_percent": 43.1003,
+          "simulated_carbon_reduced_percent": 43.1003,
+          "simulated_comfort_status": "Safe",
+          "simulation_success": true,
+          "rank": 3,
+          "score": 136.5055,
+          "reward": 107.5805,
+          "safety_status": "approved",
+          "blocked": false
+        }
+      ],
+      "selected_plan": {
+        "bundle_id": "69e816b9-9cc3-4599-9366-a548ea4655b1",
+        "bundle_name": "empty_room_energy_savings",
+        "action_types": [
+          "lighting_adjustment",
+          "hvac_setpoint_adjustment",
+          "ventilation_adjustment"
+        ],
+        "actions": [
+          {
+            "action_id": "580ad7d8-4637-4e41-bd94-e227429045e3",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights to reduce energy consumption",
+            "parameters": {
+              "lighting_percentage": 50,
+              "lighting_level_percent": 25.0
+            },
+            "source": "historical_recommendation",
+            "confidence": 0.92
+          },
+          {
+            "action_id": "c3da5096-72ea-4c6c-8bb5-7bf95cf56e0f",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax unoccupied cooling setpoint to reduce energy consumption",
+            "parameters": {
+              "temperature": 22,
+              "cooling_setpoint_c": 28.0,
+              "applies_to_occupied_zones": false
+            },
+            "source": "historical_recommendation",
+            "confidence": 0.92
+          },
+          {
+            "action_id": "81e91368-13c7-4870-8b9b-d80193b79266",
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce ventilation to reduce energy consumption and maintain air quality",
+            "parameters": {
+              "ventilation_percent": 40
+            },
+            "source": "historical_recommendation",
+            "confidence": 0.92
+          }
+        ],
+        "simulated_energy_saved_percent": 49.0322,
+        "simulated_carbon_reduced_percent": 49.0322,
+        "simulated_comfort_status": "Safe",
+        "simulation_success": true,
+        "rank": 1,
+        "score": 147.183,
+        "reward": 118.258,
+        "safety_status": "approved",
+        "blocked": false
+      },
+      "approved_actions": [],
+      "blocked_actions": [
+        {
+          "action_id": "580ad7d8-4637-4e41-bd94-e227429045e3",
+          "strategy_name": "eco_mode",
+          "action_type": "lighting_adjustment",
+          "target": "unoccupied_zones",
+          "description": "Dim lights to reduce energy consumption",
+          "parameters": {
+            "lighting_percentage": 50,
+            "lighting_level_percent": 25.0
+          },
+          "expected_energy_saved_percent": 49.0322,
+          "expected_carbon_reduced_percent": 49.0322,
+          "expected_comfort_impact": "neutral",
+          "source_agent": "layer5_final_safety_gate",
+          "priority": "medium"
+        },
+        {
+          "action_id": "c3da5096-72ea-4c6c-8bb5-7bf95cf56e0f",
+          "strategy_name": "eco_mode",
+          "action_type": "hvac_setpoint_adjustment",
+          "target": "unoccupied_zones",
+          "description": "Relax unoccupied cooling setpoint to reduce energy consumption",
+          "parameters": {
+            "temperature": 22,
+            "cooling_setpoint_c": 28.0,
+            "applies_to_occupied_zones": false
+          },
+          "expected_energy_saved_percent": 49.0322,
+          "expected_carbon_reduced_percent": 49.0322,
+          "expected_comfort_impact": "neutral",
+          "source_agent": "layer5_final_safety_gate",
+          "priority": "medium"
+        },
+        {
+          "action_id": "81e91368-13c7-4870-8b9b-d80193b79266",
+          "strategy_name": "eco_mode",
+          "action_type": "ventilation_adjustment",
+          "target": "unoccupied_zones",
+          "description": "Reduce ventilation to reduce energy consumption and maintain air quality",
+          "parameters": {
+            "ventilation_percent": 40,
+            "applies_to_occupied_zones": false
+          },
+          "expected_energy_saved_percent": 49.0322,
+          "expected_carbon_reduced_percent": 49.0322,
+          "expected_comfort_impact": "neutral",
+          "source_agent": "layer5_final_safety_gate",
+          "priority": "medium"
+        }
+      ],
+      "execution_outcome": {
+        "execution_status": "blocked",
+        "energy_saved_percent": 0.0,
+        "carbon_reduced_percent": 0.0,
+        "comfort_status": "Unknown",
+        "anomaly_count": 0,
+        "reward": -20.0,
+        "bandit_updated": false,
+        "memory_updated": false,
+        "knowledge_graph_updated": false,
+        "real_building_execution": false,
+        "digital_twin_execution": false
+      },
+      "lessons_learned": [
+        "Safety Governor blocked risky actions before digital-twin execution.",
+        "Historical experience prior helped bias ranking toward a previously successful pattern."
+      ],
+      "confidence": 0.65,
+      "tags": [
+        "empty_room_detected",
+        "reduce_energy_keep_comfort_safe",
+        "digital_twin"
+      ],
+      "source": "layer5_closed_loop_execution"
+    },
+    {
+      "experience_id": "exp_20260726T160221z0000_empty_room_detected",
+      "created_at": "2026-07-26T16:02:21+00:00",
+      "situation": {
+        "event_type": "empty_room_detected",
+        "goal": "reduce_energy_keep_comfort_safe",
+        "occupancy": 0,
+        "temperature_c": null,
+        "co2_ppm": null,
+        "carbon_state": null,
+        "next_meeting_minutes": null,
+        "comfort_status": null,
+        "anomaly_count": 0,
+        "timestamp": "2026-07-26T16:02:21+00:00"
+      },
+      "candidate_plans": [
+        {
+          "bundle_id": "b55b699a-baee-4174-be4f-2b4e30f1acfa",
+          "bundle_name": "aggressive_but_safe_bundle",
+          "action_types": [
+            "lighting_adjustment",
+            "hvac_setpoint_adjustment",
+            "ventilation_adjustment"
+          ],
+          "actions": [
+            {
+              "action_id": "c20a8a32-e930-4b56-8571-c6bd27c216db",
+              "action_type": "lighting_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Dim lights in unoccupied zones to conserve energy.",
+              "parameters": {
+                "lighting_level_percent": 15.0
+              },
+              "source": "llm_generated",
+              "confidence": 0.7
+            },
+            {
+              "action_id": "1eda23f5-91bc-4c5d-a0f0-ba0343474c33",
+              "action_type": "hvac_setpoint_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Relax unoccupied cooling setpoint because the room is empty.",
+              "parameters": {
+                "cooling_setpoint_c": 28.0,
+                "applies_to_occupied_zones": false
+              },
+              "source": "semantic_repair_controller",
+              "confidence": 0.72
+            },
+            {
+              "action_id": "74cbda0c-0c55-4fd7-8f21-08ce6553aea4",
+              "action_type": "ventilation_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Reduce ventilation within safe empty-room bounds.",
+              "parameters": {
+                "ventilation_percent": 40,
+                "applies_to_occupied_zones": false
+              },
+              "source": "llm_generated",
+              "confidence": 0.7
+            }
+          ],
+          "simulated_energy_saved_percent": 54.2885,
+          "simulated_carbon_reduced_percent": 54.2885,
+          "simulated_comfort_status": "Safe",
+          "simulation_success": true,
+          "rank": 1,
+          "score": 153.6443,
+          "reward": 127.7193,
+          "safety_status": "approved",
+          "blocked": false
+        },
+        {
+          "bundle_id": "7ba9628b-9d2d-417e-865c-dc8323355db7",
+          "bundle_name": "empty_room_energy_savings",
+          "action_types": [
+            "lighting_adjustment",
+            "hvac_setpoint_adjustment",
+            "ventilation_adjustment"
+          ],
+          "actions": [
+            {
+              "action_id": "eda08cab-7971-4175-9e50-69d6578635bf",
+              "action_type": "lighting_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Dim lights in unoccupied zones to conserve energy.",
+              "parameters": {
+                "lighting_level_percent": 25.0
+              },
+              "source": "llm_generated",
+              "confidence": 0.9
+            },
+            {
+              "action_id": "9ec6760f-d2ad-4c37-b0fd-a22072330b52",
+              "action_type": "hvac_setpoint_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Relax cooling setpoint for longer empty-room window.",
+              "parameters": {
+                "cooling_setpoint_c": 28.0,
+                "applies_to_occupied_zones": false
+              },
+              "source": "llm_generated",
+              "confidence": 0.9
+            },
+            {
+              "action_id": "ea78dfed-3262-415f-816d-9608e2a93ebf",
+              "action_type": "ventilation_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Reduce ventilation within safe empty-room bounds.",
+              "parameters": {
+                "ventilation_percent": 40,
+                "applies_to_occupied_zones": false
+              },
+              "source": "llm_generated",
+              "confidence": 0.9
+            }
+          ],
+          "simulated_energy_saved_percent": 49.0322,
+          "simulated_carbon_reduced_percent": 49.0322,
+          "simulated_comfort_status": "Safe",
+          "simulation_success": true,
+          "rank": 2,
+          "score": 149.183,
+          "reward": 118.258,
+          "safety_status": "approved",
+          "blocked": false
+        },
+        {
+          "bundle_id": "c0d30006-5895-472a-9c38-4d6d65f17912",
+          "bundle_name": "mild_setback_restore_before_meeting",
+          "action_types": [
+            "lighting_adjustment",
+            "hvac_setpoint_adjustment",
+            "ventilation_adjustment"
+          ],
+          "actions": [
+            {
+              "action_id": "64ff2dc0-8c55-4ac5-90c3-4adf1d7e6012",
+              "action_type": "lighting_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Dim lights in unoccupied zones to conserve energy.",
+              "parameters": {
+                "lighting_level_percent": 25.0
+              },
+              "source": "llm_generated",
+              "confidence": 0.8
+            },
+            {
+              "action_id": "e63a678a-9ccf-4c0d-b653-653c884dbd2b",
+              "action_type": "hvac_setpoint_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Relax cooling setpoint for longer empty-room window.",
+              "parameters": {
+                "cooling_setpoint_c": 28.0,
+                "applies_to_occupied_zones": false
+              },
+              "source": "llm_generated",
+              "confidence": 0.8
+            },
+            {
+              "action_id": "5ab69ee9-a626-4502-ad6e-6986c6c3e975",
+              "action_type": "ventilation_adjustment",
+              "target": "unoccupied_zones",
+              "description": "Reduce ventilation within safe empty-room bounds.",
+              "parameters": {
+                "ventilation_percent": 40
+              },
+              "source": "semantic_repair_controller",
+              "confidence": 0.68
+            }
+          ],
+          "simulated_energy_saved_percent": 49.0322,
+          "simulated_carbon_reduced_percent": 49.0322,
+          "simulated_comfort_status": "Safe",
+          "simulation_success": true,
+          "rank": 3,
+          "score": 144.183,
+          "reward": 118.258,
+          "safety_status": "approved",
+          "blocked": false
+        }
+      ],
+      "selected_plan": {
+        "bundle_id": "b55b699a-baee-4174-be4f-2b4e30f1acfa",
+        "bundle_name": "aggressive_but_safe_bundle",
+        "action_types": [
+          "lighting_adjustment",
+          "hvac_setpoint_adjustment",
+          "ventilation_adjustment"
+        ],
+        "actions": [
+          {
+            "action_id": "c20a8a32-e930-4b56-8571-c6bd27c216db",
+            "action_type": "lighting_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Dim lights in unoccupied zones to conserve energy.",
+            "parameters": {
+              "lighting_level_percent": 15.0
+            },
+            "source": "llm_generated",
+            "confidence": 0.7
+          },
+          {
+            "action_id": "1eda23f5-91bc-4c5d-a0f0-ba0343474c33",
+            "action_type": "hvac_setpoint_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Relax unoccupied cooling setpoint because the room is empty.",
+            "parameters": {
+              "cooling_setpoint_c": 28.0,
+              "applies_to_occupied_zones": false
+            },
+            "source": "semantic_repair_controller",
+            "confidence": 0.72
+          },
+          {
+            "action_id": "74cbda0c-0c55-4fd7-8f21-08ce6553aea4",
+            "action_type": "ventilation_adjustment",
+            "target": "unoccupied_zones",
+            "description": "Reduce ventilation within safe empty-room bounds.",
+            "parameters": {
+              "ventilation_percent": 40,
+              "applies_to_occupied_zones": false
+            },
+            "source": "llm_generated",
+            "confidence": 0.7
+          }
+        ],
+        "simulated_energy_saved_percent": 54.2885,
+        "simulated_carbon_reduced_percent": 54.2885,
+        "simulated_comfort_status": "Safe",
+        "simulation_success": true,
+        "rank": 1,
+        "score": 153.6443,
+        "reward": 127.7193,
+        "safety_status": "approved",
+        "blocked": false
+      },
+      "approved_actions": [
+        {
+          "action_id": "c20a8a32-e930-4b56-8571-c6bd27c216db",
+          "strategy_name": "eco_mode_aggressive",
+          "action_type": "lighting_adjustment",
+          "target": "unoccupied_zones",
+          "description": "Dim lights in unoccupied zones to conserve energy.",
+          "parameters": {
+            "lighting_level_percent": 15.0
+          },
+          "expected_energy_saved_percent": 6.0,
+          "expected_carbon_reduced_percent": 4.0,
+          "expected_comfort_impact": "neutral",
+          "source_agent": "layer5_final_safety_gate",
+          "priority": "medium"
+        },
+        {
+          "action_id": "1eda23f5-91bc-4c5d-a0f0-ba0343474c33",
+          "strategy_name": "eco_mode_aggressive",
+          "action_type": "hvac_setpoint_adjustment",
+          "target": "unoccupied_zones",
+          "description": "Relax unoccupied cooling setpoint because the room is empty.",
+          "parameters": {
+            "cooling_setpoint_c": 28.0,
+            "applies_to_occupied_zones": false
+          },
+          "expected_energy_saved_percent": 6.0,
+          "expected_carbon_reduced_percent": 4.0,
+          "expected_comfort_impact": "neutral",
+          "source_agent": "layer5_final_safety_gate",
+          "priority": "medium"
+        },
+        {
+          "action_id": "74cbda0c-0c55-4fd7-8f21-08ce6553aea4",
+          "strategy_name": "eco_mode_aggressive",
+          "action_type": "ventilation_adjustment",
+          "target": "unoccupied_zones",
+          "description": "Reduce ventilation within safe empty-room bounds.",
+          "parameters": {
+            "ventilation_percent": 40,
+            "applies_to_occupied_zones": false
+          },
+          "expected_energy_saved_percent": 6.0,
+          "expected_carbon_reduced_percent": 4.0,
+          "expected_comfort_impact": "neutral",
+          "source_agent": "layer5_final_safety_gate",
+          "priority": "medium"
+        }
+      ],
+      "blocked_actions": [],
+      "execution_outcome": {
+        "execution_status": "executed",
+        "energy_saved_percent": 54.2885,
+        "carbon_reduced_percent": 54.2885,
+        "comfort_status": "Safe",
+        "anomaly_count": 0,
+        "reward": 107.7193,
+        "bandit_updated": true,
+        "memory_updated": true,
+        "knowledge_graph_updated": true,
+        "real_building_execution": false,
+        "digital_twin_execution": true
+      },
+      "lessons_learned": [
+        "aggressive_but_safe_bundle preserved comfort and produced reward 107.7193.",
+        "Historical experience prior helped bias ranking toward a previously successful pattern."
+      ],
+      "confidence": 0.92,
+      "tags": [
+        "empty_room_detected",
+        "reduce_energy_keep_comfort_safe",
+        "digital_twin"
+      ],
+      "source": "layer5_closed_loop_execution"
+    }
+  ],
+  "strategy_stats": {
+    "balanced_empty_room_mode": {
+      "uses": 1,
+      "successes": 1,
+      "failures": 0,
+      "average_reward": 45.0,
+      "average_energy_saved_percent": 12.0,
+      "comfort_safe_rate": 1.0,
+      "success_rate": 1.0,
+      "confidence": 0.91
+    },
+    "mild_setback_restore_before_meeting": {
+      "uses": 1,
+      "successes": 1,
+      "failures": 0,
+      "average_reward": 32.0,
+      "average_energy_saved_percent": 7.0,
+      "comfort_safe_rate": 1.0,
+      "success_rate": 1.0,
+      "confidence": 0.91
+    },
+    "iaq_priority_mode": {
+      "uses": 1,
+      "successes": 1,
+      "failures": 0,
+      "average_reward": 28.0,
+      "average_energy_saved_percent": 1.0,
+      "comfort_safe_rate": 1.0,
+      "success_rate": 1.0,
+      "confidence": 0.91
+    },
+    "carbon_aware_mode": {
+      "uses": 1,
+      "successes": 1,
+      "failures": 0,
+      "average_reward": 35.0,
+      "average_energy_saved_percent": 4.0,
+      "comfort_safe_rate": 1.0,
+      "success_rate": 1.0,
+      "confidence": 0.91
+    },
+    "aggressive_shutdown": {
+      "uses": 1,
+      "successes": 0,
+      "failures": 1,
+      "average_reward": -100.0,
+      "average_energy_saved_percent": 0.0,
+      "comfort_safe_rate": 0.0,
+      "success_rate": 0.0,
+      "confidence": 0.46
+    },
+    "empty_room_energy_savings": {
+      "uses": 2,
+      "successes": 1,
+      "failures": 1,
+      "average_reward": 39.129,
+      "average_energy_saved_percent": 24.5161,
+      "comfort_safe_rate": 0.5,
+      "success_rate": 0.5,
+      "confidence": 0.695
+    },
+    "aggressive_but_safe_bundle": {
+      "uses": 1,
+      "successes": 1,
+      "failures": 0,
+      "average_reward": 107.7193,
+      "average_energy_saved_percent": 54.2885,
+      "comfort_safe_rate": 1.0,
+      "success_rate": 1.0,
+      "confidence": 0.91
+    }
+  },
+  "failure_patterns": [
+    {
+      "action_type": "hvac_shutdown",
+      "situation_type": "occupied_room",
+      "failure_reason": "safety_blocked",
+      "count": 1,
+      "avoidance_rule": "Avoid aggressive HVAC shutdown when occupancy > 0."
+    }
+  ],
+  "last_updated": "2026-07-26T16:02:21+00:00"
+}

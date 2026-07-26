@@ -12,7 +12,7 @@
       "object_name": "SPACE1-1 Lights 1",
       "field": "field_6",
       "old_value": 1584.0,
-      "new_value": 396.0,
+      "new_value": 237.6,
       "action_type": "lighting_adjustment"
     },
     {
@@ -20,7 +20,7 @@
       "object_name": "SPACE2-1 Lights 1",
       "field": "field_6",
       "old_value": 684.0,
-      "new_value": 171.0,
+      "new_value": 102.6,
       "action_type": "lighting_adjustment"
     },
     {
@@ -28,7 +28,7 @@
       "object_name": "SPACE3-1 Lights 1",
       "field": "field_6",
       "old_value": 1584.0,
-      "new_value": 396.0,
+      "new_value": 237.6,
       "action_type": "lighting_adjustment"
     },
     {
@@ -36,7 +36,7 @@
       "object_name": "SPACE4-1 Lights 1",
       "field": "field_6",
       "old_value": 684.0,
-      "new_value": 171.0,
+      "new_value": 102.6,
       "action_type": "lighting_adjustment"
     },
     {
@@ -44,7 +44,7 @@
       "object_name": "SPACE5-1 Lights 1",
       "field": "field_6",
       "old_value": 2964.0,
-      "new_value": 741.0,
+      "new_value": 444.6,
       "action_type": "lighting_adjustment"
     },
     {
@@ -384,7 +384,7 @@
       "object_name": "SPACE1-1 Lights 1",
       "field": "field_6",
       "old_value": 1584.0,
-      "new_value": 554.4,
+      "new_value": 237.6,
       "action_type": "lighting_adjustment"
     },
     {
@@ -392,7 +392,7 @@
       "object_name": "SPACE2-1 Lights 1",
       "field": "field_6",
       "old_value": 684.0,
-      "new_value": 239.4,
+      "new_value": 102.6,
       "action_type": "lighting_adjustment"
     },
     {
@@ -400,7 +400,7 @@
       "object_name": "SPACE3-1 Lights 1",
       "field": "field_6",
       "old_value": 1584.0,
-      "new_value": 554.4,
+      "new_value": 237.6,
       "action_type": "lighting_adjustment"
     },
     {
@@ -408,7 +408,7 @@
       "object_name": "SPACE4-1 Lights 1",
       "field": "field_6",
       "old_value": 684.0,
-      "new_value": 239.4,
+      "new_value": 102.6,
       "action_type": "lighting_adjustment"
     },
     {
@@ -416,7 +416,7 @@
       "object_name": "SPACE5-1 Lights 1",
       "field": "field_6",
       "old_value": 2964.0,
-      "new_value": 1037.4,
+      "new_value": 444.6,
       "action_type": "lighting_adjustment"
     },
     {
@@ -424,7 +424,7 @@
       "object_name": "Clg-SetP-Sch",
       "field": "field_6",
       "old_value": 23.9,
-      "new_value": 27.0,
+      "new_value": 28.0,
       "action_type": "hvac_setpoint_adjustment"
     },
     {
@@ -432,7 +432,7 @@
       "object_name": "Clg-SetP-Sch",
       "field": "field_8",
       "old_value": 29.4,
-      "new_value": 27.0,
+      "new_value": 28.0,
       "action_type": "hvac_setpoint_adjustment"
     },
     {
@@ -440,7 +440,7 @@
       "object_name": "Clg-SetP-Sch",
       "field": "field_10",
       "old_value": 29.4,
-      "new_value": 27.0,
+      "new_value": 28.0,
       "action_type": "hvac_setpoint_adjustment"
     },
     {
@@ -448,7 +448,7 @@
       "object_name": "Clg-SetP-Sch",
       "field": "field_11",
       "old_value": 23.9,
-      "new_value": 27.0,
+      "new_value": 28.0,
       "action_type": "hvac_setpoint_adjustment"
     },
     {
@@ -456,7 +456,7 @@
       "object_name": "Clg-SetP-Sch",
       "field": "field_12",
       "old_value": 29.4,
-      "new_value": 27.0,
+      "new_value": 28.0,
       "action_type": "hvac_setpoint_adjustment"
     },
     {
@@ -464,7 +464,7 @@
       "object_name": "Clg-SetP-Sch",
       "field": "field_14",
       "old_value": 29.4,
-      "new_value": 27.0,
+      "new_value": 28.0,
       "action_type": "hvac_setpoint_adjustment"
     },
     {
@@ -472,7 +472,7 @@
       "object_name": "Clg-SetP-Sch",
       "field": "field_16",
       "old_value": 29.4,
-      "new_value": 27.0,
+      "new_value": 28.0,
       "action_type": "hvac_setpoint_adjustment"
     },
     {
@@ -480,90 +480,90 @@
       "object_name": "SZ DSOA SPACE1-1",
       "field": "field_3",
       "old_value": 0.00236,
-      "new_value": 0.00118,
+      "new_value": 0.000944,
       "action_type": "ventilation_adjustment",
-      "multiplier": 0.5
+      "multiplier": 0.4
     },
     {
       "object_type": "DesignSpecification:OutdoorAir",
       "object_name": "SZ DSOA SPACE1-1",
       "field": "field_4",
       "old_value": 0.000305,
-      "new_value": 0.000152,
+      "new_value": 0.000122,
       "action_type": "ventilation_adjustment",
-      "multiplier": 0.5
+      "multiplier": 0.4
     },
     {
       "object_type": "DesignSpecification:OutdoorAir",
       "object_name": "SZ DSOA SPACE2-1",
       "field": "field_3",
       "old_value": 0.00236,
-      "new_value": 0.00118,
+      "new_value": 0.000944,
       "action_type": "ventilation_adjustment",
-      "multiplier": 0.5
+      "multiplier": 0.4
     },
     {
       "object_type": "DesignSpecification:OutdoorAir",
       "object_name": "SZ DSOA SPACE2-1",
       "field": "field_4",
       "old_value": 0.000305,
-      "new_value": 0.000152,
+      "new_value": 0.000122,
       "action_type": "ventilation_adjustment",
-      "multiplier": 0.5
+      "multiplier": 0.4
     },
     {
       "object_type": "DesignSpecification:OutdoorAir",
       "object_name": "SZ DSOA SPACE3-1",
       "field": "field_3",
       "old_value": 0.00236,
-      "new_value": 0.00118,
+      "new_value": 0.000944,
       "action_type": "ventilation_adjustment",
-      "multiplier": 0.5
+      "multiplier": 0.4
     },
     {
       "object_type": "DesignSpecification:OutdoorAir",
       "object_name": "SZ DSOA SPACE3-1",
       "field": "field_4",
       "old_value": 0.000305,
-      "new_value": 0.000152,
+      "new_value": 0.000122,
       "action_type": "ventilation_adjustment",
-      "multiplier": 0.5
+      "multiplier": 0.4
     },
     {
       "object_type": "DesignSpecification:OutdoorAir",
       "object_name": "SZ DSOA SPACE4-1",
       "field": "field_3",
       "old_value": 0.00236,
-      "new_value": 0.00118,
+      "new_value": 0.000944,
       "action_type": "ventilation_adjustment",
-      "multiplier": 0.5
+      "multiplier": 0.4
     },
     {
       "object_type": "DesignSpecification:OutdoorAir",
       "object_name": "SZ DSOA SPACE4-1",
       "field": "field_4",
       "old_value": 0.000305,
-      "new_value": 0.000152,
+      "new_value": 0.000122,
       "action_type": "ventilation_adjustment",
-      "multiplier": 0.5
+      "multiplier": 0.4
     },
     {
       "object_type": "DesignSpecification:OutdoorAir",
       "object_name": "SZ DSOA SPACE5-1",
       "field": "field_3",
       "old_value": 0.00236,
-      "new_value": 0.00118,
+      "new_value": 0.000944,
       "action_type": "ventilation_adjustment",
-      "multiplier": 0.5
+      "multiplier": 0.4
     },
     {
       "object_type": "DesignSpecification:OutdoorAir",
       "object_name": "SZ DSOA SPACE5-1",
       "field": "field_4",
       "old_value": 0.000305,
-      "new_value": 0.000152,
+      "new_value": 0.000122,
       "action_type": "ventilation_adjustment",
-      "multiplier": 0.5
+      "multiplier": 0.4
     },
     {
       "object_type": "Lights",

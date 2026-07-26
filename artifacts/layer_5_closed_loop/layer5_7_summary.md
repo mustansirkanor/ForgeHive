@@ -1,9 +1,9 @@
 # ForgeHive Layer 5 Phase 5.7 Real LLM Full Loop
 
 ## Provider
-- Selected provider: ollama
-- Model: llama3.1:8b
-- Fallback used: False
+- Selected provider: openrouter
+- Model: meta-llama/llama-3.1-8b-instruct
+- Fallback used: True
 
 ## Candidate Bundles
 - Generated: 3
@@ -18,14 +18,16 @@
 ## Digital Twin Result
 - Digital twin execution: True
 - Real building execution: False
-- Energy saved: 49.0322%
-- Carbon reduced: 49.0322%
+- Energy saved: 54.2885%
+- Carbon reduced: 54.2885%
 - Comfort status: Safe
 
 ## Learning
 - Bandit updated: True
 - Memory updated: True
 - Knowledge Graph updated: True
+- Experience Graph updated: True
+- Experience ID: exp_20260726T160221z0000_empty_room_detected
 
 ## Judge Readiness
 - Judge ready: True

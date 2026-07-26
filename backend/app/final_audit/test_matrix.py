@@ -53,6 +53,9 @@ TEST_MATRIX = {
         "backend.app.closed_loop.test_phase57_artifacts",
         "backend.app.closed_loop.test_phase57_real_llm_full_loop",
     ],
+    "Layer 8": [
+        "backend.app.experience.test_experience_graph",
+    ],
 }
 
 

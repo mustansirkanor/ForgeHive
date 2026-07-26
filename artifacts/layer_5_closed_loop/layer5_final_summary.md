@@ -9,8 +9,8 @@ The meeting room is empty now. Save energy but keep comfort safe.
 - Successful simulations: 3
 
 ## Selected Bundle
-- Name: energy_savings_bundle
-- Score: 138.8505
+- Name: aggressive_but_safe_bundle
+- Score: 153.6443
 
 ## Safety Approval
 - Execution ready: True
@@ -20,21 +20,21 @@ The meeting room is empty now. Save energy but keep comfort safe.
 ## Digital Twin Execution Result
 - Status: executed
 - Scope: energyplus_digital_twin_only
-- Run dir: C:\Users\musta\Projects\ForgeHive\runs\layer_5\executions\20260726_111410_915661_energy_savings_bundle
+- Run dir: C:\Users\musta\Projects\ForgeHive\runs\layer_5\executions\20260726_160207_062936_aggressive_but_safe_bundle
 - Lighting applied in IDF: True
 - HVAC setpoint applied in IDF: True
 - Ventilation applied in IDF: True
 - Metadata-only actions: 0
 
 ## Energy / Carbon / Comfort Impact
-- Energy saved: 49.0322%
-- Carbon reduced: 49.0322%
+- Energy saved: 54.2885%
+- Carbon reduced: 54.2885%
 - Comfort status: Safe
 - Anomaly count: 0
 
 ## Learning Update
 - Learning status: updated
-- Actual reward: 98.258
+- Actual reward: 107.7193
 - Bandit updated: True
 - Memory updated: True
 - Knowledge Graph updated: True

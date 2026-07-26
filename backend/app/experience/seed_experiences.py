@@ -1,0 +1,165 @@
+from datetime import datetime, timezone
+
+from backend.app.experience.experience_store import load_experience_graph, save_experience_graph
+
+
+def episode(
+    experience_id: str,
+    event_type: str,
+    goal: str,
+    occupancy: int,
+    bundle_name: str,
+    actions: list[str],
+    reward: float,
+    energy: float = 0,
+    carbon: float = 0,
+    comfort: str = "Safe",
+    confidence: float = 0.9,
+    next_meeting_minutes: int | None = None,
+    carbon_state: str | None = None,
+    failed: bool = False,
+    lessons: list[str] | None = None,
+) -> dict:
+    created = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    candidate = {
+        "bundle_id": f"{experience_id}_bundle",
+        "bundle_name": bundle_name,
+        "action_types": actions,
+        "actions": [{"action_type": action_type, "target": "demo_zone", "parameters": {}} for action_type in actions],
+        "simulated_energy_saved_percent": energy,
+        "simulated_carbon_reduced_percent": carbon,
+        "simulated_comfort_status": comfort,
+        "simulation_success": not failed,
+        "rank": 1,
+        "score": reward,
+        "reward": reward,
+        "safety_status": "blocked" if failed else "approved",
+        "blocked": failed,
+    }
+    return {
+        "experience_id": experience_id,
+        "created_at": created,
+        "situation": {
+            "event_type": event_type,
+            "goal": goal,
+            "occupancy": occupancy,
+            "temperature_c": 24,
+            "co2_ppm": 650 if event_type != "high_co2_detected" else 1250,
+            "carbon_state": carbon_state,
+            "next_meeting_minutes": next_meeting_minutes,
+            "comfort_status": comfort,
+            "anomaly_count": 0 if comfort == "Safe" else 1,
+            "timestamp": created,
+        },
+        "candidate_plans": [candidate],
+        "selected_plan": candidate,
+        "approved_actions": [] if failed else candidate["actions"],
+        "blocked_actions": candidate["actions"] if failed else [],
+        "execution_outcome": {
+            "execution_status": "blocked" if failed else "executed",
+            "energy_saved_percent": energy,
+            "carbon_reduced_percent": carbon,
+            "comfort_status": comfort,
+            "anomaly_count": 1 if failed else 0,
+            "reward": reward,
+            "bandit_updated": not failed,
+            "memory_updated": True,
+            "knowledge_graph_updated": True,
+            "real_building_execution": False,
+            "digital_twin_execution": not failed,
+        },
+        "lessons_learned": lessons or [f"{bundle_name} produced reward {reward} with comfort {comfort}."],
+        "confidence": confidence,
+        "tags": [event_type, "experience_graph_seed"],
+        "source": "layer8_demo_seed",
+    }
+
+
+def seed_demo_experiences(force: bool = False) -> dict:
+    graph = load_experience_graph()
+    if graph.get("episodes") and not force:
+        return {"seeded": False, "episode_count": len(graph.get("episodes", [])), "message": "Existing experiences preserved."}
+
+    graph["episodes"] = [
+        episode(
+            "exp_seed_empty_room_001",
+            "empty_room_detected",
+            "reduce_energy_keep_comfort_safe",
+            0,
+            "balanced_empty_room_mode",
+            ["lighting_adjustment", "hvac_setpoint_adjustment", "ventilation_adjustment"],
+            45,
+            12,
+            10,
+            "Safe",
+            0.92,
+            90,
+            "high",
+            lessons=[
+                "Balanced empty-room strategy preserved comfort and saved energy.",
+                "Avoid aggressive shutdown when comfort risk is high.",
+            ],
+        ),
+        episode(
+            "exp_seed_empty_room_short_gap_001",
+            "empty_room_short_gap",
+            "reduce_energy_keep_comfort_safe",
+            0,
+            "mild_setback_restore_before_meeting",
+            ["lighting_adjustment", "hvac_setpoint_adjustment", "preconditioning_schedule"],
+            32,
+            7,
+            5,
+            "Safe",
+            0.87,
+            30,
+            lessons=["Short gaps work best with mild setback and scheduled recovery before occupants return."],
+        ),
+        episode(
+            "exp_seed_high_co2_001",
+            "high_co2_detected",
+            "improve_iaq",
+            12,
+            "iaq_priority_mode",
+            ["ventilation_adjustment"],
+            28,
+            1,
+            1,
+            "Safe",
+            0.84,
+            lessons=["IAQ priority ventilation recovered CO2 while keeping comfort safe."],
+        ),
+        episode(
+            "exp_seed_high_carbon_001",
+            "high_carbon_window",
+            "reduce_carbon",
+            20,
+            "carbon_aware_mode",
+            ["carbon_schedule_shift"],
+            35,
+            4,
+            14,
+            "Safe",
+            0.86,
+            carbon_state="high",
+            lessons=["Carbon-aware mode reduced emissions without comfort regression."],
+        ),
+        episode(
+            "exp_seed_unsafe_shutdown_001",
+            "occupied_room",
+            "reduce_energy_keep_comfort_safe",
+            8,
+            "aggressive_shutdown",
+            ["hvac_shutdown"],
+            -100,
+            0,
+            0,
+            "Unsafe",
+            0.96,
+            failed=True,
+            lessons=["Avoid aggressive HVAC shutdown when occupancy > 0."],
+        ),
+    ]
+    save_experience_graph(graph)
+    return {"seeded": True, "episode_count": len(graph["episodes"]), "experience_graph_path": "data/experience/experience_graph.json"}
+

@@ -2,6 +2,8 @@ from backend.app.closed_loop.bundle_simulator import simulate_candidate_bundles
 from backend.app.closed_loop.final_safety_gate import run_final_safety_gate, safe_no_action_approval
 from backend.app.closed_loop.reward_ranker import rank_simulated_bundles
 from backend.app.cognitive.natural_language_operator import run_natural_language_operator
+from backend.app.experience.experience_retriever import retrieve_similar_experiences
+from backend.app.experience.similarity import extract_situation_signature_from_context
 
 
 def deterministic_fallback_bundles() -> list[dict]:
@@ -134,12 +136,22 @@ def run_layer5_phase_1_3_closed_loop(
     first_candidate = candidate_bundles[0] if candidate_bundles else {}
     goal = layer4_intent.get("goal", first_candidate.get("goal", "safe_no_action"))
     event_type = layer4_intent.get("event_type", first_candidate.get("event_type", "unresolved_request"))
+    current_situation = extract_situation_signature_from_context(
+        {
+            "goal": goal,
+            "event_type": event_type,
+            "layer4_intent": layer4_intent,
+            "layer4_output": layer4_output,
+        }
+    )
+    retrieved_experience = retrieve_similar_experiences(current_situation)
     simulation_output = simulate_candidate_bundles(candidate_bundles)
     ranking_output = rank_simulated_bundles(
         simulation_output.get("simulation_results", []),
         candidate_bundles,
         goal,
         event_type,
+        retrieved_experience,
     )
 
     selected_bundle = ranking_output.get("selected_bundle")
@@ -165,6 +177,11 @@ def run_layer5_phase_1_3_closed_loop(
         "layer4_intent": layer4_intent,
         "layer4_provider_trace": provider_trace,
         "kg_context": kg_context,
+        "experience_retrieval": retrieved_experience,
+        "experience_prior_used": ranking_output.get("experience_prior_used", False),
+        "experience_prior_summary": ranking_output.get("experience_prior_summary", {}),
+        "experience_bonus_summary": ranking_output.get("experience_bonus_summary", []),
+        "experience_prior_warnings": ranking_output.get("experience_prior_warnings", []),
         "layer4_output": layer4_output,
         "fallback_used": fallback_used,
         "candidate_count": len(candidate_bundles),
@@ -178,6 +195,10 @@ def run_layer5_phase_1_3_closed_loop(
         "ranking_summary": ranking_output.get("ranking_summary", ""),
         "rl_used": ranking_output.get("rl_used", True),
         "kg_used": ranking_output.get("kg_used", True),
+        "experience_graph": {
+            "retrieval_used": True,
+            **ranking_output.get("experience_prior_summary", {}),
+        },
         "final_safety_approval": final_safety,
         "execution_ready": final_safety.get("execution_ready", False),
         "execution_applied": False,
@@ -191,6 +212,7 @@ def run_layer5_phase_1_3_closed_loop(
             "safety_governor_used": True,
             "rl_bandit_used": True,
             "knowledge_graph_used": True,
+            "experience_graph_used": True,
         },
     }
     plan["dashboard_summary"] = build_dashboard_summary(plan)

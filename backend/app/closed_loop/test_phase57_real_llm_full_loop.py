@@ -35,6 +35,10 @@ if __name__ == "__main__":
         assert output["energyplus_executed"] is True
         assert output["digital_twin_execution"] is True
         assert output["real_building_execution"] is False
+        assert output["experience_graph_updated"] is True
+        assert output["experience_id"]
+        assert output["experience_graph"]
+        assert output["experience_graph"]["real_building_execution"] is False
         assert output["idf_adapter_summary"]
 
         dashboard = output["layer5_result"]["phase_5_6_dashboard"]

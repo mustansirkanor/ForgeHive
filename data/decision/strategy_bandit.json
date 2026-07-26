@@ -1,9 +1,9 @@
 {
   "strategies": {
     "eco_mode": {
-      "times_selected": 47,
-      "total_reward": 3151.25,
-      "average_reward": 67.05
+      "times_selected": 49,
+      "total_reward": 3357.23,
+      "average_reward": 68.51
     },
     "comfort_mode": {
       "times_selected": 15,
@@ -1218,6 +1218,50 @@
           "actual_energy_saved_percent": 49.0322,
           "expected_carbon_reduced_percent": 49.0322,
           "actual_carbon_reduced_percent": 49.0322,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-26T15:29:59.697490+00:00",
+      "strategy": "eco_mode",
+      "reward": 98.258,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "empty_room_energy_savings",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260726_152937_552806_empty_room_energy_savings",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 49.0322,
+          "actual_energy_saved_percent": 49.0322,
+          "expected_carbon_reduced_percent": 49.0322,
+          "actual_carbon_reduced_percent": 49.0322,
+          "expected_comfort_status": "Safe",
+          "actual_comfort_status": "Safe",
+          "delta_energy_saving": 0.0,
+          "delta_carbon_reduction": 0.0,
+          "comfort_regression": false,
+          "execution_success": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-07-26T16:02:21.152096+00:00",
+      "strategy": "eco_mode",
+      "reward": 107.7193,
+      "metadata": {
+        "source": "layer5_phase_5_5_feedback",
+        "selected_bundle_name": "aggressive_but_safe_bundle",
+        "execution_run_dir": "C:\\Users\\musta\\Projects\\ForgeHive\\runs\\layer_5\\executions\\20260726_160207_062936_aggressive_but_safe_bundle",
+        "expected_vs_actual": {
+          "expected_energy_saved_percent": 54.2885,
+          "actual_energy_saved_percent": 54.2885,
+          "expected_carbon_reduced_percent": 54.2885,
+          "actual_carbon_reduced_percent": 54.2885,
           "expected_comfort_status": "Safe",
           "actual_comfort_status": "Safe",
           "delta_energy_saving": 0.0,
